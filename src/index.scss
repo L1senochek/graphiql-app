@@ -50,6 +50,7 @@ h1 {
   line-height: 1.1;
 }
 
+.btn,
 button {
   border-radius: 8px;
   border: $border-width $border-style transparent;
@@ -57,13 +58,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: $second-color;
   background-color: $background-color-btn;
   transition: border-color $transition-sec;
   cursor: pointer;
-}
-
-.btn {
-  transition: border-color $transition-sec;
 }
 
 button:hover,

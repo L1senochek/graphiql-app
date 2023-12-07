@@ -1,12 +1,18 @@
 $main-color: #fffffff5;
 $background-color: #242424;
 $background-color-second: #151515;
-$color: #f8f8f8e8;
+$second-color: #f8f8f8e8;
+$third-color: #B6E3FF;
+$fourth-color: #ffa657;
+$fifth-color: #aff5b4;
+$sixth-color: #646cff;
 $background-image: radial-gradient(
   ellipse at 30% 10%,
   $background-color,
   $background-color-second
 );
+
+$error-color: #f85149;
 
 $background-image-hover: radial-gradient(
   ellipse at 30% 10%,
@@ -22,7 +28,7 @@ $background-color-btn: #3fb950;
 $background-color-btn-hover: #2e6837d9;
 $box-shadow-btn: 0 0 20px 1px #2e6837d9;
 
-$color-link: #646cff;
+$color-link: $sixth-color;
 
 $font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 

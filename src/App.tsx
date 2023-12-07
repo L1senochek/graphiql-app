@@ -5,6 +5,7 @@ const App = (): JSX.Element => {
     <>
       <div>{test}</div>
       <button>{test}</button>
+      <a>{test}</a>
     </>
   );
 };
