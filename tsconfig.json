@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["@testing-library/jest-dom/vitest"],
 
     /* Linting */
     "strict": true,
