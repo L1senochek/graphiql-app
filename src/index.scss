@@ -58,8 +58,8 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: $background-color-btn;
+  transition: border-color $transition-sec;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 .btn {
