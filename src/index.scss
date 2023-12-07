@@ -1,0 +1,78 @@
+@import '@/styles/variables.scss';
+@import '@/styles/base/base.scss';
+
+:root {
+  font-family: $font-family;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark light;
+  color: $main-color;
+  background-color: $background-color;
+  background-image: $background-image;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+a {
+  font-weight: 500;
+  color: $color-link;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: $color-link-hover;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.btn,
+button {
+  border-radius: 8px;
+  border: $border-width $border-style transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: $main-color;
+  background-color: $background-color-btn;
+  transition: border-color $transition-sec;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  border-color: $background-color-btn-hover;
+  box-shadow: $box-shadow-btn;
+  text-shadow: $text-shadow-btn;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

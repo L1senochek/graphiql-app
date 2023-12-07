@@ -1,7 +1,13 @@
-import './App.css';
+import { test } from '@/utils/const/const';
 
-function App() {
-  return <div>Test</div>;
-}
+const App = (): JSX.Element => {
+  return (
+    <>
+      <div>{test}</div>
+      <button>{test}</button>
+      <a>{test}</a>
+    </>
+  );
+};
 
 export default App;

@@ -14,4 +14,9 @@ const testConfig: vitest.InlineConfig = {
 export default defineConfig({
   plugins: [react()],
   test: testConfig,
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 });

@@ -1,0 +1,41 @@
+$main-color: #fffffff5;
+$description-color: #929599;
+$background-color: #242424;
+$background-color-second: #0d0d0d;
+$second-color: #d2a8ff;
+$third-color: #b6e3ff;
+$fourth-color: #ffa657;
+$fifth-color: #aff5b4;
+$sixth-color: #646cff;
+$background-image: radial-gradient(
+  ellipse at 30% 10%,
+  $background-color,
+  $background-color-second
+);
+$background-image-hover: radial-gradient(
+  ellipse at 30% 10%,
+  $background-color-second,
+  $background-color
+);
+
+$error-color: #f85149;
+
+$border-radius: 5px;
+$border-width: 2px;
+$border-style: solid;
+
+$background-color-btn: #3fb950;
+$background-color-btn-hover: #2e6837d9;
+$box-shadow-btn: 0 0 15px 1px $background-color-btn-hover;
+$text-shadow-btn: 0 0 30px rgb(0 12 2 / 93%);
+
+$color-link: $sixth-color;
+$color-link-hover: #989eff;
+
+$font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+$transition-sec: 0.5s;
+$transitionAll: all $transition-sec ease;
+
+$background-color-header: $background-color-second;
+$background-color-footer: $background-color-second;
