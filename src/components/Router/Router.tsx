@@ -1,5 +1,6 @@
 import Layout from '@/layouts/Layout/Layout';
 import {
+  Navigate,
   Route,
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,10 +16,11 @@ const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />} errorElement={<ErrorMessage />}>
-        <Route path={'/welcome'} element={<Welcome />} />
-        <Route path={'/sign-up'} element={<SignUp />} />
-        <Route path={'/sign-in'} element={<SignIn />} />
-        <Route path={'/graphi-ql'} element={<GraphiQL />} />
+        <Route path="" element={<Navigate to={`welcome`} />} />
+        <Route path={'welcome'} index element={<Welcome />} />
+        <Route path={'sign-up'} element={<SignUp />} />
+        <Route path={'sign-in'} element={<SignIn />} />
+        <Route path={'graphi-ql'} element={<GraphiQL />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </>
