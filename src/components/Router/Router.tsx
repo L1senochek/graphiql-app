@@ -4,11 +4,16 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
+import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}></Route>
+      <Route
+        path="/"
+        element={<Layout />}
+        errorElement={<ErrorMessage />}
+      ></Route>
     </>
   )
 );
