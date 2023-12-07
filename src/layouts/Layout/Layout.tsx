@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router';
+import styles from './layout.module.scss';
 
 const Layout: React.FC = (): JSX.Element => {
   return (
     <>
-      <header></header>
-      <main>
+      <header className={styles.header}>header</header>
+      <main className={styles.main}>
         <Outlet />
       </main>
-      <footer></footer>
+      <footer className={styles.footer}>footer</footer>
     </>
   );
 };
