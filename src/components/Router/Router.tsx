@@ -11,16 +11,27 @@ import Welcome from '@/pages/Welcome/Welcome';
 import SignUp from '@/pages/SignUp/SignUp';
 import GraphiQL from '@/pages/GraphiQL/GraphiQL';
 import SignIn from '@/pages/SignIn/SignIn';
+import {
+  GRAPHI_QL_PATH,
+  INITIAL_PATH,
+  SIGN_IN_PATH,
+  SIGN_UP_PATH,
+  WELCOME_PATH,
+} from '@/utils/const/const';
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />} errorElement={<ErrorMessage />}>
-        <Route path="" element={<Navigate to={`welcome`} />} />
-        <Route path={'welcome'} index element={<Welcome />} />
-        <Route path={'sign-up'} element={<SignUp />} />
-        <Route path={'sign-in'} element={<SignIn />} />
-        <Route path={'graphi-ql'} element={<GraphiQL />} />
+      <Route
+        path={INITIAL_PATH}
+        element={<Layout />}
+        errorElement={<ErrorMessage />}
+      >
+        <Route path="" element={<Navigate to={WELCOME_PATH} />} />
+        <Route path={WELCOME_PATH} index element={<Welcome />} />
+        <Route path={SIGN_UP_PATH} element={<SignUp />} />
+        <Route path={SIGN_IN_PATH} element={<SignIn />} />
+        <Route path={GRAPHI_QL_PATH} element={<GraphiQL />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </>
