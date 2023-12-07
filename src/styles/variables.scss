@@ -1,8 +1,27 @@
-$main-color: #1bb2a7ed;
+$main-color: #fffffff5;
 $background-color: #242424;
-$color: rgba(255, 255, 255, 0.87);
+$background-color-second: #151515;
+$color: #f8f8f8e8;
+$background-image: radial-gradient(
+  ellipse at 30% 10%,
+  $background-color,
+  $background-color-second
+);
 
-$background-color-btn: #1a1a1a;
+$background-image-hover: radial-gradient(
+  ellipse at 30% 10%,
+  $background-color-second,
+  $background-color
+);
+
+$border-radius: 5px;
+$border-width: 2px;
+$border-style: solid;
+
+$background-color-btn: #3fb950;
+$background-color-btn-hover: #2e6837d9;
+$box-shadow-btn: 0 0 20px 1px #2e6837d9;
+
 $color-link: #646cff;
 
 $font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
