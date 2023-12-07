@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { test } from '@/utils/const/const';
 
 function App() {
