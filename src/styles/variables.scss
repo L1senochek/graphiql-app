@@ -26,7 +26,7 @@ $border-style: solid;
 
 $background-color-btn: #3fb950;
 $background-color-btn-hover: #2e6837d9;
-$box-shadow-btn: 0 0 20px 1px #2e6837d9;
+$box-shadow-btn: 0 0 20px 1px $background-color-btn-hover;
 $text-shadow-btn: 0 0 30px rgb(0 12 2 / 93%);
 
 $color-link: $sixth-color;
