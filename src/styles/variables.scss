@@ -12,14 +12,13 @@ $background-image: radial-gradient(
   $background-color,
   $background-color-second
 );
-
-$error-color: #f85149;
-
 $background-image-hover: radial-gradient(
   ellipse at 30% 10%,
   $background-color-second,
   $background-color
 );
+
+$error-color: #f85149;
 
 $border-radius: 5px;
 $border-width: 2px;
@@ -27,10 +26,11 @@ $border-style: solid;
 
 $background-color-btn: #3fb950;
 $background-color-btn-hover: #2e6837d9;
-$box-shadow-btn: 0 0 20px 1px $background-color-btn-hover;
+$box-shadow-btn: 0 0 15px 1px $background-color-btn-hover;
 $text-shadow-btn: 0 0 30px rgb(0 12 2 / 93%);
 
 $color-link: $sixth-color;
+$color-link-hover: #989eff;
 
 $font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
