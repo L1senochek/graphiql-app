@@ -9,6 +9,7 @@
   color-scheme: dark light;
   color: $main-color;
   background-color: $background-color;
+  background-image: $background-image;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -68,6 +69,7 @@ button:hover,
 .btn:hover {
   border-color: $background-color-btn-hover;
   box-shadow: $box-shadow-btn;
+  text-shadow: $text-shadow-btn;
 }
 
 button:focus,
