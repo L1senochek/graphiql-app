@@ -1,3 +1,4 @@
+import Layout from '@/layouts/Layout/Layout';
 import {
   Route,
   createBrowserRouter,
@@ -7,7 +8,7 @@ import {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/"></Route>
+      <Route path="/" element={<Layout />}></Route>
     </>
   )
 );
