@@ -1,7 +1,8 @@
 import './App.css';
+import { test } from '@/utils/const/const';
 
 function App() {
-  return <div>Test</div>;
+  return <div>{test}</div>;
 }
 
 export default App;
