@@ -1,13 +1,8 @@
-import { test } from '@/utils/const/const';
+import { RouterProvider } from 'react-router';
+import Router from '@/components/Router/Router';
 
 const App = (): JSX.Element => {
-  return (
-    <>
-      <div>{test}</div>
-      <button>{test}</button>
-      <a>{test}</a>
-    </>
-  );
+  return <RouterProvider router={Router} />;
 };
 
 export default App;

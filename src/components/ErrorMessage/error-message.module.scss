@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.error-message');
+
+.error-message {
+  justify-content: center;
+  height: 80vh;
+  & > *:not(:last-child) {
+    padding: $error-message-padding;
+  }
+  &__btn {
+    margin: $error-message-padding;
+  }
+}

@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.not-found');
+
+.not-found {
+  justify-content: flex-start;
+  & > * {
+    padding: $error-message-padding;
+  }
+  &__btn {
+    margin: $error-message-padding;
+  }
+}
