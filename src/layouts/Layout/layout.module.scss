@@ -1,6 +1,9 @@
+@import '@/styles/variables.scss';
+
 .main {
   min-height: 90vh;
   justify-content: flex-start;
+  padding-top: calc($padding-header-top-bottom + $height-icon-settings);
 }
 
 .footer,

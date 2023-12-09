@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 
 .icon-settings {
-  height: 44px;
+  height: $height-icon-settings;
   cursor: pointer;
   & > path {
     fill: $main-color;

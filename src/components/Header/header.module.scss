@@ -3,8 +3,22 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-width: 320px;
+  position: fixed;
+  background-image: $background-image-header;
+  left: 0;
+  width: 100%;
+  top: 0;
+  padding: $padding-header-top-bottom 0;
+  transition: background-image $transition-sec, padding $transition-sec;
+  &__wrapper {
+    display: flex;
+    max-width: 1280px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
   &__left-side {
     display: flex;
   }
@@ -16,5 +30,9 @@
   }
   &__btn {
     width: 45%;
+  }
+  &.sticky {
+    background-image: $background-image-header-sticky;
+    padding: $padding-header-scroll 0;
   }
 }
