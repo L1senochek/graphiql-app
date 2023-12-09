@@ -1,7 +1,7 @@
 import content from '../content.json';
 import { ITeamMember } from './interface';
 
-const teamMembers: ITeamMember[] = [
+const teamMembersData: ITeamMember[] = [
   {
     name: content.team.timur.name,
     src: content.team.timur.src,
@@ -19,4 +19,4 @@ const teamMembers: ITeamMember[] = [
   },
 ];
 
-export default teamMembers;
+export default teamMembersData;
