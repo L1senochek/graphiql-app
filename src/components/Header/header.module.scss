@@ -11,7 +11,9 @@
   width: 100%;
   top: 0;
   padding: $padding-header-top-bottom 0;
-  transition: background-image $transition-sec, padding $transition-sec;
+  transition:
+    background-image $transition-sec,
+    padding $transition-sec;
   &__wrapper {
     display: flex;
     max-width: 1280px;
