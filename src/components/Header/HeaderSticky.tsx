@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 import { INITIAL_PATH } from '@/utils/const/const';
+import IconSettings from '../IconSettings/IconSettings';
 
 const Header: React.FC = (): JSX.Element => {
   return (
@@ -11,7 +12,7 @@ const Header: React.FC = (): JSX.Element => {
         </div>
         <div className={styles['header__right-side']}>
           <button>Sign Out</button>
-          <div>settings</div>
+          <IconSettings />
         </div>
       </header>
     </>

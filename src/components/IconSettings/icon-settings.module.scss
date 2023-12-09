@@ -1,0 +1,9 @@
+@import '@/styles/variables.scss';
+
+.icon-settings {
+  height: 44px;
+  cursor: pointer;
+  & > path {
+    fill: $main-color;
+  }
+}
