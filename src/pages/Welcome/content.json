@@ -1,0 +1,21 @@
+{
+    "welcomeTitle": "Welcome to GraphiQL Playground!",
+    "description": "GraphiQL by Vild Cats is more than just an interactive IDE, it's an open playground where you can get up close and personal with the power of GraphQL. We invite you to dive into the world of crafting and testing GraphQL queries with ease.",
+    "team": {
+      "timur": {
+        "name": "Timur",
+        "src": "../../../public/team/dmitriy.jpg",
+        "description": "frontend developer"
+      },
+      "tatyana":  {
+        "name": "Tatyana",
+        "src": "../../../public/team/dmitriy.jpg",
+        "description": "frontend developer"
+      },
+      "dmitrij":  {
+        "name": "Dmitrij",
+        "src": "../../../public/team/dmitriy.jpg",
+        "description": "frontend developer"
+      } 
+    }
+  }
