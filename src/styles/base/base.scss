@@ -24,10 +24,17 @@ html {
   min-width: 320px;
 }
 
-*:hover {
-  transition: $transitionAll;
+a {
+  font-weight: 500;
+  color: $color-link;
+  text-decoration: none;
 }
 
-a {
-  text-decoration: none;
+@media (hover: hover) {
+  *:hover {
+    transition: $transitionAll;
+  }
+  a:hover {
+    color: $color-link-hover;
+  }
 }

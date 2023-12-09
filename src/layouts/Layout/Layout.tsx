@@ -1,13 +1,11 @@
 import { Outlet } from 'react-router';
 import styles from './layout.module.scss';
-import { Link } from 'react-router-dom';
+import Header from '@/components/Header/HeaderSticky';
 
 const Layout: React.FC = (): JSX.Element => {
   return (
     <>
-      <header className={styles.header}>
-        <Link to={'/'}>header</Link>
-      </header>
+      <Header />
       <main className={styles.main}>
         <Outlet />
       </main>
