@@ -30,7 +30,7 @@ a {
   text-decoration: none;
 }
 
-@media(hover: hover) {
+@media (hover: hover) {
   *:hover {
     transition: $transitionAll;
   }

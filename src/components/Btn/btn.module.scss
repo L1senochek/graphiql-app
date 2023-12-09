@@ -14,7 +14,7 @@ button {
   cursor: pointer;
 }
 
-@media(hover: hover) {
+@media (hover: hover) {
   button:hover,
   .btn:hover {
     border-color: $background-color-btn-hover;
