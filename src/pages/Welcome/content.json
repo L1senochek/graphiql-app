@@ -1,6 +1,6 @@
 {
   "welcomeTitle": "Welcome to GraphiQL Playground!",
-  "description": "GraphiQL by Vild Cats is more than just an interactive IDE, it's an open playground where you can get up close and personal with the power of GraphQL. We invite you to dive into the world of crafting and testing GraphQL queries with ease.",
+  "description": "GraphiQL Playground by Wild Cats is an open platform for demonstrating the capabilities of GraphQL. This application provides the ability to create complex queries using our query editor, and responses in JSON format will provide information. Refine the specifics of your requests using our variable editor, configure HTTP headers, and view schema information into our Lazy-loaded Documentation Explorer as your requests are developed and tested.",
   "team": {
     "timur": {
       "name": "Timur",

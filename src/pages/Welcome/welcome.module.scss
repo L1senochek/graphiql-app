@@ -15,9 +15,11 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 .description > h2 {
-  flex: 0.4;
+  flex: 0.5;
+  text-align: justify;
 }
 .description > div {
   flex: 0.6;
