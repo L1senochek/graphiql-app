@@ -11,7 +11,7 @@ const Header: React.FC = (): JSX.Element => {
           <Link to={INITIAL_PATH}>Welcome</Link>
         </div>
         <div className={styles['header__right-side']}>
-          <button>Sign Out</button>
+          <button className={`${styles['header__btn']} btn`}>Sign Out</button>
           <IconSettings />
         </div>
       </header>
