@@ -1,0 +1,16 @@
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+.members {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

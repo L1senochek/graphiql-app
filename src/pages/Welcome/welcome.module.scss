@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+@import '../../styles/base/base.scss';
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  min-height: 90vh;
+}
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.description > h2 {
+  flex: 0.5;
+  text-align: justify;
+}
+.description > div {
+  flex: 0.6;
+}
