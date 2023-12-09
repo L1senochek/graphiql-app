@@ -1,6 +1,15 @@
 .header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-width: 320px;
-  flex-direction: column;
-  align-items: flex-start;
+  &__left-side {
+    display: flex;
+  }
+  &__right-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+  }
 }
