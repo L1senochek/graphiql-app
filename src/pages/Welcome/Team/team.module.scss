@@ -1,16 +1,16 @@
 .team {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 .img {
-    width: 12.5rem;
-    height: 12.5rem;
-    border-radius: 50%;
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
 }
 .members {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
