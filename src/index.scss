@@ -27,16 +27,6 @@
   text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: $color-link;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: $color-link-hover;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -49,26 +39,4 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-.btn,
-button {
-  border-radius: 8px;
-  border: $border-width $border-style transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: $main-color;
-  background-color: $background-color-btn;
-  transition: border-color $transition-sec;
-  cursor: pointer;
-}
-
-button:hover,
-.btn:hover {
-  border-color: $background-color-btn-hover;
-  box-shadow: $box-shadow-btn;
-  text-shadow: $text-shadow-btn;
-  color: $fifth-color;
 }

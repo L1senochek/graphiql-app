@@ -1,14 +1,11 @@
 @import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.main');
 
 .main {
-  min-height: 90vh;
   justify-content: flex-start;
-  padding-top: calc($padding-header-top-bottom + $height-icon-settings);
-}
-
-.footer,
-.main {
-  display: flex;
   min-width: 320px;
-  flex-direction: column;
+  min-height: 90vh;
+  padding-top: calc($padding-header-top-bottom + $height-icon-settings);
 }
