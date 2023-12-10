@@ -1,7 +1,7 @@
 import styles from './welcome.module.scss';
-import Link from './Links/Link';
-import content from './content.json';
-import Team from './Team/Team';
+import Link from '../../components/Welcome/Links/Link';
+import content from '../../utils/jsons/content.json';
+import Team from '../../components/Welcome/Team/Team';
 
 const Welcome = () => {
   return (

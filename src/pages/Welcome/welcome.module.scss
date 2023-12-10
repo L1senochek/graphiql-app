@@ -1,15 +1,10 @@
-@import '../../styles/variables.scss';
-@import '../../styles/base/base.scss';
-
-$gap: 1.25rem;
-
 .welcome {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: $gap;
+  gap: 1.25rem;
   min-height: 90vh;
 }
 

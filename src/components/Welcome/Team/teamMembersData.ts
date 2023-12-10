@@ -1,5 +1,5 @@
-import content from '../content.json';
-import { ITeamMember } from './interface';
+import content from '../../../utils/jsons/content.json';
+import { ITeamMember } from '../../../model/components/Welcome/Links/Team/Team';
 
 const teamMembersData: ITeamMember[] = [
   {
