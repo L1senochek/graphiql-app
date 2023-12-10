@@ -6,12 +6,12 @@ import Team from './Team/Team';
 const Welcome = () => {
   return (
     <div className={styles.welcome}>
-      <h1>{content.welcomeTitle}</h1>
+      <h2>{content.welcomeTitle}</h2>
       <div className={styles.description}>
-        <h2>{content.description}</h2>
+        <h3>{content.description}</h3>
+        <Link />
         <Team />
       </div>
-      <Link />
     </div>
   );
 };

@@ -1,16 +1,31 @@
 .team {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
 }
 .img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
+  width: 210px;
+  height: 300px;
+  border-radius: 8px;
 }
 .members {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: justify;
+}
+@media (max-width: 1025px) {
+  .members  {
+    justify-content: space-around;
+  }
 }

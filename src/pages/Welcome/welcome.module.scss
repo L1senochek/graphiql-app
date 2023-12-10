@@ -1,26 +1,33 @@
 @import '../../styles/variables.scss';
 @import '../../styles/base/base.scss';
 
+$gap: 1.25rem;
+
 .welcome {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: $gap;
   min-height: 90vh;
 }
+
 .description {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-}
-.description > h2 {
-  flex: 0.5;
   text-align: justify;
-}
-.description > div {
-  flex: 0.6;
+  
+  > h2 {
+    flex: 0.5;
+    text-align: justify;
+  }
+  
+  > div {
+    flex: 0.6;
+  }
 }
