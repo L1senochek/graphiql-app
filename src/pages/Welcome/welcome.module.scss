@@ -1,0 +1,28 @@
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  min-height: 90vh;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: justify;
+
+  > h2 {
+    flex: 0.5;
+    text-align: justify;
+  }
+
+  > div {
+    flex: 0.6;
+  }
+}

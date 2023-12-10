@@ -1,0 +1,31 @@
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+.img {
+  width: 210px;
+  height: 300px;
+  border-radius: 8px;
+}
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: justify;
+}
+@media (max-width: 1025px) {
+  .members {
+    justify-content: space-around;
+  }
+}
