@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import GitHubLogo from './GitHubLogo';
+import GitHubLogo from '../../iconGitHub/iconGitHub';
 import styles from './GitHub.module.scss';
 import GitHubUsers from './GitHubUsers';
 
