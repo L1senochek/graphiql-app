@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import GitHub from './GitHub/GitHub';
+import GitHub from '@/components/iconGitHub/GitHub/GitHub';
 import RSLogo from './RSLogo';
 import styles from './footer.module.scss';
 

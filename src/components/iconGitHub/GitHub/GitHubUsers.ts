@@ -1,4 +1,4 @@
-import { IGitHubUser } from '../../../model/components/Footer/GitHub/IGitHubUsers';
+import { IGitHubUser } from '@/model/components/Footer/GitHub/IGitHubUsers';
 
 const githubUsers: IGitHubUser[] = [
   { name: 'Timur', url: 'https://github.com/akatimer' },
