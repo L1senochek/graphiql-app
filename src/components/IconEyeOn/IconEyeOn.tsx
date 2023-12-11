@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './icon-settings.module.scss';
+import styles from './icon-eye-on.module.scss';
 
 const IconEyeOn: React.FC = (): JSX.Element => {
   return (

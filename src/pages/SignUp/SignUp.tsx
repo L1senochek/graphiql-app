@@ -34,6 +34,15 @@ const SignUp: React.FC = (): JSX.Element => {
             titleLabel="Password: "
             placeholder="Password"
             registerInput="password"
+            type="password"
+            autoComplete="false"
+          />
+          <InputForm
+            titleLabel="Confirm Password: "
+            placeholder="Confirm Password"
+            registerInput="ConfirmPassword"
+            type="password"
+            autoComplete="false"
           />
           <Btn className={styles['sign-up__btn']} type="submit">
             Submit
