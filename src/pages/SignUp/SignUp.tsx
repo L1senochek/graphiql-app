@@ -3,10 +3,13 @@ import styles from './sign-up.module.scss';
 import Btn from '@/components/Btn/Btn';
 import InputForm from '@/components/InputForm/InputForm';
 import ISignUp from '@/model/pages/SignUp/SignUp';
+import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
+import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
   const { handleSubmit } = methods;
+  const content = contentEn || contentRu;
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);
@@ -14,38 +17,38 @@ const SignUp: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles['sign-up']}>
-      <h2 className={styles['sign-up__title']}>SignUp</h2>
+      <h2 className={styles['sign-up__title']}>{content.title}</h2>
       <FormProvider {...methods}>
         <form
           className={styles['sign-up__form']}
           onSubmit={handleSubmit(onSubmit)}
         >
           <InputForm
-            titleLabel="Name: "
-            placeholder="Name"
+            titleLabel={content.inputName.titleLabel}
+            placeholder={content.inputName.placeholder}
             registerInput="name"
           />
           <InputForm
-            titleLabel="Email: "
-            placeholder="Email"
+            titleLabel={content.inputEmail.titleLabel}
+            placeholder={content.inputEmail.placeholder}
             registerInput="email"
           />
           <InputForm
-            titleLabel="Password: "
-            placeholder="Password"
+            titleLabel={content.inputPassword.titleLabel}
+            placeholder={content.inputPassword.placeholder}
             registerInput="password"
             type="password"
             autoComplete="false"
           />
           <InputForm
-            titleLabel="Confirm Password: "
-            placeholder="Confirm Password"
+            titleLabel={content.inputConfirmPassword.titleLabel}
+            placeholder={content.inputConfirmPassword.placeholder}
             registerInput="ConfirmPassword"
             type="password"
             autoComplete="false"
           />
           <Btn className={styles['sign-up__btn']} type="submit">
-            Submit
+            {content.buttonName}
           </Btn>
         </form>
       </FormProvider>

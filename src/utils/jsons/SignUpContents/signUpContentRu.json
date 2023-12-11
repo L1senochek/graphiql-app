@@ -1,0 +1,20 @@
+{
+  "title": "Зарегистрироваться",
+  "inputName": {
+    "titleLabel": "Имя: ",
+    "placeholder": "Имя"
+  },
+  "inputEmail": {
+    "titleLabel": "Электронная почта: ",
+    "placeholder": "Электронная почта"
+  },
+  "inputPassword": {
+    "titleLabel": "Пароль: ",
+    "placeholder": "Пароль"
+  },
+  "inputConfirmPassword": {
+    "titleLabel": "Подтвердите пароль: ",
+    "placeholder": "Подтвердите пароль"
+  },
+  "buttonName": "Отправить"
+}
