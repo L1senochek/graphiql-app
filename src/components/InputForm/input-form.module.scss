@@ -1,0 +1,12 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.input-form');
+
+.input-form {
+  &__input {
+    &.error-input {
+      border-color: $error-color;
+    }
+  }
+}

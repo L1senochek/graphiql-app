@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.sign-up');
+@include flex-direction-column('.sign-up__form');
+
+.sign-up {
+  &__title,
+  &__form {
+    padding: 1vw 0;
+  }
+  &__btn {
+    margin: 1vw 0;
+  }
+}
