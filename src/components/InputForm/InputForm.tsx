@@ -7,10 +7,11 @@ import IconEyeOff from '@/components/IconEyeOff/IconEyeOff';
 import Btn from '@/components/Btn/Btn';
 
 const InputForm: React.FC<IInputForm> = ({
+  registerInput,
+  registerValidation,
   classNameWrapper,
   classNameLabel,
   titleLabel,
-  registerInput,
   ...props
 }): JSX.Element => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +42,7 @@ const InputForm: React.FC<IInputForm> = ({
           <input
             {...props}
             className={styles['input-form__password_input']}
-            {...register(registerInput)}
+            {...register(registerInput, registerValidation)}
             type={showPassword ? 'text' : 'password'}
           />
           <Btn
@@ -58,7 +59,7 @@ const InputForm: React.FC<IInputForm> = ({
           className={`${styles['input-form__input']}${
             formState.errors.name ? ` ${styles['error-input']}` : ''
           }`}
-          {...register(registerInput)}
+          {...register(registerInput, registerValidation)}
         />
       )}
       <p className={styles['input-form__error']}></p>
