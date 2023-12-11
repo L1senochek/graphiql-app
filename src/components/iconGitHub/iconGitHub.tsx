@@ -1,12 +1,12 @@
 import { FC } from 'react';
+import styles from './iconGitHub.module.scss';
 
 const GitHubLogo: FC = () => {
   return (
     <svg
+      className={styles['icon-github']}
       viewBox="0 0 50 50"
       xmlns="http://www.w3.org/2000/svg"
-      width="30px"
-      height="30px"
     >
       <path
         fill="#fff"
