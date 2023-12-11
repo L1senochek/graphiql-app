@@ -20,7 +20,21 @@ const SignUp: React.FC = (): JSX.Element => {
           className={styles['sign-up__form']}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <InputForm />
+          <InputForm
+            titleLabel="Name: "
+            placeholder="Name"
+            registerInput="name"
+          />
+          <InputForm
+            titleLabel="Email: "
+            placeholder="Email"
+            registerInput="email"
+          />
+          <InputForm
+            titleLabel="Password: "
+            placeholder="Password"
+            registerInput="password"
+          />
           <Btn className={styles['sign-up__btn']} type="submit">
             Submit
           </Btn>
