@@ -5,11 +5,18 @@
 @include flex-direction-column('.sign-up__form');
 
 .sign-up {
-  &__title,
-  &__form {
+  &__title {
     padding: 1vw 0;
   }
+  &__form {
+    padding: 2vw 3vw;
+    border-color: $eighth-color;
+    border-radius: $border-radius;
+    border-width: $border-width;
+    border-style: $border-style;
+    background-image: $background-image-form;
+  }
   &__btn {
-    margin: 1vw 0;
+    margin-top: 1vw;
   }
 }

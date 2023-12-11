@@ -4,9 +4,69 @@
 @include flex-direction-column('.input-form');
 
 .input-form {
+  &__label {
+    padding-top: $padding-input-form-label;
+    padding-bottom: $height-error;
+  }
   &__input {
+    width: $width-input-form;
+    padding: $padding-input-form-input;
+    background: transparent;
+    color: $fifth-color;
+    border-radius: $border-radius;
+    border-color: $eighth-color;
+    border-width: $border-width;
+    border-style: $border-style;
+    outline: none;
+    &:focus,
+    &:active {
+      box-shadow: $box-shadow-btn;
+    }
     &.error-input {
       border-color: $error-color;
     }
+  }
+  &__password {
+    display: flex;
+    width: $width-input-form;
+    border-radius: $border-radius;
+    border-color: $eighth-color;
+    border-width: $border-width;
+    border-style: $border-style;
+    &:focus-within {
+      box-shadow: $box-shadow-btn;
+    }
+    &_input {
+      width: 90%;
+      background: transparent;
+      color: $fifth-color;
+      border: none;
+      outline: none;
+      padding: $padding-input-form-input;
+    }
+    &_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: $padding-input-form-input;
+      outline: none;
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  &__error {
+    margin: 0;
+    height: $height-error;
+  }
+}
+
+@media (hover: hover) {
+  .input-form__password_btn:hover {
+    box-shadow: none;
   }
 }

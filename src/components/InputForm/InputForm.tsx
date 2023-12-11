@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import styles from './input-form.module.scss';
 import IInputForm from '@/model/components/InputForm/InputForm';
 import IconEyeOn from '@/components/IconEyeOn/IconEyeOn';
 import IconEyeOff from '@/components/IconEyeOff/IconEyeOff';
-import { useState } from 'react';
 import Btn from '@/components/Btn/Btn';
 
 const InputForm: React.FC<IInputForm> = ({

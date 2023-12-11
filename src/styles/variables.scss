@@ -7,6 +7,8 @@ $third-color: #b6e3ff;
 $fourth-color: #ffa657;
 $fifth-color: #aff5b4;
 $sixth-color: #646cff;
+$seventh-color: #3fb950;
+$eighth-color: #2e6837d9;
 $background-image: radial-gradient(
   ellipse at 30% 10%,
   $background-color,
@@ -24,8 +26,8 @@ $border-radius: 5px;
 $border-width: 2px;
 $border-style: solid;
 
-$background-color-btn: #3fb950;
-$background-color-btn-hover: #2e6837d9;
+$background-color-btn: $seventh-color;
+$background-color-btn-hover: $eighth-color;
 $box-shadow-btn: 0 0 15px 1px $background-color-btn-hover;
 $text-shadow-btn: 0 0 30px rgb(0 12 2 / 93%);
 
@@ -58,3 +60,9 @@ $height-menu-settings-open: 50px;
 
 $width-icon-eye-on: 20px;
 $height-icon-eye-on: 20px;
+
+$padding-input-form-label: 10px;
+$padding-input-form-input: 10px;
+$width-input-form: 15vw;
+$background-image-form: radial-gradient(ellipse at 30% 20%, #242424, #0d0d0d);
+$height-error: 23px;
