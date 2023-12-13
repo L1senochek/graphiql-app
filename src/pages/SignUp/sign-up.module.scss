@@ -9,7 +9,7 @@
     padding: 1vw 0;
   }
   &__form {
-    padding: 2vw 3vw;
+    padding: $padding-form;
     border-color: $eighth-color;
     border-radius: $border-radius;
     border-width: $border-width;
@@ -18,5 +18,8 @@
   }
   &__btn {
     margin-top: 1vw;
+    &.disabled {
+      background-color: $eighth-color;
+    }
   }
 }

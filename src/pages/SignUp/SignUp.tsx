@@ -5,14 +5,21 @@ import InputForm from '@/components/InputForm/InputForm';
 import ISignUp from '@/model/pages/SignUp/SignUp';
 import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
 import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
+import { useNavigate } from 'react-router';
+import { GRAPHI_QL_PATH } from '@/utils/const/const';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
-  const { handleSubmit } = methods;
+  const { handleSubmit, formState } = methods;
+  const { isValid } = formState;
   const content = contentEn || contentRu;
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);
+    if (formState.isValid) {
+      navigate(GRAPHI_QL_PATH);
+    }
   };
 
   return (
@@ -47,7 +54,13 @@ const SignUp: React.FC = (): JSX.Element => {
             type="password"
             autoComplete="false"
           />
-          <Btn className={styles['sign-up__btn']} type="submit">
+          <Btn
+            className={`${styles['sign-up__btn']}${
+              isValid ? '' : ` ${styles['disabled']}`
+            }`}
+            type="submit"
+            disabled={!isValid}
+          >
             {content.buttonName}
           </Btn>
         </form>
