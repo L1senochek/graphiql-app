@@ -23,3 +23,11 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .sign-up {
+    &__form {
+      padding: 5vw 8vw;
+    }
+  }
+}

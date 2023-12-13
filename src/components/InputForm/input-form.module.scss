@@ -70,3 +70,48 @@
     box-shadow: none;
   }
 }
+
+@media (max-width: 1050px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 25vw;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 30vw;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 40vw;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 50vw;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 65vw;
+    }
+  }
+}
