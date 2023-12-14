@@ -1,0 +1,14 @@
+{
+  "title": "Sign In",
+  "hint": "Don't have account?",
+  "hintRedirect": "Sign up",
+  "inputEmail": {
+    "titleLabel": "Email: ",
+    "placeholder": "Email"
+  },
+  "inputPassword": {
+    "titleLabel": "Password: ",
+    "placeholder": "Password"
+  },
+  "buttonName": "Submit"
+}
