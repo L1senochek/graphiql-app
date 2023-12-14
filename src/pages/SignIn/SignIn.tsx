@@ -28,7 +28,7 @@ const SignIn: React.FC = (): JSX.Element => {
       <h4 className={styles['sign-in__item']}>
         {content.hint}
         <Link className={styles['sign-in__item_link']} to={SIGN_UP_PATH}>
-          {content.hintRedirect}
+          {content.hintLink}
         </Link>
       </h4>
       <FormProvider {...methods}>

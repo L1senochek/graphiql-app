@@ -1,5 +1,7 @@
 {
   "title": "Sign Up",
+  "hint": "Already a member?",
+  "hintLink": "Sign in",
   "inputName": {
     "titleLabel": "Name: ",
     "placeholder": "Name"

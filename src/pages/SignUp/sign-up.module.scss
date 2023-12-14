@@ -8,6 +8,15 @@
   &__title {
     padding: 1vw 0;
   }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw 0;
+    &_link {
+      padding-left: 1vw;
+    }
+  }
   &__form {
     padding: $padding-form;
     border-color: $eighth-color;

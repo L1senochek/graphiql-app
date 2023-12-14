@@ -6,7 +6,8 @@ import ISignUp from '@/model/pages/SignUp/SignUp';
 import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
 import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
 import { useNavigate } from 'react-router';
-import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import { GRAPHI_QL_PATH, SIGN_IN_PATH } from '@/utils/const/const';
+import { Link } from 'react-router-dom';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
@@ -25,6 +26,12 @@ const SignUp: React.FC = (): JSX.Element => {
   return (
     <div className={styles['sign-up']}>
       <h2 className={styles['sign-up__title']}>{content.title}</h2>
+      <h4 className={styles['sign-up__item']}>
+        {content.hint}
+        <Link className={styles['sign-up__item_link']} to={SIGN_IN_PATH}>
+          {content.hintLink}
+        </Link>
+      </h4>
       <FormProvider {...methods}>
         <form
           className={styles['sign-up__form']}

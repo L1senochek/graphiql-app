@@ -1,5 +1,7 @@
 {
   "title": "Зарегистрироваться",
+  "hint": "Уже зарегистрированы?",
+  "hintLink": "Вход",
   "inputName": {
     "titleLabel": "Имя: ",
     "placeholder": "Имя"
