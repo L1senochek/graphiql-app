@@ -1,18 +1,15 @@
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import styles from './sign-up.module.scss';
-import Btn from '@/components/Btn/Btn';
-import InputForm from '@/components/InputForm/InputForm';
-import ISignUp from '@/model/pages/SignUp/SignUp';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import AuthForm from '@/components/AuthForm/AuthForm';
+import { GRAPHI_QL_PATH, SIGN_IN_PATH } from '@/utils/const/const';
 import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
 import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
-import { useNavigate } from 'react-router';
-import { GRAPHI_QL_PATH, SIGN_IN_PATH } from '@/utils/const/const';
-import { Link } from 'react-router-dom';
+import ISignUp from '@/model/pages/SignUp/SignUp';
+import IInputForm from '@/model/components/InputForm/InputForm';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
-  const { handleSubmit, formState } = methods;
-  const { isValid } = formState;
+  const { formState } = methods;
   const content = contentEn || contentRu;
   const navigate = useNavigate();
 
@@ -23,56 +20,40 @@ const SignUp: React.FC = (): JSX.Element => {
     }
   };
 
+  const formFields: IInputForm[] = [
+    {
+      registerInput: 'name',
+      titleLabel: content.inputName.titleLabel,
+      placeholder: content.inputName.placeholder,
+    },
+    {
+      registerInput: 'email',
+      titleLabel: content.inputEmail.titleLabel,
+      placeholder: content.inputEmail.placeholder,
+    },
+    {
+      registerInput: 'password',
+      titleLabel: content.inputPassword.titleLabel,
+      placeholder: content.inputPassword.placeholder,
+      type: 'password',
+      autoComplete: 'false',
+    },
+    {
+      registerInput: 'ConfirmPassword',
+      titleLabel: content.inputConfirmPassword.titleLabel,
+      placeholder: content.inputConfirmPassword.placeholder,
+      type: 'password',
+      autoComplete: 'false',
+    },
+  ];
+
   return (
-    <div className={styles['sign-up']}>
-      <h2 className={styles['sign-up__title']}>{content.title}</h2>
-      <h4 className={styles['sign-up__item']}>
-        {content.hint}
-        <Link className={styles['sign-up__item_link']} to={SIGN_IN_PATH}>
-          {content.hintLink}
-        </Link>
-      </h4>
-      <FormProvider {...methods}>
-        <form
-          className={styles['sign-up__form']}
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <InputForm
-            titleLabel={content.inputName.titleLabel}
-            placeholder={content.inputName.placeholder}
-            registerInput="name"
-          />
-          <InputForm
-            titleLabel={content.inputEmail.titleLabel}
-            placeholder={content.inputEmail.placeholder}
-            registerInput="email"
-          />
-          <InputForm
-            titleLabel={content.inputPassword.titleLabel}
-            placeholder={content.inputPassword.placeholder}
-            registerInput="password"
-            type="password"
-            autoComplete="false"
-          />
-          <InputForm
-            titleLabel={content.inputConfirmPassword.titleLabel}
-            placeholder={content.inputConfirmPassword.placeholder}
-            registerInput="ConfirmPassword"
-            type="password"
-            autoComplete="false"
-          />
-          <Btn
-            className={`${styles['sign-up__btn']}${
-              isValid ? '' : ` ${styles['disabled']}`
-            }`}
-            type="submit"
-            disabled={!isValid}
-          >
-            {content.buttonName}
-          </Btn>
-        </form>
-      </FormProvider>
-    </div>
+    <AuthForm
+      hintLink={SIGN_IN_PATH}
+      onSubmit={onSubmit}
+      content={content}
+      formFields={formFields}
+    />
   );
 };
 

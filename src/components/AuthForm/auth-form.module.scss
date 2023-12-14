@@ -1,10 +1,10 @@
 @import '@/styles/variables.scss';
 @import '@/styles/mixin/flex-direction-column.scss';
 
-@include flex-direction-column('.sign-in');
-@include flex-direction-column('.sign-in__form');
+@include flex-direction-column('.auth-form');
+@include flex-direction-column('.auth-form__form');
 
-.sign-in {
+.auth-form {
   &__title {
     padding: 1vw 0;
   }
@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     padding: 1vw 0;
+    color: $description-color;
     &_link {
       padding-left: 1vw;
     }
@@ -29,6 +30,7 @@
     margin-top: 1vw;
     &.disabled {
       background-color: $eighth-color;
+      cursor: not-allowed;
     }
   }
 }

@@ -1,18 +1,23 @@
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import AuthForm from '@/components/AuthForm/AuthForm';
+import { GRAPHI_QL_PATH, SIGN_UP_PATH } from '@/utils/const/const';
 import contentEn from '@/utils/jsons/SignInContents/signInContentEn.json';
 import contentRu from '@/utils/jsons/SignInContents/signInContentRu.json';
-import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
-import styles from './sign-in.module.scss';
-import { GRAPHI_QL_PATH, SIGN_UP_PATH } from '@/utils/const/const';
-import InputForm from '@/components/InputForm/InputForm';
-import Btn from '@/components/Btn/Btn';
-import { Link } from 'react-router-dom';
+import IInputForm from '@/model/components/InputForm/InputForm';
+
+const pass = {
+  required: 'Password is required',
+  pattern: {
+    value: /^(?=.*\d)(?=.*[A-Z])(?=.*[\W_]).{4,}$/,
+    message: 'Must match the pattern 1Ff!',
+  },
+};
 
 const SignIn: React.FC = (): JSX.Element => {
   const methods = useForm();
-  const { handleSubmit, formState } = methods;
-  const { isValid } = formState;
+  const { formState } = methods;
   const content = contentEn || contentRu;
   const navigate = useNavigate();
 
@@ -22,44 +27,30 @@ const SignIn: React.FC = (): JSX.Element => {
       navigate(GRAPHI_QL_PATH);
     }
   };
+
+  const SignInFormFields: IInputForm[] = [
+    {
+      registerInput: 'email',
+      titleLabel: content.inputEmail.titleLabel,
+      placeholder: content.inputEmail.placeholder,
+    },
+    {
+      registerInput: 'password',
+      registerValidation: pass,
+      titleLabel: content.inputPassword.titleLabel,
+      placeholder: content.inputPassword.placeholder,
+      type: 'password',
+      autoComplete: 'false',
+    },
+  ];
+
   return (
-    <div>
-      <h2 className={styles['sign-in__title']}>{content.title}</h2>
-      <h4 className={styles['sign-in__item']}>
-        {content.hint}
-        <Link className={styles['sign-in__item_link']} to={SIGN_UP_PATH}>
-          {content.hintLink}
-        </Link>
-      </h4>
-      <FormProvider {...methods}>
-        <form
-          className={styles['sign-in__form']}
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <InputForm
-            titleLabel={content.inputEmail.titleLabel}
-            placeholder={content.inputEmail.placeholder}
-            registerInput="email"
-          />
-          <InputForm
-            titleLabel={content.inputPassword.titleLabel}
-            placeholder={content.inputPassword.placeholder}
-            registerInput="password"
-            type="password"
-            autoComplete="false"
-          />
-          <Btn
-            className={`${styles['sign-in__btn']}${
-              isValid ? '' : ` ${styles['disabled']}`
-            }`}
-            type="submit"
-            disabled={!isValid}
-          >
-            {content.buttonName}
-          </Btn>
-        </form>
-      </FormProvider>
-    </div>
+    <AuthForm
+      hintLink={SIGN_UP_PATH}
+      onSubmit={onSubmit}
+      content={content}
+      formFields={SignInFormFields}
+    />
   );
 };
 
