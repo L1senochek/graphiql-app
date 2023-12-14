@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { INITIAL_PATH } from '@/utils/const/const';
 import styles from './header.module.scss';
 import Btn from '@/components/Btn/Btn';
-import Settings from '../Settings/Settings';
+import Settings from '@/components/Settings/Settings';
 
 const Header: React.FC = (): JSX.Element => {
   const [isSticky, setIsSticky] = useState(false);

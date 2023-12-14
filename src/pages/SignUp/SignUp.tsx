@@ -3,17 +3,19 @@ import styles from './sign-up.module.scss';
 import Btn from '@/components/Btn/Btn';
 import InputForm from '@/components/InputForm/InputForm';
 import ISignUp from '@/model/pages/SignUp/SignUp';
-import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
-import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
+import contentJson from '@/utils/jsons/SignUpContents/signUpContent.json';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
   const { handleSubmit, formState } = methods;
   const { isValid } = formState;
-  const content = contentEn || contentRu;
   const navigate = useNavigate();
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.en : contentJson.ru;
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);
