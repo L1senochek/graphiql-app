@@ -17,18 +17,13 @@ const InputForm: React.FC<IInputForm> = ({
   const [showPassword, setShowPassword] = useState(false);
   const methods = useFormContext();
   const { register, formState } = methods;
+  const errorMessage = formState.errors[registerInput]?.message;
 
   return (
-    <div
-      className={`${styles['input-form']}${
-        classNameWrapper ? ` ${classNameWrapper}` : ''
-      }`}
-    >
+    <div className={`${styles['input-form']} ${classNameWrapper || ''}`}>
       {titleLabel && (
         <label
-          className={`${styles['input-form__label']}${
-            classNameLabel ? ` ${classNameLabel}` : ''
-          }`}
+          className={`${styles['input-form__label']} ${classNameLabel || ''}`}
         >
           {titleLabel}
         </label>
@@ -36,7 +31,9 @@ const InputForm: React.FC<IInputForm> = ({
       {props.type === 'password' ? (
         <div
           className={`${styles['input-form__password']} ${
-            formState.errors.passwordOne?.message ? styles['error-input'] : ''
+            formState.errors[registerInput]?.message
+              ? styles['error-input']
+              : ''
           }`}
         >
           <input
@@ -56,13 +53,19 @@ const InputForm: React.FC<IInputForm> = ({
       ) : (
         <input
           {...props}
-          className={`${styles['input-form__input']}${
-            formState.errors.name ? ` ${styles['error-input']}` : ''
+          className={`${styles['input-form__input']} ${
+            formState.errors[registerInput]?.message
+              ? styles['error-input']
+              : ''
           }`}
           {...register(registerInput, registerValidation)}
         />
       )}
-      <p className={styles['input-form__error']}></p>
+      {formState.errors[registerInput] && (
+        <p className={styles['input-form__error']}>
+          {errorMessage?.toString()}
+        </p>
+      )}
     </div>
   );
 };

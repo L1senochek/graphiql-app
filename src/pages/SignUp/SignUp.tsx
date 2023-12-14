@@ -7,9 +7,12 @@ import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
 import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import { passwordValidationRules } from '@/utils/validation/validation';
 
 const SignUp: React.FC = (): JSX.Element => {
-  const methods = useForm();
+  const methods = useForm({
+    mode: 'onChange',
+  });
   const { handleSubmit, formState } = methods;
   const { isValid } = formState;
   const content = contentEn || contentRu;
@@ -46,11 +49,12 @@ const SignUp: React.FC = (): JSX.Element => {
             registerInput="password"
             type="password"
             autoComplete="false"
+            registerValidation={passwordValidationRules}
           />
           <InputForm
             titleLabel={content.inputConfirmPassword.titleLabel}
             placeholder={content.inputConfirmPassword.placeholder}
-            registerInput="ConfirmPassword"
+            registerInput="confirmPassword"
             type="password"
             autoComplete="false"
           />
