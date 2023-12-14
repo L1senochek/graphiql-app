@@ -1,12 +1,18 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import contentJson from '@/utils/jsons/WelcomeContent/WelcomeContent.json';
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
 
 const LinkMain: FC = () => {
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.en : contentJson.ru;
   return (
     <p>
-      Glad to see you again. Visit our{' '}
-      <Link to={GRAPHI_QL_PATH}>Main page</Link>.
+      {content.link.main.partOne}
+      <Link to={GRAPHI_QL_PATH}>{content.link.main.partTwo}</Link>
+      {content.link.main.partThree}
     </p>
   );
 };

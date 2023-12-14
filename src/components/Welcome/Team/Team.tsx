@@ -1,12 +1,36 @@
 import { FC } from 'react';
 import styles from './team.module.scss';
 import TeamMember from './TeamMember';
-import teamMembersData from './teamMembersData';
+import { ITeamMember } from '@/model/components/Welcome/Links/Team/Team';
+import contentJson from '@/utils/jsons/WelcomeContent/WelcomeContent.json';
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
 
 const Team: FC = () => {
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.en : contentJson.ru;
+
+  const teamMembersData: ITeamMember[] = [
+    {
+      name: content.team.timur.name,
+      src: content.team.timur.src,
+      description: content.team.timur.description,
+    },
+    {
+      name: content.team.tatyana.name,
+      src: content.team.tatyana.src,
+      description: content.team.tatyana.description,
+    },
+    {
+      name: content.team.dmitrij.name,
+      src: content.team.dmitrij.src,
+      description: content.team.dmitrij.description,
+    },
+  ];
+
   return (
     <div className={styles.team}>
-      <h2>Development team</h2>
+      <h2>{content.title}</h2>
       <div className={styles.members}>
         {teamMembersData.map((teamMember, index) => (
           <TeamMember

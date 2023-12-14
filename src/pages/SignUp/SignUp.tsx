@@ -3,7 +3,7 @@ import styles from './sign-up.module.scss';
 import Btn from '@/components/Btn/Btn';
 import InputForm from '@/components/InputForm/InputForm';
 import ISignUp from '@/model/pages/SignUp/SignUp';
-import contentJson from '@/utils/jsons/SignUpContents/signUpContent.json';
+import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';

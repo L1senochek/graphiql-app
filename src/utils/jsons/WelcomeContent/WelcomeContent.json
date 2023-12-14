@@ -1,0 +1,74 @@
+{
+  "en": {
+    "welcomeTitle": "Welcome to GraphiQL Playground!",
+    "description": "GraphiQL Playground by Wild Cats is an open platform for demonstrating the capabilities of GraphQL. This application allows to create complex queries using query editor, and get responses in JSON format. Refine the specifics of your requests using our variable editor, configure HTTP headers, and view schema information in our Documentation Explorer with Lazy-loading feature while you defining and testing request.",
+    "link": {
+      "main": {
+        "partOne": "Glad to see you again. Visit our ",
+        "partTwo": "Main page",
+        "partThree": "."
+      },
+      "loginRegistr": {
+        "partOne": "Please, ",
+        "partTwo": "sign-in",
+        "partThree": " or ",
+        "partFour": "sign-up",
+        "partFive": " to start using our GraphiQL"
+      }
+    },
+    "title": "Development team",
+    "team": {
+      "timur": {
+        "name": "Timur",
+        "src": "../team/timur.jpg",
+        "description": "Hi! I am Tim. My strongest side is leading. I chose this role because of my character. It`s the best feeling in the world when your project and your team reach success. All together we will achieve it no matter what."
+      },
+      "tatyana": {
+        "name": "Tatyana",
+        "src": "../team/tatyana.jpg",
+        "description": "Hello! Let me introduce myself: I am the strongest, most stubbornest, and most purposeful person in the universe. My current goals are to complete React course and find my place in the world of software developers. And I will accomplish both. Look at my success!"
+      },
+      "dmitrij": {
+        "name": "Dmitrij",
+        "src": "../team/dmitriy.jpg",
+        "description": "Hello! Let me start with my passion: studying. I love studying! This course is just one step in my career. After React, I plan to start learning Angular. The next step would be a possition in Google LLC. Wish me luck!"
+      }
+    }
+  },
+  "ru": {
+    "welcomeTitle": "еуые",
+    "description": "test",
+    "link": {
+      "main": {
+        "partOne": "Рады видеть вас снова! Посетите нашу ",
+        "partTwo": "Главную страницу",
+        "partThree": "."
+      },
+      "loginRegistr": {
+        "partOne": "Пожалуйста, ",
+        "partTwo": "войдите",
+        "partThree": " или ",
+        "partFour": "зарегестрируйтесь",
+        "partFive": " для того чтобы начать использовать наш GraphiQL"
+      }
+    },
+    "title": "Команда разработчиков",
+    "team": {
+      "timur": {
+        "name": "Тимур",
+        "src": "../team/timur.jpg",
+        "description": "Привет! Меня зовут Тимур. Моя сильная сторона это лидерство. Я выбрал эту роль исходя из своего характера. Это самое лучшее чувство в мире когда твой проект и твоя команда достигает успеха. Все вместе мы добьемся этого несмотря ни на что. "
+      },
+      "tatyana": {
+        "name": "Татьяна",
+        "src": "../team/tatyana.jpg",
+        "description": "Привет! Позвольте представиться: я самый сильный, упертый и целеустремленный человек во вселенной. Мои текущие цели закончить курс и найти свое место в мире разработчиков. И я достигну успеха в обоих. Смотрите на мой успех!"
+      },
+      "dmitrij": {
+        "name": "Дмитрий",
+        "src": "../team/dmitriy.jpg",
+        "description": "Привет. Позвольте мне начать с моей любви: обучение. Я обожаю учиться. Этот курс всего лишь одна ступенька в моей карьере и после курса по React я планирую начать обучении Angular. А следующим шагом будет позиция в Google. Пожелайте мне удачи!"
+      }
+    }
+  }
+}
