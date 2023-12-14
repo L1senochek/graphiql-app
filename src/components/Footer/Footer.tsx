@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import GitHub from '@/components/iconGitHub/iconGitHub';
 import RSLogo from './RSLogo';
 import styles from './footer.module.scss';
+import GitHub from './GitHub/GitHub';
 
 const Footer: FC = () => {
   return (

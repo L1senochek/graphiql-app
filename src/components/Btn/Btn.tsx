@@ -4,7 +4,10 @@ import IBtn from '@/model/components/Btn/Btn';
 
 const Btn: React.FC<IBtn> = ({ className, ...props }): JSX.Element => {
   return (
-    <button className={`${styles.btn} ${className}`} {...props}>
+    <button
+      className={`${styles.btn}${className ? ` ${className}` : ''}`}
+      {...props}
+    >
       {props.children}
     </button>
   );

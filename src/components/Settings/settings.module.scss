@@ -19,11 +19,15 @@
     border-radius: $border-radius;
     width: 150px;
     z-index: 1;
+    border-color: $eighth-color;
+    border-width: $border-width;
     transition:
       background-image $transition-sec,
-      height $transition-sec;
+      height $transition-sec,
+      border-style $transition-sec;
     &.open {
       height: $height-menu-settings-open;
+      border-style: $border-style;
     }
   }
 }
