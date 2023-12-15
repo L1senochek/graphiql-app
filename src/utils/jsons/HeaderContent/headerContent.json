@@ -6,7 +6,7 @@
     "btnSignOut": "Sign Out"
   },
   "ru": {
-    "title": "Добро пожаловать",
+    "title": "Приветствие",
     "btnSignIn": "Вход",
     "btnSignUp": "Регистрация",
     "btnSignOut": "Выход"

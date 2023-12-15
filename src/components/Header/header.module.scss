@@ -24,6 +24,17 @@
   &__left-side {
     display: flex;
   }
+  &__line {
+    display: flex;
+    width: 100%;
+    border-width: 1px;
+    border-style: $border-style;
+    border-color: transparent;
+    transition: border-color $transition-sec;
+    &.active {
+      border-color: $color-link-hover;
+    }
+  }
   &__right-side {
     display: flex;
     align-items: center;
