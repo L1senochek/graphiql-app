@@ -9,11 +9,11 @@ const LinkMain: FC = () => {
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const content = isEn ? contentJson.eng : contentJson.ru;
   return (
-    <p>
+    <h3>
       {content.link.main.partOne}
       <Link to={GRAPHI_QL_PATH}>{content.link.main.partTwo}</Link>
       {content.link.main.partThree}
-    </p>
+    </h3>
   );
 };
 
