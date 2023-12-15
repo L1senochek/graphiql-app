@@ -2,4 +2,14 @@
 
 .response-section {
   display: flex;
+  flex-direction: column;
+  border-width: 1px 0 0 1px;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  padding: 1vw;
+  flex: 1;
+  &__pre {
+    white-space: pre-wrap;
+    margin-left: 0px;
+  }
 }
