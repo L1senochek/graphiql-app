@@ -12,6 +12,7 @@ const Header: React.FC = (): JSX.Element => {
   const [isSticky, setIsSticky] = useState(false);
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const content = isEn ? contentJson.eng : contentJson.ru;
+  const isAuth = useAppSelector((state: RootState) => state.authSlice.auth);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -39,7 +40,22 @@ const Header: React.FC = (): JSX.Element => {
             </Link>
           </div>
           <div className={styles['header__right-side']}>
-            <Btn className={styles['header__btn']}>{content.btnSignOut}</Btn>
+            <div className={styles['header__btn-wrapper']}>
+              {!isAuth ? (
+                <>
+                  <Btn className={styles['header__btn']}>
+                    {content.btnSignIn}
+                  </Btn>
+                  <Btn className={styles['header__btn']}>
+                    {content.btnSignUp}
+                  </Btn>
+                </>
+              ) : (
+                <Btn className={styles['header__btn']}>
+                  {content.btnSignOut}
+                </Btn>
+              )}
+            </div>
             <Settings parentClass={styles['header__settings']} />
           </div>
         </div>

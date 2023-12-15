@@ -8,3 +8,9 @@
   min-height: 90vh;
   padding: calc($padding-header-top-bottom + $height-icon-settings) 0;
 }
+
+@media (max-width: 400px) {
+  .main {
+    padding: calc(1rem + 88px) 0;
+  }
+}
