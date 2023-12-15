@@ -2,8 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import AuthForm from '@/components/AuthForm/AuthForm';
 import { GRAPHI_QL_PATH, SIGN_UP_PATH } from '@/utils/const/const';
-import contentEn from '@/utils/jsons/SignInContents/signInContentEn.json';
-import contentRu from '@/utils/jsons/SignInContents/signInContentRu.json';
+import contentJson from '@/utils/jsons/SignInContent/signInContent.json';
 import ISignIn from '@/model/pages/SignIn/SignIn';
 import IInputForm from '@/model/components/InputForm/InputForm';
 
@@ -18,12 +17,12 @@ const pass = {
 const SignIn: React.FC = (): JSX.Element => {
   const methods = useForm();
   const { formState } = methods;
-  const content = contentEn || contentRu;
+  const content = contentJson.en || contentJson.ru;
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ISignIn> = (data): void => {
-    console.log(data);
     if (formState.isValid) {
+      console.log(data);
       navigate(GRAPHI_QL_PATH);
     }
   };

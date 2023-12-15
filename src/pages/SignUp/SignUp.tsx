@@ -2,15 +2,14 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import AuthForm from '@/components/AuthForm/AuthForm';
 import { GRAPHI_QL_PATH, SIGN_IN_PATH } from '@/utils/const/const';
-import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
-import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
+import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import ISignUp from '@/model/pages/SignUp/SignUp';
 import IInputForm from '@/model/components/InputForm/InputForm';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm();
   const { formState } = methods;
-  const content = contentEn || contentRu;
+  const content = contentJson.en || contentJson.ru;
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
