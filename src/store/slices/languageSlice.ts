@@ -6,7 +6,7 @@ const initialState: ILanguageState = {
 };
 
 const languageSlice = createSlice({
-  name: 'reactHookFormValue',
+  name: 'languageValue',
   initialState,
   reducers: {
     setEng: (state, action: PayloadAction<boolean>) => {

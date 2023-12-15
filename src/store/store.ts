@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import languageSlice from './slices/languageSlice';
+import authSlice from './slices/AuthSlice';
 
 const rootReducer = combineReducers({
   languageSlice: languageSlice.reducer,
+  authSlice: authSlice.reducer,
 });
 
 export const store = () => {
