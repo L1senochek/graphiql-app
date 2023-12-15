@@ -6,6 +6,7 @@ const GraphiQL: React.FC = (): JSX.Element => {
   return (
     <div className={styles['graphi-ql']}>
       <TopSection />
+      <hr className={styles['graphi-ql__separator']} />
       <MiddleSection />
     </div>
   );

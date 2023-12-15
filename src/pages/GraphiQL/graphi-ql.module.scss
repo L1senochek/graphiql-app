@@ -11,4 +11,9 @@
   border-style: $border-style;
   border-color: $eighth-color;
   background-image: $background-image-graphi-ql;
+  &__separator {
+    border-color: $eighth-color;
+    margin: $margin-separator;
+    width: 94%;
+  }
 }

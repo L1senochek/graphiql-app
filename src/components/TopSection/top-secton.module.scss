@@ -2,6 +2,11 @@
 
 .top-secton {
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: $padding-top-secton;
   &__title {
+    color: $fifth-color;
   }
 }

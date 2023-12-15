@@ -4,9 +4,9 @@ import styles from './top-secton.module.scss';
 const TopSection: React.FC = (): JSX.Element => {
   return (
     <div className={styles['top-secton']}>
-      <HeadersEditor />
+      <div>btnDoc</div>
       <h2 className={styles['top-secton__title']}>GraphiQL</h2>
-      <div></div>
+      <HeadersEditor />
     </div>
   );
 };
