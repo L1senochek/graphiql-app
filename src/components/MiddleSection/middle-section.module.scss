@@ -1,4 +1,8 @@
 @import '@/styles/variables.scss';
 
 .middle-section {
+  display: flex;
+  &__item {
+    display: flex;
+  }
 }
