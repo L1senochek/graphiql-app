@@ -1,4 +1,7 @@
 export interface IGitHubUser {
-  name: string;
+  name: {
+    eng: string;
+    ru: string;
+  };
   url: string;
 }

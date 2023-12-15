@@ -2,8 +2,12 @@ import { FC } from 'react';
 import GitHubLogo from '@/components/iconGitHub/iconGitHub';
 import styles from './GitHub.module.scss';
 import GitHubUsers from './GitHubUsers';
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
 
 const GitHub: FC = () => {
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+
   return (
     <div className={styles.wrapper}>
       {GitHubUsers.map((user, index) => (
@@ -15,7 +19,7 @@ const GitHub: FC = () => {
           rel="noreferrer"
         >
           <GitHubLogo />
-          <span>{user.name}</span>
+          <span>{isEn ? user.name.eng : user.name.ru}</span>
         </a>
       ))}
     </div>
