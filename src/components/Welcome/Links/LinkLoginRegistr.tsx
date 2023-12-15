@@ -8,7 +8,7 @@ import { RootState } from '@/store/store';
 
 const LinkLoginRegistr: FC = () => {
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.en : contentJson.ru;
+  const content = isEn ? contentJson.eng : contentJson.ru;
   return (
     <h3>
       {content.link.loginRegistr.partOne}

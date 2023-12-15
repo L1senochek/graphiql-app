@@ -1,0 +1,14 @@
+{
+  "eng": {
+    "title": "Welcome",
+    "btnSignIn": "Sign In",
+    "btnSignUp": "Sign Up",
+    "btnSignOut": "Sign Out"
+  },
+  "ru": {
+    "title": "Добро пожаловать",
+    "btnSignIn": "Вход",
+    "btnSignUp": "Регистрация",
+    "btnSignOut": "Выход"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "en": {
+  "eng": {
     "welcomeTitle": "Welcome to GraphiQL Playground!",
     "description": "GraphiQL Playground by Wild Cats is an open platform for demonstrating the capabilities of GraphQL. This application allows to create complex queries using query editor, and get responses in JSON format. Refine the specifics of your requests using our variable editor, configure HTTP headers, and view schema information in our Documentation Explorer with Lazy-loading feature while you defining and testing request.",
     "link": {

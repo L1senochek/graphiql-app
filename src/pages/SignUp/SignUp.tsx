@@ -15,7 +15,7 @@ const SignUp: React.FC = (): JSX.Element => {
   const { isValid } = formState;
   const navigate = useNavigate();
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.en : contentJson.ru;
+  const content = isEn ? contentJson.eng : contentJson.ru;
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);

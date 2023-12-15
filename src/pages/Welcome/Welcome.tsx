@@ -7,7 +7,7 @@ import { RootState } from '@/store/store';
 
 const Welcome = () => {
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.en : contentJson.ru;
+  const content = isEn ? contentJson.eng : contentJson.ru;
 
   return (
     <div className={styles.welcome}>
