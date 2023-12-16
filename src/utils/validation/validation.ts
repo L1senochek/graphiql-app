@@ -25,5 +25,13 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
     },
   };
 
-  return { confirmPasswordValidation, passwordValidation };
+  const emailValidation = {
+    required: 'Email is required',
+    pattern: {
+      value: /^\S+@\S+\.\S+$/,
+      message: 'Enter valid email',
+    },
+  };
+
+  return { confirmPasswordValidation, passwordValidation, emailValidation };
 }

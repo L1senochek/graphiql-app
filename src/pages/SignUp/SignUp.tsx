@@ -17,7 +17,7 @@ const SignUp: React.FC = (): JSX.Element => {
   const { isValid } = formState;
   const content = contentEn || contentRu;
   const navigate = useNavigate();
-  const { confirmPasswordValidation, passwordValidation } =
+  const { confirmPasswordValidation, passwordValidation, emailValidation } =
     useValidation(methods);
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
@@ -44,6 +44,7 @@ const SignUp: React.FC = (): JSX.Element => {
             titleLabel={content.inputEmail.titleLabel}
             placeholder={content.inputEmail.placeholder}
             registerInput="email"
+            registerValidation={emailValidation}
           />
           <InputForm
             titleLabel={content.inputPassword.titleLabel}
