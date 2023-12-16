@@ -20,10 +20,16 @@ const InputForm: React.FC<IInputForm> = ({
   const errorMessage = formState.errors[registerInput]?.message;
 
   return (
-    <div className={`${styles['input-form']} ${classNameWrapper || ''}`}>
+    <div
+      className={`${styles['input-form']} ${
+        classNameWrapper ? ` ${classNameWrapper}` : ''
+      }`}
+    >
       {titleLabel && (
         <label
-          className={`${styles['input-form__label']} ${classNameLabel || ''}`}
+          className={`${styles['input-form__label']}${
+            classNameLabel ? ` ${classNameLabel}` : ''
+          }`}
         >
           {titleLabel}
         </label>
