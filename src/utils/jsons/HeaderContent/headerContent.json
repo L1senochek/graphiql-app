@@ -1,0 +1,18 @@
+{
+  "eng": {
+    "title": "Welcome",
+    "btnSignIn": "Sign In",
+    "btnSignUp": "Sign Up",
+    "btnSignOut": "Sign Out",
+    "settingsLanguageRu": "Ru",
+    "settingsLanguageEn": "En"
+  },
+  "ru": {
+    "title": "Добро пожаловать",
+    "btnSignIn": "Войти",
+    "btnSignUp": "Создать",
+    "btnSignOut": "Выход",
+    "settingsLanguageRu": "Руc",
+    "settingsLanguageEn": "Анг"
+  }
+}

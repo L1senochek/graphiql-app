@@ -3,12 +3,11 @@ import { UseFormReturn } from 'react-hook-form';
 
 export function useValidation(methods: UseFormReturn<ISignUp>) {
   const passwordLetterCheck = (value: string) =>
-    /[a-zA-Z]/.test(value) || 'Password must contain at least one letter';
+    /[a-zA-Z]/.test(value) || 'Password must contain one letter';
   const passwordNumberCheck = (value: string) =>
-    /\d/.test(value) || 'Password must contain at least one number';
+    /\d/.test(value) || 'Password must contain one number';
   const passwordSpecialCharacterCheck = (value: string) =>
-    /[\W_]/.test(value) ||
-    'Password must contain at least one special character';
+    /[\W_]/.test(value) || 'Password must contain one special character';
   const startsWithCapitalCheck = (value: string) =>
     /^[A-Z]/.test(value) || 'Name must start with a capital letter';
   const containsOnlyLettersCheck = (value: string) =>
@@ -33,7 +32,7 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
     },
     minLength: {
       value: 8,
-      message: 'Password must have at least 8 characters',
+      message: 'Password must have 8 characters',
     },
   };
 
