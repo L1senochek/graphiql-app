@@ -6,10 +6,11 @@ import ISignUp from '@/model/pages/SignUp/SignUp';
 import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
-import { useAppSelector } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
 import { useValidation } from '@/utils/validation/validation';
 import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
+import { setAuth } from '@/store/slices/AuthSlice';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -18,6 +19,7 @@ const SignUp: React.FC = (): JSX.Element => {
   const { handleSubmit, formState } = methods;
   const { isValid } = formState;
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const content = isEn ? contentJson.eng : contentJson.ru;
   const {
@@ -30,6 +32,7 @@ const SignUp: React.FC = (): JSX.Element => {
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     if (formState.isValid) {
       registerWithEmailAndPassword(data.name!, data.email!, data.password!);
+      dispatch(setAuth(true));
       navigate(GRAPHI_QL_PATH);
     }
   };
