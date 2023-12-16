@@ -1,34 +1,38 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
+import { useForm } from 'react-hook-form';
 import AuthForm from '@/components/AuthForm/AuthForm';
-import { GRAPHI_QL_PATH, SIGN_IN_PATH } from '@/utils/const/const';
-import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
-import ISignUp from '@/model/pages/SignUp/SignUp';
 import IInputForm from '@/model/components/InputForm/InputForm';
+import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
+import { SIGN_IN_PATH } from '@/utils/const/const';
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
+import { useValidation } from '@/utils/validation/validation';
 
 const SignUp: React.FC = (): JSX.Element => {
-  const methods = useForm();
-  const { formState } = methods;
-  const content = contentJson.en || contentJson.ru;
-  const navigate = useNavigate();
+  const methods = useForm({
+    mode: 'onChange',
+  });
+  const {
+    confirmPasswordValidation,
+    passwordValidation,
+    emailValidation,
+    nameValidation,
+  } = useValidation(methods);
 
-  const onSubmit: SubmitHandler<ISignUp> = (data): void => {
-    console.log(data);
-    if (formState.isValid) {
-      navigate(GRAPHI_QL_PATH);
-    }
-  };
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.eng : contentJson.ru;
 
-  const formFields: IInputForm[] = [
+  const signUpformFields: IInputForm[] = [
     {
       registerInput: 'name',
       titleLabel: content.inputName.titleLabel,
       placeholder: content.inputName.placeholder,
+      registerValidation: nameValidation,
     },
     {
       registerInput: 'email',
       titleLabel: content.inputEmail.titleLabel,
       placeholder: content.inputEmail.placeholder,
+      registerValidation: emailValidation,
     },
     {
       registerInput: 'password',
@@ -36,23 +40,27 @@ const SignUp: React.FC = (): JSX.Element => {
       placeholder: content.inputPassword.placeholder,
       type: 'password',
       autoComplete: 'false',
+      registerValidation: passwordValidation,
     },
     {
-      registerInput: 'ConfirmPassword',
+      registerInput: 'confirmPassword',
       titleLabel: content.inputConfirmPassword.titleLabel,
       placeholder: content.inputConfirmPassword.placeholder,
       type: 'password',
       autoComplete: 'false',
+      registerValidation: confirmPasswordValidation,
     },
   ];
 
   return (
-    <AuthForm
-      hintLink={SIGN_IN_PATH}
-      onSubmit={onSubmit}
-      content={content}
-      formFields={formFields}
-    />
+    <>
+      <AuthForm
+        hintLink={SIGN_IN_PATH}
+        content={content}
+        formFields={signUpformFields}
+        methods={methods}
+      />
+    </>
   );
 };
 

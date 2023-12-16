@@ -1,33 +1,18 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
+import { useForm } from 'react-hook-form';
 import AuthForm from '@/components/AuthForm/AuthForm';
-import { GRAPHI_QL_PATH, SIGN_UP_PATH } from '@/utils/const/const';
+import { SIGN_UP_PATH } from '@/utils/const/const';
 import contentJson from '@/utils/jsons/SignInContent/signInContent.json';
-import ISignIn from '@/model/pages/SignIn/SignIn';
 import IInputForm from '@/model/components/InputForm/InputForm';
-
-const pass = {
-  required: 'Password is required',
-  pattern: {
-    value: /^(?=.*\d)(?=.*[A-Z])(?=.*[\W_]).{4,}$/,
-    message: 'Must match the pattern 1Ff!',
-  },
-};
+import { useAppSelector } from '@/store/hooks';
+import { RootState } from '@/store/store';
 
 const SignIn: React.FC = (): JSX.Element => {
   const methods = useForm();
-  const { formState } = methods;
-  const content = contentJson.en || contentJson.ru;
-  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<ISignIn> = (data): void => {
-    if (formState.isValid) {
-      console.log(data);
-      navigate(GRAPHI_QL_PATH);
-    }
-  };
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.eng : contentJson.ru;
 
-  const SignInFormFields: IInputForm[] = [
+  const signInFormFields: IInputForm[] = [
     {
       registerInput: 'email',
       titleLabel: content.inputEmail.titleLabel,
@@ -35,7 +20,6 @@ const SignIn: React.FC = (): JSX.Element => {
     },
     {
       registerInput: 'password',
-      registerValidation: pass,
       titleLabel: content.inputPassword.titleLabel,
       placeholder: content.inputPassword.placeholder,
       type: 'password',
@@ -46,9 +30,9 @@ const SignIn: React.FC = (): JSX.Element => {
   return (
     <AuthForm
       hintLink={SIGN_UP_PATH}
-      onSubmit={onSubmit}
       content={content}
-      formFields={SignInFormFields}
+      formFields={signInFormFields}
+      methods={methods}
     />
   );
 };

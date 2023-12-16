@@ -1,19 +1,34 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import InputForm from '@/components/InputForm/InputForm';
 import Btn from '@/components/Btn/Btn';
 import IAuthFormProps from '@/model/components/AuthForm/AuthForm';
 import styles from './auth-form.module.scss';
+import { useNavigate } from 'react-router';
+import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import { useAppDispatch } from '@/store/hooks';
+import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
+import { setAuth } from '@/store/slices/AuthSlice';
+import ISignUp from '@/model/pages/SignUp/SignUp';
 
-const AuthForm = <T extends Record<string, string>>({
+const AuthForm = ({
   hintLink,
-  onSubmit,
   content,
   formFields,
-}: IAuthFormProps<T>): JSX.Element => {
-  const methods = useForm<T>();
+  methods,
+}: IAuthFormProps): JSX.Element => {
   const { handleSubmit, formState } = methods;
   const { isValid } = formState;
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const onSubmit: SubmitHandler<ISignUp> = (data): void => {
+    if (isValid) {
+      registerWithEmailAndPassword(data.name!, data.email!, data.password!);
+      dispatch(setAuth(true));
+      navigate(GRAPHI_QL_PATH);
+    }
+  };
 
   return (
     <div className={styles['auth-form']}>

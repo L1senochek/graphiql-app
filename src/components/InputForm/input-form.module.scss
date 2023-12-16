@@ -58,10 +58,21 @@
         outline: none;
       }
     }
+    &.error-input {
+      border-color: $error-color;
+    }
   }
   &__error {
     margin: 0;
-    height: $height-error;
+    height: $font-size-error;
+    color: $error-color;
+    visibility: hidden;
+    opacity: 0;
+  }
+  &__error-visible {
+    visibility: visible;
+    opacity: 1;
+    font-size: $font-size-error;
   }
 }
 
@@ -71,11 +82,20 @@
   }
 }
 
+@media (max-width: 1230px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 23vw;
+    }
+  }
+}
+
 @media (max-width: 1050px) {
   .input-form {
     &__input,
     &__password {
-      width: 25vw;
+      width: 35vw;
     }
   }
 }
@@ -84,7 +104,7 @@
   .input-form {
     &__input,
     &__password {
-      width: 30vw;
+      width: 40vw;
     }
   }
 }
@@ -93,7 +113,7 @@
   .input-form {
     &__input,
     &__password {
-      width: 40vw;
+      width: 50vw;
     }
   }
 }
@@ -102,7 +122,7 @@
   .input-form {
     &__input,
     &__password {
-      width: 50vw;
+      width: 60vw;
     }
   }
 }
@@ -111,7 +131,7 @@
   .input-form {
     &__input,
     &__password {
-      width: 65vw;
+      width: 70vw;
     }
   }
 }
