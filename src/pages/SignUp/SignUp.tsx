@@ -7,7 +7,7 @@ import contentEn from '@/utils/jsons/SignUpContents/signUpContentEn.json';
 import contentRu from '@/utils/jsons/SignUpContents/signUpContentRu.json';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
-import { passwordValidationRules } from '@/utils/validation/validation';
+import { useValidation } from '@/utils/validation/validation';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -17,6 +17,8 @@ const SignUp: React.FC = (): JSX.Element => {
   const { isValid } = formState;
   const content = contentEn || contentRu;
   const navigate = useNavigate();
+  const { confirmPasswordValidation, passwordValidation } =
+    useValidation(methods);
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);
@@ -49,7 +51,7 @@ const SignUp: React.FC = (): JSX.Element => {
             registerInput="password"
             type="password"
             autoComplete="false"
-            registerValidation={passwordValidationRules}
+            registerValidation={passwordValidation}
           />
           <InputForm
             titleLabel={content.inputConfirmPassword.titleLabel}
@@ -57,6 +59,7 @@ const SignUp: React.FC = (): JSX.Element => {
             registerInput="confirmPassword"
             type="password"
             autoComplete="false"
+            registerValidation={confirmPasswordValidation}
           />
           <Btn
             className={`${styles['sign-up__btn']}${
