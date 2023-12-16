@@ -18,7 +18,6 @@ const InputForm: React.FC<IInputForm> = ({
   const methods = useFormContext();
   const { register, formState } = methods;
   const errorMessage = formState.errors[registerInput]?.message || '';
-  console.log(errorMessage);
 
   return (
     <div
@@ -38,9 +37,7 @@ const InputForm: React.FC<IInputForm> = ({
       {props.type === 'password' ? (
         <div
           className={`${styles['input-form__password']} ${
-            formState.errors[registerInput]?.message
-              ? styles['error-input']
-              : ''
+            errorMessage ? styles['error-input'] : ''
           }`}
         >
           <input
@@ -63,9 +60,7 @@ const InputForm: React.FC<IInputForm> = ({
         <input
           {...props}
           className={`${styles['input-form__input']}${
-            formState.errors[registerInput]?.message
-              ? ` ${styles['error-input']}`
-              : ''
+            errorMessage ? ` ${styles['error-input']}` : ''
           }`}
           {...register(registerInput, registerValidation)}
         />
