@@ -70,11 +70,13 @@ const InputForm: React.FC<IInputForm> = ({
           {...register(registerInput, registerValidation)}
         />
       )}
-      {formState.errors[registerInput] && (
-        <p className={styles['input-form__error']}>
-          {errorMessage?.toString()}
-        </p>
-      )}
+      <p
+        className={`${styles['input-form__error']} ${
+          errorMessage ? styles['input-form__error-visible'] : ''
+        }`}
+      >
+        {errorMessage.toString()}
+      </p>
     </div>
   );
 };
