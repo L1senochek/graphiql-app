@@ -2,6 +2,18 @@ import ISignUp from '@/model/pages/SignUp/SignUp';
 import { UseFormReturn } from 'react-hook-form';
 
 export function useValidation(methods: UseFormReturn<ISignUp>) {
+  const passwordLetterCheck = (value: string) =>
+    /[a-zA-Z]/.test(value) || 'Password must contain at least one letter';
+  const passwordNumberCheck = (value: string) =>
+    /\d/.test(value) || 'Password must contain at least one number';
+  const passwordSpecialCharacterCheck = (value: string) =>
+    /[\W_]/.test(value) ||
+    'Password must contain at least one special character';
+  const startsWithCapitalCheck = (value: string) =>
+    /^[A-Z]/.test(value) || 'Name must start with a capital letter';
+  const containsOnlyLettersCheck = (value: string) =>
+    /^[A-Za-z]+$/.test(value) || 'Name must contain only letters';
+
   const confirmPasswordValidation = {
     required: 'Confirm password is required',
     validate: {
@@ -14,14 +26,14 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
 
   const passwordValidation = {
     required: 'Password is required',
+    validate: {
+      letter: passwordLetterCheck,
+      number: passwordNumberCheck,
+      specialCharacter: passwordSpecialCharacterCheck,
+    },
     minLength: {
       value: 8,
       message: 'Password must have at least 8 characters',
-    },
-    pattern: {
-      value: /^(?=.*[\p{L}])(?=.*\d)(?=.*[\W_]).{8,}$/u,
-      message:
-        'Password must contain at least one letter, one number, and one special character',
     },
   };
 
@@ -35,9 +47,9 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
 
   const nameValidation = {
     required: 'Name is required',
-    pattern: {
-      value: /^[A-Z][a-z]*$/,
-      message: 'Name must start with a capital letter and contain only letters',
+    validate: {
+      startsWithCapital: startsWithCapitalCheck,
+      containsOnlyLetters: containsOnlyLettersCheck,
     },
   };
 

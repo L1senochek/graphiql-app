@@ -64,18 +64,15 @@
   }
   &__error {
     margin: 0;
-    height: $height-error;
-    overflow: hidden;
+    height: $font-size-error;
     color: $error-color;
-    transition:
-      visibility 0.2s,
-      opacity 0.2s ease-in-out;
     visibility: hidden;
     opacity: 0;
   }
   &__error-visible {
     visibility: visible;
     opacity: 1;
+    font-size: $font-size-error;
   }
 }
 
