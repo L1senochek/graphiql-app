@@ -9,6 +9,7 @@ import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
 import { useValidation } from '@/utils/validation/validation';
+import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -27,8 +28,8 @@ const SignUp: React.FC = (): JSX.Element => {
   } = useValidation(methods);
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
-    console.log(data);
     if (formState.isValid) {
+      registerWithEmailAndPassword(data.name!, data.email!, data.password!);
       navigate(GRAPHI_QL_PATH);
     }
   };
