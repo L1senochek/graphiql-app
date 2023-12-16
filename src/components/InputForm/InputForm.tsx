@@ -21,7 +21,7 @@ const InputForm: React.FC<IInputForm> = ({
 
   return (
     <div
-      className={`${styles['input-form']} ${
+      className={`${styles['input-form']}${
         classNameWrapper ? ` ${classNameWrapper}` : ''
       }`}
     >
@@ -59,9 +59,9 @@ const InputForm: React.FC<IInputForm> = ({
       ) : (
         <input
           {...props}
-          className={`${styles['input-form__input']} ${
+          className={`${styles['input-form__input']}${
             formState.errors[registerInput]?.message
-              ? styles['error-input']
+              ? ` ${styles['error-input']}`
               : ''
           }`}
           {...register(registerInput, registerValidation)}
