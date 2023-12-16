@@ -58,6 +58,9 @@
         outline: none;
       }
     }
+    &.error-input {
+      border-color: $error-color;
+    }
   }
   &__error {
     margin: 0;
