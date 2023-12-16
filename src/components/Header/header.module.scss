@@ -95,15 +95,7 @@
   }
 }
 
-@media (max-width: 480px) {
-  .header {
-    &__right-side {
-      width: 70%;
-    }
-  }
-}
-
-@media (max-width: 400px) {
+@media (max-width: 490px) {
   .header {
     &__left-side {
       padding-bottom: 1rem;
@@ -112,18 +104,10 @@
       width: 95%;
     }
     &__btn-wrapper {
-      width: 65%;
+      width: 80%;
     }
     &__wrapper {
       flex-direction: column;
-    }
-  }
-}
-
-@media (max-width: 400px) {
-  .header {
-    &__btn-wrapper {
-      width: 80%;
     }
   }
 }

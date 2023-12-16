@@ -7,8 +7,8 @@
   },
   "ru": {
     "title": "Приветствие",
-    "btnSignIn": "Вход",
-    "btnSignUp": "Регистрация",
+    "btnSignIn": "Войти",
+    "btnSignUp": "Создать",
     "btnSignOut": "Выход"
   }
 }
