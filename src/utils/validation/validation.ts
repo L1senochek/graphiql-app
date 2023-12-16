@@ -14,9 +14,14 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
 
   const passwordValidation = {
     required: 'Password is required',
+    minLength: {
+      value: 8,
+      message: 'Password must have at least 8 characters',
+    },
     pattern: {
-      value: /^(?=.*\d)(?=.*[A-Z])(?=.*[\W_]).{4,}$/,
-      message: 'Must match the pattern 1Ff!',
+      value: /^(?=.*[\p{L}])(?=.*\d)(?=.*[\W_]).{8,}$/u,
+      message:
+        'Password must contain at least one letter, one number, and one special character',
     },
   };
 
