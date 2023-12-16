@@ -1,10 +1,11 @@
-import { FieldValues, UseFormReturn } from 'react-hook-form';
+import { FieldValues, SubmitHandler, UseFormReturn } from 'react-hook-form';
 import IInputForm from '@/model/components/InputForm/InputForm';
 import IContentField from './ContentField';
 
 interface IAuthFormProps {
   hintLink: string;
   methods: UseFormReturn<FieldValues>;
+  onSubmit: SubmitHandler<FieldValues>;
   content: {
     title: string;
     hint: string;

@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import AuthForm from '@/components/AuthForm/AuthForm';
 import IInputForm from '@/model/components/InputForm/InputForm';
 import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
@@ -6,6 +6,12 @@ import { SIGN_IN_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
 import { useValidation } from '@/utils/validation/validation';
+import { useNavigate } from 'react-router';
+import { GRAPHI_QL_PATH } from '@/utils/const/const';
+import { useAppDispatch } from '@/store/hooks';
+import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
+import { setAuth } from '@/store/slices/AuthSlice';
+import ISignUp from '@/model/pages/SignUp/SignUp';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -17,7 +23,8 @@ const SignUp: React.FC = (): JSX.Element => {
     emailValidation,
     nameValidation,
   } = useValidation(methods);
-
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const content = isEn ? contentJson.eng : contentJson.ru;
 
@@ -52,12 +59,21 @@ const SignUp: React.FC = (): JSX.Element => {
     },
   ];
 
+  const onSubmit: SubmitHandler<ISignUp> = (data): void => {
+    if (methods.formState.isValid) {
+      registerWithEmailAndPassword(data.name!, data.email!, data.password!);
+      dispatch(setAuth(true));
+      navigate(GRAPHI_QL_PATH);
+    }
+  };
+
   return (
     <>
       <AuthForm
         hintLink={SIGN_IN_PATH}
         content={content}
         formFields={signUpformFields}
+        onSubmit={onSubmit}
         methods={methods}
       />
     </>
