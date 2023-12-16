@@ -33,5 +33,18 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
     },
   };
 
-  return { confirmPasswordValidation, passwordValidation, emailValidation };
+  const nameValidation = {
+    required: 'Name is required',
+    pattern: {
+      value: /^[A-Z][a-z]*$/,
+      message: 'Name must start with a capital letter and contain only letters',
+    },
+  };
+
+  return {
+    confirmPasswordValidation,
+    passwordValidation,
+    emailValidation,
+    nameValidation,
+  };
 }

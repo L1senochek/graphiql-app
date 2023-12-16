@@ -17,8 +17,12 @@ const SignUp: React.FC = (): JSX.Element => {
   const { isValid } = formState;
   const content = contentEn || contentRu;
   const navigate = useNavigate();
-  const { confirmPasswordValidation, passwordValidation, emailValidation } =
-    useValidation(methods);
+  const {
+    confirmPasswordValidation,
+    passwordValidation,
+    emailValidation,
+    nameValidation,
+  } = useValidation(methods);
 
   const onSubmit: SubmitHandler<ISignUp> = (data): void => {
     console.log(data);
@@ -39,6 +43,7 @@ const SignUp: React.FC = (): JSX.Element => {
             titleLabel={content.inputName.titleLabel}
             placeholder={content.inputName.placeholder}
             registerInput="name"
+            registerValidation={nameValidation}
           />
           <InputForm
             titleLabel={content.inputEmail.titleLabel}
