@@ -82,6 +82,15 @@
   }
 }
 
+@media (max-width: 1230px) {
+  .input-form {
+    &__input,
+    &__password {
+      width: 23vw;
+    }
+  }
+}
+
 @media (max-width: 1050px) {
   .input-form {
     &__input,
