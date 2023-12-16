@@ -58,10 +58,21 @@
         outline: none;
       }
     }
+    &.error-input {
+      border-color: $error-color;
+    }
   }
   &__error {
     margin: 0;
-    height: $height-error;
+    height: $font-size-error;
+    color: $error-color;
+    visibility: hidden;
+    opacity: 0;
+  }
+  &__error-visible {
+    visibility: visible;
+    opacity: 1;
+    font-size: $font-size-error;
   }
 }
 
