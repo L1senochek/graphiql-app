@@ -3,12 +3,16 @@
     "title": "Welcome",
     "btnSignIn": "Sign In",
     "btnSignUp": "Sign Up",
-    "btnSignOut": "Sign Out"
+    "btnSignOut": "Sign Out",
+    "settingsLanguageRu": "Ru",
+    "settingsLanguageEn": "En"
   },
   "ru": {
-    "title": "Приветствие",
+    "title": "Добро пожаловать",
     "btnSignIn": "Войти",
     "btnSignUp": "Создать",
-    "btnSignOut": "Выход"
+    "btnSignOut": "Выход",
+    "settingsLanguageRu": "Руc",
+    "settingsLanguageEn": "Анг"
   }
 }

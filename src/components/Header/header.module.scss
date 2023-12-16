@@ -95,7 +95,7 @@
   }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 565px) {
   .header {
     &__left-side {
       padding-bottom: 1rem;
@@ -104,10 +104,18 @@
       width: 95%;
     }
     &__btn-wrapper {
-      width: 80%;
+      width: 65%;
     }
     &__wrapper {
       flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 565px) {
+  .header {
+    &__btn-wrapper {
+      width: 75%;
     }
   }
 }

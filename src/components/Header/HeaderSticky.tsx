@@ -4,7 +4,7 @@ import { INITIAL_PATH, WELCOME_PATH } from '@/utils/const/const';
 import styles from './header.module.scss';
 import Btn from '@/components/Btn/Btn';
 import Settings from '@/components/Settings/Settings';
-import contentJson from '@/utils/jsons/HeaderContent/HeaderContent.json';
+import contentJson from '@/utils/jsons/HeaderContent/headerContent.json';
 import { useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
 
