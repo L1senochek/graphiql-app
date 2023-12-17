@@ -8,19 +8,24 @@ import { RootState } from '@/store/store';
 import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
 import { setAuth } from '@/store/slices/AuthSlice';
+import { useValidation } from '@/utils/validation/validation';
 
 const SignIn: React.FC = (): JSX.Element => {
-  const methods = useForm();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const content = isEn ? contentJson.eng : contentJson.ru;
+  const methods = useForm({
+    mode: 'onChange',
+  });
+  const { passwordValidation, emailValidation } = useValidation(methods);
 
   const signInFormFields: IInputForm[] = [
     {
       registerInput: 'email',
       titleLabel: content.inputEmail.titleLabel,
       placeholder: content.inputEmail.placeholder,
+      registerValidation: emailValidation,
     },
     {
       registerInput: 'password',
@@ -28,6 +33,7 @@ const SignIn: React.FC = (): JSX.Element => {
       placeholder: content.inputPassword.placeholder,
       type: 'password',
       autoComplete: 'false',
+      registerValidation: passwordValidation,
     },
   ];
 
