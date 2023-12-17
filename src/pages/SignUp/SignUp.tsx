@@ -17,16 +17,16 @@ const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
     mode: 'onChange',
   });
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.eng : contentJson.ru;
   const {
     confirmPasswordValidation,
     passwordValidation,
     emailValidation,
     nameValidation,
   } = useValidation(methods);
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
 
   const signUpformFields: IInputForm[] = [
     {

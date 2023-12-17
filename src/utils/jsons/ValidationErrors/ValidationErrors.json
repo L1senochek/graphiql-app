@@ -1,0 +1,40 @@
+{
+  "eng": {
+    "required": "Fill out this field",
+    "name": {
+      "onlyLetters": "Name must contain only letters",
+      "capitalLetter": "Name must start with a capital letter"
+    },
+    "email": {
+      "validEmail": "Enter valid email"
+    },
+    "password": {
+      "letter": "Password must contain one letter",
+      "number": "Password must contain one number",
+      "specialCharacter": "Password must contain special character",
+      "length": "Password must have 8 characters"
+    },
+    "confirmPassword": {
+      "confirm": "Password should match"
+    }
+  },
+  "ru": {
+    "required": "Заполните это поле",
+    "name": {
+        "onlyLetters": "Имя должно содержать только буквы",
+        "capitalLetter": "Имя должно начинаться с заглавной буквы"
+      },
+      "email": {
+        "validEmail": "Введите валидный адрес электронной почты"
+      },
+      "password": {
+        "letter": "Пароль должен содержать одну букву",
+        "number": "Пароль должен содержать одну цифру",
+        "specialCharacter": "Пароль должен содержать специальный символ",
+        "length": "Пароль должен содержать 8 символов"
+      },
+      "confirmPassword": {
+        "confirm": "Пароль должен совпадать"
+      }
+  }
+}
