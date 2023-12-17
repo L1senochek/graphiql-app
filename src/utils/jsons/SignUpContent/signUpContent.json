@@ -1,6 +1,8 @@
 {
   "eng": {
     "title": "Sign Up",
+    "hint": "Already a member?",
+    "hintLink": "Sign in",
     "inputName": {
       "titleLabel": "Name: ",
       "placeholder": "Name"
@@ -21,6 +23,8 @@
   },
   "ru": {
     "title": "Зарегистрироваться",
+    "hint": "Уже зарегистрированы?",
+    "hintLink": "Вход",
     "inputName": {
       "titleLabel": "Имя: ",
       "placeholder": "Имя"

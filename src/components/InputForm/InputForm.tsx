@@ -67,7 +67,7 @@ const InputForm: React.FC<IInputForm> = ({
       )}
       <p
         className={`${styles['input-form__error']} ${
-          errorMessage ? styles['input-form__error-visible'] : ''
+          errorMessage ? ` ${styles['input-form__error-visible']}` : ''
         }`}
       >
         {errorMessage.toString()}

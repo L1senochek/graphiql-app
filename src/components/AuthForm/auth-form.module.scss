@@ -1,12 +1,22 @@
 @import '@/styles/variables.scss';
 @import '@/styles/mixin/flex-direction-column.scss';
 
-@include flex-direction-column('.sign-up');
-@include flex-direction-column('.sign-up__form');
+@include flex-direction-column('.auth-form');
+@include flex-direction-column('.auth-form__form');
 
-.sign-up {
+.auth-form {
   &__title {
+    padding-top: 1vw;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1vw 0;
+    color: $description-color;
+    &_link {
+      padding-left: 1vw;
+    }
   }
   &__form {
     padding: $padding-form;
@@ -20,12 +30,13 @@
     margin-top: 1vw;
     &.disabled {
       background-color: $eighth-color;
+      cursor: not-allowed;
     }
   }
 }
 
 @media (max-width: 400px) {
-  .sign-up {
+  .sign-in {
     &__form {
       padding: 5vw 8vw;
     }

@@ -5,8 +5,9 @@ import styles from './header.module.scss';
 import Btn from '@/components/Btn/Btn';
 import Settings from '@/components/Settings/Settings';
 import contentJson from '@/utils/jsons/HeaderContent/headerContent.json';
-import { useAppSelector } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
+import { setAuth } from '@/store/slices/AuthSlice';
 
 const Header: React.FC = (): JSX.Element => {
   const [isSticky, setIsSticky] = useState(false);
@@ -14,6 +15,7 @@ const Header: React.FC = (): JSX.Element => {
   const content = isEn ? contentJson.eng : contentJson.ru;
   const isAuth = useAppSelector((state: RootState) => state.authSlice.auth);
   const location = useLocation();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -59,7 +61,10 @@ const Header: React.FC = (): JSX.Element => {
                   </Btn>
                 </>
               ) : (
-                <Btn className={styles['header__btn']}>
+                <Btn
+                  className={styles['header__btn']}
+                  onClick={() => dispatch(setAuth(false))}
+                >
                   {content.btnSignOut}
                 </Btn>
               )}
