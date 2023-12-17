@@ -5,7 +5,7 @@ import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import { SIGN_IN_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
-import { useValidation } from '@/utils/validation/validation';
+import { useValidation } from '@/utils/validation/useValidation';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppDispatch } from '@/store/hooks';

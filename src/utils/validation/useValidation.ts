@@ -18,11 +18,11 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
     trigger();
   }, [errorMessage, trigger]);
 
-  const passwordLetterCheck = (value: string) =>
+  const letterCheck = (value: string) =>
     /[a-zA-Z]/.test(value) || errorMessage.password.letter;
-  const passwordNumberCheck = (value: string) =>
+  const numberCheck = (value: string) =>
     /\d/.test(value) || errorMessage.password.number;
-  const passwordSpecialCharacterCheck = (value: string) =>
+  const specialCharacterCheck = (value: string) =>
     /[\W_]/.test(value) || errorMessage.password.specialCharacter;
   const startsWithCapitalCheck = (value: string) =>
     /^[A-Z]/.test(value) || errorMessage.name.capitalLetter;
@@ -45,9 +45,9 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
   const passwordValidation = {
     required: errorMessage.required,
     validate: {
-      letter: passwordLetterCheck,
-      number: passwordNumberCheck,
-      specialCharacter: passwordSpecialCharacterCheck,
+      letter: letterCheck,
+      number: numberCheck,
+      specialCharacter: specialCharacterCheck,
     },
     minLength: {
       value: 8,
@@ -58,7 +58,7 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
   const emailValidation = {
     required: errorMessage.required,
     validate: {
-      patternCheck: emailPatternCheck,
+      emailPattern: emailPatternCheck,
     },
   };
 
