@@ -2,7 +2,38 @@
 
 .request-editor {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   padding: 1vw;
+  &__left-side {
+    display: flex;
+    flex-direction: column;
+  }
+  &__right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &_btn {
+      margin: 0.2vw 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2em;
+      &.icon-broom {
+        background-color: transparent;
+        border-color: $eighth-color;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .request-editor {
+    &__right-side{
+      &_btn:hover > svg > g > g,
+      &_btn:hover > svg > path {
+        fill: $fifth-color;
+      }
+    }
+  }
 }

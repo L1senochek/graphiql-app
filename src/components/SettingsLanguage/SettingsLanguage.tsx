@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '@/components//Btn/Btn';
+import Btn from '@/components/Btn/Btn';
 import styles from './settings-language.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setEng } from '@/store/slices/languageSlice';

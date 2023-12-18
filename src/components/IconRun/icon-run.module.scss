@@ -1,0 +1,11 @@
+@import '@/styles/variables.scss';
+
+.icon-run {
+  width: $width-icon-request;
+  height: $height-icon-request;
+  cursor: pointer;
+  &__set-filled {
+    transition: fill $transition-sec;
+    fill: $main-color;
+  }
+}
