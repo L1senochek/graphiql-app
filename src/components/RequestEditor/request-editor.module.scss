@@ -29,7 +29,7 @@
 
 @media (hover: hover) {
   .request-editor {
-    &__right-side{
+    &__right-side {
       &_btn:hover > svg > g > g,
       &_btn:hover > svg > path {
         fill: $fifth-color;
