@@ -10,7 +10,11 @@ button {
   font-family: inherit;
   color: $main-color;
   background-color: $background-color-btn;
-  transition: border-color $transition-sec;
+  transition:
+    border-color $transition-sec,
+    box-shadow $transition-sec,
+    text-shadow $transition-sec,
+    color $transition-sec;
   cursor: pointer;
 }
 
