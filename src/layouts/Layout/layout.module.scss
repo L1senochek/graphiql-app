@@ -11,3 +11,9 @@
     padding-bottom: 0.8rem;
   }
 }
+
+@media (max-width: 565px) {
+  .main {
+    padding: calc(2rem + 88px) 0;
+  }
+}

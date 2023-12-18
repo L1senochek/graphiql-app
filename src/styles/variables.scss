@@ -35,6 +35,7 @@ $color-link: $sixth-color;
 $color-link-hover: #989eff;
 
 $font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$font-size-error: 0.7rem;
 
 $transition-sec: 0.5s;
 $transitionAll: all $transition-sec ease;
@@ -63,7 +64,7 @@ $height-icon-eye-on: 20px;
 
 $padding-input-form-label: 10px;
 $padding-input-form-input: 10px;
-$width-input-form: 17vw;
+$width-input-form: 18vw;
 $padding-form: 2vw 5vw;
 $background-image-form: radial-gradient(ellipse at 30% 20%, #242424, #0d0d0d);
 $height-error: 23px;

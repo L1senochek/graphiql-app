@@ -6,6 +6,7 @@ interface IInputForm extends InputHTMLAttributes<HTMLInputElement> {
   classNameWrapper?: string;
   classNameLabel?: string;
   titleLabel?: string;
+  error?: string;
 }
 
 export default IInputForm;

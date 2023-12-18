@@ -2,12 +2,14 @@
 
 .settings-language {
   display: flex;
+  width: 100%;
+  justify-content: space-evenly;
   &__item {
-    padding: 0 7%;
+    color: $main-color;
   }
   &__btn {
     padding: 0;
-    width: 75px;
+    width: 44px;
   }
   &__switcher {
     position: relative;
