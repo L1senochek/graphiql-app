@@ -5,9 +5,12 @@
   flex-direction: column;
   border-style: $border-style;
   border-color: $eighth-color;
-  transition: flex $transition-sec;
+  transition: flex $transition-sec,
+    border-width $transition-sec,
+    padding $transition-sec;
   flex: 0;
   border-width: 0;
+  padding: 1vw 0;
   overflow: hidden;
   &.open {
     flex: 1;
