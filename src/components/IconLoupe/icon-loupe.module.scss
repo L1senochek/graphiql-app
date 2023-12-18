@@ -5,8 +5,7 @@
   height: $height-icon-loupe;
   cursor: pointer;
   & > path {
-    transition:
-      stroke $transition-sec;
+    transition: stroke $transition-sec;
     stroke: $main-color;
   }
 }
