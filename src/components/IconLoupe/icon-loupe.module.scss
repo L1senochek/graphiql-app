@@ -1,0 +1,12 @@
+@import '@/styles/variables.scss';
+
+.icon-loupe {
+  width: $width-icon-loupe;
+  height: $height-icon-loupe;
+  cursor: pointer;
+  & > path {
+    transition:
+      stroke $transition-sec;
+    stroke: $main-color;
+  }
+}

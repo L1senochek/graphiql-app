@@ -13,12 +13,15 @@ const TopSection: React.FC = (): JSX.Element => {
   );
   return (
     <div className={styles['top-section']}>
-      <Btn
-        className={styles['top-section__btn']}
-        onClick={() => dispatch(setClickDocBtn(!isClickDocBtn))}
-      >
-        <IconDocs />
-      </Btn>
+      <div className={styles['top-section__left-side']}>
+        <Btn
+          className={styles['top-section__btn']}
+          onClick={() => dispatch(setClickDocBtn(!isClickDocBtn))}
+        >
+          <IconDocs />
+        </Btn>
+        <h4>Hello, User!</h4>
+      </div>
       <h2 className={styles['top-section__title']}>GraphiQL</h2>
       <HeadersEditor />
     </div>
