@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './query-editor-viewer.module.scss';
 import resJson from './resTest.json';
 
@@ -11,10 +11,22 @@ const QueryEditorViewer: React.FC<IQueryEditorViewer> = ({
 }): JSX.Element => {
   const [code, setCode] = useState('');
   const formattedJson = JSON.stringify(resJson, null, 2);
-  const lineNumbers = code.split('\n').map((_, index) => index + 1);
+  const editorRef = useRef<HTMLDivElement>(null);
+  const [lineNumbers, setLineNumbers] = useState<number[]>([1]);
 
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setCode(event.target.value);
+  const handleInput = () => {
+    if (editorRef.current) {
+      const content = editorRef.current.textContent || '';
+      setCode(content);
+      const lineCount = editorRef.current.childElementCount + 1;
+
+      console.log(code, lineCount);
+      const newLineNumbers = Array.from(
+        { length: lineCount },
+        (_, index) => index + 1
+      );
+      setLineNumbers(newLineNumbers);
+    }
   };
 
   return (
@@ -35,13 +47,12 @@ const QueryEditorViewer: React.FC<IQueryEditorViewer> = ({
               </span>
             ))}
           </div>
-          <div className={styles['query-editor-viewer__textarea-wrapper']}>
-            <textarea
-              className={styles['query-editor-viewer__textarea']}
-              value={code}
-              onChange={handleChange}
-            />
-          </div>
+          <div
+            className={styles['query-editor-viewer__code-area']}
+            ref={editorRef}
+            contentEditable
+            onInput={handleInput}
+          ></div>
         </div>
       )}
     </div>

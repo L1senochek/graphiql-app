@@ -5,16 +5,31 @@
     white-space: pre-wrap;
     text-align: left;
     margin-left: 0px;
+    padding: 1vw;
+    overflow-y: auto;
+    height: 500px;
+    &::-webkit-scrollbar {
+      background-color: $eighth-color;
+      background-image: $background-image-code-editor-scrollbar;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $background-image-code-editor-scrollbar-thumb;
+    }
   }
   &__code-editor {
     display: flex;
     justify-content: center;
     padding: 1vw;
     overflow-y: auto;
-    max-height: 80%;
+    height: 500px;
+    background-image: $background-image-code-editor;
+    border-radius: $border-radius;
     &::-webkit-scrollbar {
-      background-color: transparent;
-      width: 0;
+      background-color: $eighth-color;
+      background-image: $background-image-code-editor-scrollbar;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $background-image-code-editor-scrollbar-thumb;
     }
   }
   &__line-numbers {
@@ -26,19 +41,11 @@
       color: $fourth-color;
     }
   }
-  &__textarea {
-    font-size: $font-size-text-area;
+  &__code-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    color: $main-color;
-    background: none;
-    // border-color: transparent;
-    resize: none;
     outline: none;
-    overflow-y: scroll;
-  }
-  &__textarea-wrapper {
-    width: 100%;
   }
 }
