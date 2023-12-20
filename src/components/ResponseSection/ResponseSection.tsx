@@ -1,13 +1,11 @@
+import QueryEditorViewer from '@/components/QueryEditorViewer/QueryEditorViewer';
 import styles from './response-section.module.scss';
-import resJson from './resTest.json';
 
 const ResponseSection: React.FC = (): JSX.Element => {
-  const formattedJson = JSON.stringify(resJson, null, 2);
-
   return (
     <div className={styles['response-section']}>
-      <>ResponseSection</>
-      <pre className={styles['response-section__pre']}>{formattedJson}</pre>
+      <h4>ResponseSection</h4>
+      <QueryEditorViewer viewJson={true} />
     </div>
   );
 };
