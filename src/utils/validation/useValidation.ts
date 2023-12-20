@@ -8,15 +8,16 @@ import { useEffect, useState } from 'react';
 export function useValidation(methods: UseFormReturn<ISignUp>) {
   const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
   const [errorMessage, setErrorMessage] = useState(validationErrors.eng);
-  const { trigger } = methods;
+  const { trigger, formState } = methods;
 
   useEffect(() => {
     setErrorMessage(isEn ? validationErrors.eng : validationErrors.ru);
-  }, [isEn]);
-
-  useEffect(() => {
-    trigger();
-  }, [errorMessage, trigger]);
+    const FormErrors = Object.keys(formState.errors) as Array<keyof ISignUp>;
+    const hasFormErrors = FormErrors.length > 0;
+    if (hasFormErrors) {
+      trigger(FormErrors);
+    }
+  }, [errorMessage, trigger, formState.errors, isEn]);
 
   const letterCheck = (value: string) =>
     /[a-zA-Z]/.test(value) || errorMessage.password.letter;
