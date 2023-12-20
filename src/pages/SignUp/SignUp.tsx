@@ -5,7 +5,7 @@ import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import { SIGN_IN_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
-import { useValidation } from '@/utils/validation/validation';
+import { useValidation } from '@/utils/validation/useValidation';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppDispatch } from '@/store/hooks';
@@ -17,16 +17,16 @@ const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
     mode: 'onChange',
   });
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const content = isEn ? contentJson.eng : contentJson.ru;
   const {
     confirmPasswordValidation,
     passwordValidation,
     emailValidation,
     nameValidation,
   } = useValidation(methods);
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
 
   const signUpformFields: IInputForm[] = [
     {
