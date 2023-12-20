@@ -2,7 +2,7 @@ import styles from './response-section.module.scss';
 import resJson from './resTest.json';
 
 const ResponseSection: React.FC = (): JSX.Element => {
-  const formattedJson = JSON.stringify(resJson, null, 8);
+  const formattedJson = JSON.stringify(resJson, null, 2);
 
   return (
     <div className={styles['response-section']}>
