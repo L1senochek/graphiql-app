@@ -8,7 +8,9 @@ const RequestEditor: React.FC = (): JSX.Element => {
   return (
     <div className={styles['request-editor']}>
       <div className={styles['request-editor__left-side']}>
-        <h4>RequestEditor</h4>
+        <h4 className={styles['request-editor__left-side_title']}>
+          RequestEditor
+        </h4>
         <QueryEditorViewer />
       </div>
       <div className={styles['request-editor__right-side']}>

@@ -8,9 +8,7 @@
   border-color: $eighth-color;
   padding: 1vw;
   flex: 1;
-  &__pre {
-    white-space: pre-wrap;
-    text-align: left;
-    margin-left: 0px;
+  &__title {
+    padding: 1vh 0;
   }
 }
