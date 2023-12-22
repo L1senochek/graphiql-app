@@ -3,7 +3,7 @@
 .query-editor-viewer {
   padding: 1vw;
   background-color: #0000001a;
-  border-radius: 8px;
+  border-radius: $border-radius;
   &__pre {
     white-space: pre-wrap;
     text-align: left;

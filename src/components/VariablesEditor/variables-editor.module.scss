@@ -14,7 +14,7 @@
   }
   &__code-editor {
     background-color: rgba(0, 0, 0, 0.1019607843);
-    border-radius: 8px;
+    border-radius: $border-radius;
     min-height: 8vh;
     max-height: 8vh;
   }

@@ -12,7 +12,9 @@ const DocumentationExplorer: React.FC = (): JSX.Element => {
         isClickDocBtn ? ` ${styles['open']}` : ''
       }`}
     >
-      DocumentationExplorer
+      <h4 className={styles['documentation-explorer__title']}>
+        DocumentationExplorer
+      </h4>
     </div>
   );
 };
