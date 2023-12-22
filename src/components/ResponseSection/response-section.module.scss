@@ -8,8 +8,7 @@
   border-color: $eighth-color;
   padding: 1vw;
   flex: 1;
-  transition:
-    flex $transition-sec,;
+  transition: flex $transition-sec;
   &.doc-open {
     flex: none;
   }
