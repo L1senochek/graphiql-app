@@ -1,0 +1,33 @@
+@import '@/styles/variables.scss';
+
+.top-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: $padding-top-section;
+  &__left-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 17vw;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-btn-icon-docs;
+  }
+  &__title {
+    color: $fifth-color;
+  }
+}
+
+@media (hover: hover) {
+  .top-section {
+    &__btn:hover > svg > path {
+      stroke: $fifth-color;
+      fill: $fifth-color;
+    }
+  }
+}

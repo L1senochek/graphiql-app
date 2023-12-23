@@ -6,6 +6,11 @@
   align-items: flex-end;
   &__btn {
     display: flex;
+    transform: rotate(0deg);
+    transition: transform $transition-sec;
+    &.open {
+      transform: rotate(-180deg);
+    }
   }
   &__menu {
     display: flex;
@@ -29,5 +34,12 @@
       height: $height-menu-settings-open;
       border-style: $border-style;
     }
+  }
+}
+
+@media (hover: hover) {
+  .settings:hover > .settings__btn,
+  .settings__btn:hover {
+    transform: rotate(-180deg);
   }
 }

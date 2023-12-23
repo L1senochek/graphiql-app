@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.request-section');
+
+.request-section {
+  display: flex;
+  justify-content: space-between;
+  border-width: 1px 0 0 0px;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  flex: 1;
+}

@@ -1,0 +1,24 @@
+@import '@/styles/variables.scss';
+
+.documentation-explorer {
+  display: flex;
+  flex-direction: column;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  transition:
+    flex $transition-sec,
+    border-width $transition-sec,
+    padding $transition-sec;
+  flex: 0;
+  border-width: 0;
+  padding: 1vw 0;
+  overflow: hidden;
+  &.open {
+    flex: 1;
+    border-width: 1px 1px 0 0;
+    padding: 1vw;
+  }
+  &__title {
+    padding: 1vh 0;
+  }
+}

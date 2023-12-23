@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+
+.query-editor-viewer {
+  background-color: #0000001a;
+  border-radius: $border-radius;
+  &__pre {
+    white-space: pre-wrap;
+    text-align: left;
+    margin-left: 0px;
+    padding: 1vw;
+    overflow-y: auto;
+    max-height: 50vh;
+    &::-webkit-scrollbar {
+      background-color: $eighth-color;
+      background-image: $background-image-code-editor-scrollbar;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $background-image-code-editor-scrollbar-thumb;
+    }
+  }
+  &__code-editor {
+    min-height: 100px;
+    max-height: 45vh;
+  }
+}

@@ -1,5 +1,6 @@
 import IAuthState from '@/model/store/AuthState';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '@/store/store';
 
 const initialState: IAuthState = {
   auth: false,
@@ -14,6 +15,8 @@ const authSlice = createSlice({
     },
   },
 });
+
+export const selectAuth = (state: RootState) => state.authSlice.auth;
 
 export const { setAuth } = authSlice.actions;
 export default authSlice;

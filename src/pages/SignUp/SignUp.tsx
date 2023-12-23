@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppDispatch } from '@/store/hooks';
 import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
-import { setAuth } from '@/store/slices/AuthSlice';
+import { setAuth } from '@/store/slices/authSlice';
 import ISignUp from '@/model/pages/SignUp/SignUp';
 
 const SignUp: React.FC = (): JSX.Element => {

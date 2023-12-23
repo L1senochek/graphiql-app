@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { RootState } from '@/store/store';
 import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
-import { setAuth } from '@/store/slices/AuthSlice';
+import { setAuth } from '@/store/slices/authSlice';
 import { useValidation } from '@/utils/validation/useValidation';
 
 const SignIn: React.FC = (): JSX.Element => {
