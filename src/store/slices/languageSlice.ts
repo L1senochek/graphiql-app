@@ -1,7 +1,7 @@
 import ILanguageState from '@/model/store/languageState';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import contentHeaderJson from '@/utils/jsons/HeaderContent/headerContent.json';
-import contentGraphiQlJson from '@/utils/jsons/GraphiQlContent/graphiQlContent.json';
+import contentHeaderJson from '@/utils/jsons/headerContent/headerContent.json';
+import contentGraphiQlJson from '@/utils/jsons/graphiQlContent/graphiQlContent.json';
 import { RootState } from '@/store/store';
 
 const initialState: ILanguageState = {

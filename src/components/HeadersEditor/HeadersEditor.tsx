@@ -2,14 +2,20 @@ import { ChangeEvent, useState } from 'react';
 import IconLoupe from '@/components/IconLoupe/IconLoupe';
 import styles from './headers-editor.module.scss';
 import Btn from '@/components/Btn/Btn';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import {
+  selectInputValue,
+  setHeadersInputValue,
+} from '@/store/slices/headerEditorSlice';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);
-  const [headersValue, setHeadersValue] = useState('');
+  const headersValue = useAppSelector(selectInputValue);
+  const dispatch = useAppDispatch();
 
   const headersChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
-    setHeadersValue(value);
+    dispatch(setHeadersInputValue(value));
   };
 
   const btnClick = (): void => {

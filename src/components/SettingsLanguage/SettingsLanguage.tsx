@@ -2,9 +2,11 @@ import React from 'react';
 import Btn from '@/components/Btn/Btn';
 import styles from './settings-language.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { setEng } from '@/store/slices/languageSlice';
-import { RootState } from '@/store/store';
-import contentJson from '@/utils/jsons/HeaderContent/headerContent.json';
+import {
+  selectContentHeader,
+  selectEng,
+  setEng,
+} from '@/store/slices/languageSlice';
 
 const SettingsLanguage: React.FC = ({
   parentClass,
@@ -12,8 +14,8 @@ const SettingsLanguage: React.FC = ({
   parentClass?: string;
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
+  const isEn = useAppSelector(selectEng);
+  const content = useAppSelector(selectContentHeader);
 
   return (
     <div
