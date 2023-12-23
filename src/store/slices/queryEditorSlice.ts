@@ -1,11 +1,5 @@
+import IQueryEditorState from '@/model/store/queryEditorSlice';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-interface IQueryEditorState {
-  requestCode: string;
-  requestLineNumbers: number[];
-  variablesCode: string;
-  variablesLineNumbers: number[];
-}
 
 const initialState: IQueryEditorState = {
   requestCode: `query ExampleQuery($characterId: ID!) {
@@ -23,21 +17,21 @@ const queryEditorSlice = createSlice({
     setRequestCode: (state, action: PayloadAction<string>) => {
       state.requestCode = action.payload;
     },
-    setLineNumbers: (state, action: PayloadAction<number[]>) => {
+    setRequestLineNumbers: (state, action: PayloadAction<number[]>) => {
       state.requestLineNumbers = action.payload;
     },
     setVariablesCode: (state, action: PayloadAction<string>) => {
-      state.requestCode = action.payload;
+      state.variablesCode = action.payload;
     },
     setVariablesLineNumbers: (state, action: PayloadAction<number[]>) => {
-      state.requestLineNumbers = action.payload;
+      state.variablesLineNumbers = action.payload;
     },
   },
 });
 
 export const {
   setRequestCode,
-  setLineNumbers,
+  setRequestLineNumbers,
   setVariablesCode,
   setVariablesLineNumbers,
 } = queryEditorSlice.actions;

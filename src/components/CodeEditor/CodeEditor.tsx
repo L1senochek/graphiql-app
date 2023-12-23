@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import styles from './code-editor.module.scss';
 import ICodeEditorProps from '@/model/components/CodeEditor/CodeEditor';
+import { useAppDispatch } from '@/store/hooks';
 
 const CodeEditor: React.FC<ICodeEditorProps> = ({
   textareaCode,
@@ -10,18 +11,19 @@ const CodeEditor: React.FC<ICodeEditorProps> = ({
   classNameCodeEditor,
 }): JSX.Element => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const dispatch = useAppDispatch();
 
   const handleInput = () => {
     if (textareaRef.current) {
       const content = textareaRef.current.value;
-      setTextareaCode(content);
+      dispatch(setTextareaCode(content));
 
       const lineCount = content.split('\n').length;
       const newLineNumbers = Array.from(
         { length: lineCount },
         (_, index) => index + 1
       );
-      setLineNumbers(newLineNumbers);
+      dispatch(setLineNumbers(newLineNumbers));
     }
   };
 

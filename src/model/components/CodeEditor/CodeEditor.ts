@@ -1,8 +1,10 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+
 interface ICodeEditorProps {
   textareaCode: string;
-  setTextareaCode: React.Dispatch<React.SetStateAction<string>>;
+  setTextareaCode: (value: string) => PayloadAction<string>;
   lineNumbers: number[];
-  setLineNumbers: React.Dispatch<React.SetStateAction<number[]>>;
+  setLineNumbers: (value: number[]) => PayloadAction<number[]>;
   classNameCodeEditor?: string;
 }
 
