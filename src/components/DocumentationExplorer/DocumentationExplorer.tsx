@@ -1,11 +1,12 @@
 import { useAppSelector } from '@/store/hooks';
 import styles from './documentation-explorer.module.scss';
-import { RootState } from '@/store/store';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import { selectClickDocBtn } from '@/store/slices/documentationSlice';
 
 const DocumentationExplorer: React.FC = (): JSX.Element => {
-  const isClickDocBtn = useAppSelector(
-    (state: RootState) => state.documentationSlice.clickDocBtn
-  );
+  const isClickDocBtn = useAppSelector(selectClickDocBtn);
+  const content = useAppSelector(selectContentGraphiQl);
+
   return (
     <div
       className={`${styles['documentation-explorer']}${
@@ -13,7 +14,7 @@ const DocumentationExplorer: React.FC = (): JSX.Element => {
       }`}
     >
       <h4 className={styles['documentation-explorer__title']}>
-        DocumentationExplorer
+        {content.DocumentationExplorerTitle}
       </h4>
     </div>
   );

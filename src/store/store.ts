@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import languageSlice from './slices/languageSlice';
-import authSlice from './slices/AuthSlice';
+import authSlice from './slices/authSlice';
 import documentationSlice from './slices/documentationSlice';
 import queryEditorSlice from './slices/queryEditorSlice';
 

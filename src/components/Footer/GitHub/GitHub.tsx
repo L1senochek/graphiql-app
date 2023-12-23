@@ -3,10 +3,10 @@ import GitHubLogo from '@/components/iconGitHub/iconGitHub';
 import styles from './GitHub.module.scss';
 import GitHubUsers from './GitHubUsers';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
+import { selectEng } from '@/store/slices/languageSlice';
 
 const GitHub: FC = () => {
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
+  const isEn = useAppSelector(selectEng);
 
   return (
     <div className={styles.wrapper}>

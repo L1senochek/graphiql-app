@@ -1,23 +1,24 @@
 import styles from './variables-editor.module.scss';
 import CodeEditor from '@/components/CodeEditor/CodeEditor';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice';
 import {
+  selectVariablesCode,
+  selectVariablesLineNumbers,
   setVariablesCode,
   setVariablesLineNumbers,
 } from '@/store/slices/queryEditorSlice';
 
 const VariablesEditor: React.FC = (): JSX.Element => {
-  const variablesCode = useAppSelector(
-    (state: RootState) => state.queryEditorSlice.variablesCode
-  );
-  const variablesLineNumbers = useAppSelector(
-    (state: RootState) => state.queryEditorSlice.variablesLineNumbers
-  );
+  const variablesCode = useAppSelector(selectVariablesCode);
+  const variablesLineNumbers = useAppSelector(selectVariablesLineNumbers);
+  const content = useAppSelector(selectContentGraphiQl);
 
   return (
     <div className={styles['variables-editor']}>
-      <h4 className={styles['variables-editor__title']}>VariablesEditor</h4>
+      <h4 className={styles['variables-editor__title']}>
+        {content.VariablesEditorTitle}
+      </h4>
       <CodeEditor
         textareaCode={variablesCode}
         setTextareaCode={setVariablesCode}
