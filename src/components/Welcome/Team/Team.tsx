@@ -2,13 +2,11 @@ import { FC } from 'react';
 import styles from './team.module.scss';
 import TeamMember from './TeamMember';
 import { ITeamMember } from '@/model/components/Welcome/Links/Team/Team';
-import contentJson from '@/utils/jsons/WelcomeContent/WelcomeContent.json';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
+import { selectContentWelcome } from '@/store/slices/languageSlice';
 
 const Team: FC = () => {
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
+  const content = useAppSelector(selectContentWelcome);
 
   const teamMembersData: ITeamMember[] = [
     {
