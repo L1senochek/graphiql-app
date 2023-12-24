@@ -7,7 +7,7 @@ import contentSignUpJson from '@/utils/jsons/signUpContent/signUpContent.json';
 import contentWelcomeJson from '@/utils/jsons/welcomeContent/welcomeContent.json';
 import contentValidationErrors from '@/utils/jsons/validationErrors/validationErrors.json';
 import contentErrorMessage from '@/utils/jsons/errorMessage/errorMessage.json';
-
+import contentNotFoundJson from '@/utils/jsons/notFound/notFound.json';
 import { RootState } from '@/store/store';
 
 const initialState: ILanguageState = {
@@ -19,6 +19,7 @@ const initialState: ILanguageState = {
   contentWelcome: contentWelcomeJson.eng,
   contentValidationErrors: contentValidationErrors.eng,
   contentErrorMassage: contentErrorMessage.eng,
+  contentNotFound: contentNotFoundJson.eng,
 };
 
 const languageSlice = createSlice({
@@ -49,6 +50,9 @@ const languageSlice = createSlice({
       state.contentErrorMassage = action.payload
         ? contentErrorMessage.eng
         : contentErrorMessage.ru;
+      state.contentNotFound = action.payload
+        ? contentNotFoundJson.eng
+        : contentNotFoundJson.ru;
     },
   },
 });
@@ -68,6 +72,8 @@ export const selectContentValidationErrors = (state: RootState) =>
   state.languageSlice.contentValidationErrors;
 export const selectContentErrorMessage = (state: RootState) =>
   state.languageSlice.contentErrorMassage;
+export const selectContentNotFound = (state: RootState) =>
+  state.languageSlice.contentNotFound;
 
 export const { setEng } = languageSlice.actions;
 export default languageSlice;
