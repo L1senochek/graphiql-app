@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import contentHeaderJson from '@/utils/jsons/headerContent/headerContent.json';
 import contentGraphiQlJson from '@/utils/jsons/graphiQlContent/graphiQlContent.json';
 import contentSignInJson from '@/utils/jsons/signInContent/signInContent.json';
+import contentSignUpJson from '@/utils/jsons/signUpContent/signUpContent.json';
 import { RootState } from '@/store/store';
 
 const initialState: ILanguageState = {
@@ -10,6 +11,7 @@ const initialState: ILanguageState = {
   contentHeader: contentHeaderJson.eng,
   contentGraphiQl: contentGraphiQlJson.eng,
   contentSignIn: contentSignInJson.eng,
+  contentSignUp: contentSignUpJson.eng,
 };
 
 const languageSlice = createSlice({
@@ -28,6 +30,9 @@ const languageSlice = createSlice({
       state.contentSignIn = action.payload
         ? contentSignInJson.eng
         : contentSignInJson.ru;
+      state.contentSignUp = action.payload
+        ? contentSignUpJson.eng
+        : contentSignUpJson.ru;
     },
   },
 });
@@ -39,6 +44,8 @@ export const selectContentGraphiQl = (state: RootState) =>
   state.languageSlice.contentGraphiQl;
 export const selectContentSignIn = (state: RootState) =>
   state.languageSlice.contentSignIn;
+export const selectContentSignUp = (state: RootState) =>
+  state.languageSlice.contentSignUp;
 
 export const { setEng } = languageSlice.actions;
 export default languageSlice;
