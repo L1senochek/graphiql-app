@@ -1,5 +1,4 @@
 import ISignUp from '@/model/pages/SignUp/SignUp';
-import validationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import { UseFormReturn } from 'react-hook-form';
 import { useAppSelector } from '@/store/hooks';
 import { useEffect, useState } from 'react';
@@ -7,7 +6,7 @@ import { selectContentValidationErrors } from '@/store/slices/languageSlice';
 
 export function useValidation(methods: UseFormReturn<ISignUp>) {
   const content = useAppSelector(selectContentValidationErrors);
-  const [errorMessage, setErrorMessage] = useState(validationErrors.eng);
+  const [errorMessage, setErrorMessage] = useState(content);
   const { trigger, formState } = methods;
 
   useEffect(() => {

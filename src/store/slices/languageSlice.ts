@@ -5,7 +5,9 @@ import contentGraphiQlJson from '@/utils/jsons/graphiQlContent/graphiQlContent.j
 import contentSignInJson from '@/utils/jsons/signInContent/signInContent.json';
 import contentSignUpJson from '@/utils/jsons/signUpContent/signUpContent.json';
 import contentWelcomeJson from '@/utils/jsons/welcomeContent/welcomeContent.json';
-import contentValidationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
+import contentValidationErrors from '@/utils/jsons/validationErrors/validationErrors.json';
+import contentErrorMessage from '@/utils/jsons/errorMessage/errorMessage.json';
+
 import { RootState } from '@/store/store';
 
 const initialState: ILanguageState = {
@@ -16,6 +18,7 @@ const initialState: ILanguageState = {
   contentSignUp: contentSignUpJson.eng,
   contentWelcome: contentWelcomeJson.eng,
   contentValidationErrors: contentValidationErrors.eng,
+  contentErrorMassage: contentErrorMessage.eng,
 };
 
 const languageSlice = createSlice({
@@ -43,6 +46,9 @@ const languageSlice = createSlice({
       state.contentValidationErrors = action.payload
         ? contentValidationErrors.eng
         : contentValidationErrors.ru;
+      state.contentErrorMassage = action.payload
+        ? contentErrorMessage.eng
+        : contentErrorMessage.ru;
     },
   },
 });
@@ -60,6 +66,8 @@ export const selectContentWelcome = (state: RootState) =>
   state.languageSlice.contentWelcome;
 export const selectContentValidationErrors = (state: RootState) =>
   state.languageSlice.contentValidationErrors;
+export const selectContentErrorMessage = (state: RootState) =>
+  state.languageSlice.contentErrorMassage;
 
 export const { setEng } = languageSlice.actions;
 export default languageSlice;
