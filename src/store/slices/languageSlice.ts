@@ -5,6 +5,7 @@ import contentGraphiQlJson from '@/utils/jsons/graphiQlContent/graphiQlContent.j
 import contentSignInJson from '@/utils/jsons/signInContent/signInContent.json';
 import contentSignUpJson from '@/utils/jsons/signUpContent/signUpContent.json';
 import contentWelcomeJson from '@/utils/jsons/welcomeContent/welcomeContent.json';
+import contentValidationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import { RootState } from '@/store/store';
 
 const initialState: ILanguageState = {
@@ -14,6 +15,7 @@ const initialState: ILanguageState = {
   contentSignIn: contentSignInJson.eng,
   contentSignUp: contentSignUpJson.eng,
   contentWelcome: contentWelcomeJson.eng,
+  contentValidationErrors: contentValidationErrors.eng,
 };
 
 const languageSlice = createSlice({
@@ -38,6 +40,9 @@ const languageSlice = createSlice({
       state.contentWelcome = action.payload
         ? contentWelcomeJson.eng
         : contentWelcomeJson.ru;
+      state.contentValidationErrors = action.payload
+        ? contentValidationErrors.eng
+        : contentValidationErrors.ru;
     },
   },
 });
@@ -53,6 +58,8 @@ export const selectContentSignUp = (state: RootState) =>
   state.languageSlice.contentSignUp;
 export const selectContentWelcome = (state: RootState) =>
   state.languageSlice.contentWelcome;
+export const selectContentValidationErrors = (state: RootState) =>
+  state.languageSlice.contentValidationErrors;
 
 export const { setEng } = languageSlice.actions;
 export default languageSlice;
