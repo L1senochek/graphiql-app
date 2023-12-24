@@ -1,10 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import AuthForm from '@/components/AuthForm/AuthForm';
 import { GRAPHI_QL_PATH, SIGN_UP_PATH } from '@/utils/const/const';
-import contentJson from '@/utils/jsons/SignInContent/signInContent.json';
 import IInputForm from '@/model/components/InputForm/InputForm';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
 import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
 import { setAuth } from '@/store/slices/authSlice';
@@ -16,12 +14,12 @@ import {
   setUserEmail,
   setUserUid,
 } from '@/store/slices/firebaseUserSlice';
+import { selectContentSignIn } from '@/store/slices/languageSlice';
 
 const SignIn: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
+  const content = useAppSelector(selectContentSignIn);
   const methods = useForm({
     mode: 'onChange',
   });
