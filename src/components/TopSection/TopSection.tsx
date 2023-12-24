@@ -9,12 +9,14 @@ import {
 import IconDocs from '@/components/IconDocs/IconDocs';
 import { selectContentGraphiQl } from '@/store/slices/languageSlice';
 import { selectAuth } from '@/store/slices/authSlice';
+import { selectFirebaseUser } from '@/store/slices/firebaseUserSlice';
 
 const TopSection: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const isClickDocBtn = useAppSelector(selectClickDocBtn);
   const contentGraphiQl = useAppSelector(selectContentGraphiQl);
   const isAuth = useAppSelector(selectAuth);
+  const userName = useAppSelector(selectFirebaseUser);
   console.log(isAuth, 'isAuth');
 
   return (
@@ -28,7 +30,7 @@ const TopSection: React.FC = (): JSX.Element => {
         </Btn>
         <h4>
           {contentGraphiQl.greetings}
-          {'User'}!
+          {userName.displayName}!
         </h4>
       </div>
       <h2 className={styles['top-section__title']}>{contentGraphiQl.title}</h2>
