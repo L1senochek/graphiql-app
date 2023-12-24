@@ -12,6 +12,12 @@ import { useAppDispatch } from '@/store/hooks';
 import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
 import { setAuth } from '@/store/slices/AuthSlice';
 import ISignUp from '@/model/pages/SignUp/SignUp';
+import {
+  setUserDisplayName,
+  setUserEmail,
+  setUserUid,
+} from '@/store/slices/firebaseUserSlice';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -59,11 +65,30 @@ const SignUp: React.FC = (): JSX.Element => {
     },
   ];
 
-  const onSubmit: SubmitHandler<ISignUp> = (data): void => {
+  const onSubmit: SubmitHandler<ISignUp> = async (data): Promise<void> => {
     if (methods.formState.isValid) {
-      registerWithEmailAndPassword(data.name!, data.email!, data.password!);
-      dispatch(setAuth(true));
-      navigate(GRAPHI_QL_PATH);
+      await registerWithEmailAndPassword(
+        data.name!,
+        data.email!,
+        data.password!
+      );
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const uid = user.uid;
+          const email = user.email;
+          const displayName = user.displayName;
+
+          dispatch(setUserUid(uid));
+          dispatch(setUserEmail(email!));
+          dispatch(setUserDisplayName(displayName!));
+          dispatch(setAuth(true));
+
+          navigate(GRAPHI_QL_PATH);
+        } else {
+          // User is signed out
+        }
+      });
     }
   };
 

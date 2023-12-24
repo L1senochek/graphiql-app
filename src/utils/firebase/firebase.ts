@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -19,10 +20,10 @@ import { FirebaseError } from '@firebase/util';
 import { firebaseConfig } from './firebaseConfig';
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
+
 export const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -73,6 +74,10 @@ export const registerWithEmailAndPassword = async (
       authProvider: 'local',
       email,
     });
+    await updateProfile(user, {
+      displayName: name,
+    });
+    return user;
   } catch (err) {
     console.error(err);
     if (err && err instanceof FirebaseError) {

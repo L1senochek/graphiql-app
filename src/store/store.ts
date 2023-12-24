@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import languageSlice from './slices/languageSlice';
 import authSlice from './slices/AuthSlice';
+import firebaseUserSlice from './slices/firebaseUserSlice';
 
 const rootReducer = combineReducers({
   languageSlice: languageSlice.reducer,
   authSlice: authSlice.reducer,
+  firebaseUserSlice: firebaseUserSlice.reducer,
 });
 
 export const store = () => {

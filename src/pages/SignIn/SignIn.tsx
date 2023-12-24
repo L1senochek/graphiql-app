@@ -9,6 +9,13 @@ import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
 import { setAuth } from '@/store/slices/AuthSlice';
 import { useValidation } from '@/utils/validation/useValidation';
+import { logInWithEmailAndPassword } from '@/utils/firebase/firebase';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import {
+  setUserDisplayName,
+  setUserEmail,
+  setUserUid,
+} from '@/store/slices/firebaseUserSlice';
 
 const SignIn: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -39,10 +46,25 @@ const SignIn: React.FC = (): JSX.Element => {
 
   const onSubmit: SubmitHandler<ISignIn> = (data): void => {
     if (methods.formState.isValid) {
-      console.log(data);
-
+      logInWithEmailAndPassword(data.email!, data.password!);
       dispatch(setAuth(true));
-      navigate(GRAPHI_QL_PATH);
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const uid = user.uid;
+          const email = user.email;
+          const displayName = user.displayName;
+
+          dispatch(setUserUid(uid));
+          dispatch(setUserEmail(email!));
+          dispatch(setUserDisplayName(displayName!));
+          dispatch(setAuth(true));
+
+          navigate(GRAPHI_QL_PATH);
+        } else {
+          // User is signed out
+        }
+      });
     }
   };
 
