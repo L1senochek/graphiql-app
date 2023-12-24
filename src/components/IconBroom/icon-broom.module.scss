@@ -1,0 +1,11 @@
+@import '@/styles/variables.scss';
+
+.icon-broom {
+  width: $width-icon-request;
+  height: $height-icon-request;
+  cursor: pointer;
+  & > path {
+    transition: fill $transition-sec;
+    fill: $main-color;
+  }
+}

@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+
+.variables-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-width: 1px 0 0 0;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  padding: 1vw;
+  &__title {
+    padding-bottom: 1vw;
+  }
+  &__code-editor {
+    background-color: rgba(0, 0, 0, 0.1019607843);
+    border-radius: $border-radius;
+    min-height: 8vh;
+    max-height: 8vh;
+  }
+}

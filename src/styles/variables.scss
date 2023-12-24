@@ -68,3 +68,36 @@ $width-input-form: 18vw;
 $padding-form: 2vw 5vw;
 $background-image-form: radial-gradient(ellipse at 30% 20%, #242424, #0d0d0d);
 $height-error: 23px;
+
+$background-image-graphi-ql: radial-gradient(
+  ellipse at 30% 10%,
+  #232323,
+  #020202
+);
+
+$margin-separator: 0.5vw;
+$padding-top-section: 0.5vw 2vw;
+
+$width-icon-docs: 30px;
+$height-icon-docs: 30px;
+$padding-btn-icon-docs: 0.2em 1.2em;
+
+$width-icon-loupe: 25px;
+$height-icon-loupe: 25px;
+$padding-btn-icon-loupe: 0.2em;
+
+$width-icon-request: 25px;
+$height-icon-request: 25px;
+$padding-btn-icon-request: 0.2em;
+
+$background-image-code-editor: radial-gradient(
+  ellipse at 30% 10%,
+  #282828,
+  rgb(4 6 4 / 92%)
+);
+$background-image-code-editor-scrollbar: radial-gradient(
+  ellipse at 30% 10%,
+  #282828,
+  #020202
+);
+$background-image-code-editor-scrollbar-thumb: rgb(4 6 4 / 42%);

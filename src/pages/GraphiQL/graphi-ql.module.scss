@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.graphi-ql');
+
+.graphi-ql {
+  width: 100%;
+  height: 82vh;
+  border-radius: $border-radius;
+  border-width: $border-width;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  background-image: $background-image-graphi-ql;
+  &__separator {
+    border-color: $eighth-color;
+    margin-bottom: $margin-separator;
+    width: 94%;
+  }
+}

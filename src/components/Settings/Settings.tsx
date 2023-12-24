@@ -11,14 +11,16 @@ const Settings: React.FC<ISettings> = ({ parentClass }): JSX.Element => {
       className={`${styles['settings']}${parentClass ? ` ${parentClass}` : ''}`}
     >
       <div
-        className={styles['settings__btn']}
+        className={`${styles['settings__btn']}${
+          isMenuOpen ? ` ${styles['open']}` : ''
+        }`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <IconSettings />
       </div>
       <div
-        className={`${styles['settings__menu']} ${
-          isMenuOpen ? styles['open'] : ''
+        className={`${styles['settings__menu']}${
+          isMenuOpen ? ` ${styles['open']}` : ''
         }`}
       >
         <SettingsLanguage />

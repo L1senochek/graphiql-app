@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.icon-docs {
+  width: $width-icon-docs;
+  height: $height-icon-docs;
+  cursor: pointer;
+  & > path {
+    transition:
+      stroke $transition-sec,
+      fill $transition-sec;
+    stroke: $main-color;
+    fill: $main-color;
+  }
+}

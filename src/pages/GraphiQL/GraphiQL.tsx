@@ -1,20 +1,15 @@
-import { useAppSelector } from '@/store/hooks';
-import { selectFirebaseUser } from '@/store/slices/firebaseUserSlice';
-import { RootState } from '@/store/store';
-import { auth, logout } from '@/utils/firebase/firebase';
-import { useEffect } from 'react';
+import TopSection from '@/components/TopSection/TopSection';
+import MiddleSection from '@/components/MiddleSection/MiddleSection';
+import styles from './graphi-ql.module.scss';
 
 const GraphiQL: React.FC = (): JSX.Element => {
-  const isAuth = useAppSelector((state: RootState) => state.authSlice.auth);
-  console.log(isAuth, 'isAuth');
-  const user = useAppSelector(selectFirebaseUser);
-  console.log(user, 'user');
-
-  useEffect(() => {
-    console.log(auth, 'authhhhhhh');
-  }, []);
-
-  return <div onClick={logout}>GraphiQL</div>;
+  return (
+    <div className={styles['graphi-ql']}>
+      <TopSection />
+      <hr className={styles['graphi-ql__separator']} />
+      <MiddleSection />
+    </div>
+  );
 };
 
 export default GraphiQL;
