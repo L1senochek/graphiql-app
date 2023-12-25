@@ -1,6 +1,6 @@
 @import '@/styles/variables.scss';
 
-.headers-editor {
+.server-address {
   display: flex;
   &__wrapper {
     display: flex;
@@ -39,7 +39,7 @@
 }
 
 @media (hover: hover) {
-  .headers-editor {
+  .server-address {
     &__wrapper:hover {
       border-color: $background-color-btn-hover;
       box-shadow: $box-shadow-btn;

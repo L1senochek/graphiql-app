@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import IconLoupe from '@/components/IconLoupe/IconLoupe';
-import styles from './headers-editor.module.scss';
+import styles from './server-address.module.scss';
 import Btn from '@/components/Btn/Btn';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
@@ -8,7 +8,7 @@ import {
   setHeadersInputValue,
 } from '@/store/slices/headerEditorSlice';
 
-const HeadersEditor: React.FC = (): JSX.Element => {
+const ServerAddress: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);
   const headersValue = useAppSelector(selectInputValue);
   const dispatch = useAppDispatch();
@@ -26,20 +26,20 @@ const HeadersEditor: React.FC = (): JSX.Element => {
     event.key === 'Enter' ? btnClick() : null;
 
   return (
-    <div className={styles['headers-editor']}>
+    <div className={styles['server-address']}>
       <div
-        className={`${styles['headers-editor__wrapper']}${
+        className={`${styles['server-address__wrapper']}${
           isFocused ? ` ${styles['focused']}` : ''
         }`}
       >
-        <Btn className={styles['headers-editor__loupe']} onClick={btnClick}>
+        <Btn className={styles['server-address__loupe']} onClick={btnClick}>
           <IconLoupe />
         </Btn>
         <input
-          className={styles['headers-editor__input']}
+          className={styles['server-address__input']}
           type="search"
           placeholder="http://api-example.com"
-          id="headers-editor"
+          id="server-address"
           value={headersValue}
           onChange={headersChange}
           onKeyUp={keyUp}
@@ -51,4 +51,4 @@ const HeadersEditor: React.FC = (): JSX.Element => {
   );
 };
 
-export default HeadersEditor;
+export default ServerAddress;

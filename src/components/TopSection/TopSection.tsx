@@ -1,4 +1,4 @@
-import HeadersEditor from '@/components/HeadersEditor/HeadersEditor';
+import ServerAddress from '@/components/ServerAddress/ServerAddress';
 import Btn from '@/components/Btn/Btn';
 import styles from './top-section.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -32,7 +32,7 @@ const TopSection: React.FC = (): JSX.Element => {
         </h4>
       </div>
       <h2 className={styles['top-section__title']}>{contentGraphiQl.title}</h2>
-      <HeadersEditor />
+      <ServerAddress />
     </div>
   );
 };
