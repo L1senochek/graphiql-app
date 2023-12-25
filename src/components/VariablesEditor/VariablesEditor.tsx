@@ -2,30 +2,61 @@ import styles from './variables-editor.module.scss';
 import CodeEditor from '@/components/CodeEditor/CodeEditor';
 import { useAppSelector } from '@/store/hooks';
 import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import HeadersEditor from '@/components/HeadersEditor/HeadersEditor';
 import {
   selectVariablesCode,
   selectVariablesLineNumbers,
   setVariablesCode,
   setVariablesLineNumbers,
 } from '@/store/slices/queryEditorSlice';
+import { useState } from 'react';
 
 const VariablesEditor: React.FC = (): JSX.Element => {
   const variablesCode = useAppSelector(selectVariablesCode);
   const variablesLineNumbers = useAppSelector(selectVariablesLineNumbers);
   const content = useAppSelector(selectContentGraphiQl);
 
+  const [activeTab, setActiveTab] = useState(content.HeadersTitle);
+
+  const handleTabClick = (tabName: string) => setActiveTab(tabName);
+
   return (
     <div className={styles['variables-editor']}>
-      <h4 className={styles['variables-editor__title']}>
-        {content.VariablesEditorTitle}
-      </h4>
-      <CodeEditor
-        textareaCode={variablesCode}
-        setTextareaCode={setVariablesCode}
-        lineNumbers={variablesLineNumbers}
-        setLineNumbers={setVariablesLineNumbers}
-        classNameCodeEditor={styles['variables-editor__code-editor']}
-      />
+      <div className={styles['variables-editor__tabs']}>
+        <div className={styles['variables-editor__tabs_wrapper']}>
+          <div
+            className={`${styles['variables-editor__tabs_item']}${
+              activeTab === content.HeadersTitle
+                ? ` ${styles['active-tab']}`
+                : ''
+            }`}
+            onClick={() => handleTabClick(content.HeadersTitle)}
+          >
+            {content.HeadersTitle}
+          </div>
+          <div
+            className={`${styles['variables-editor__tabs_item']}${
+              activeTab === content.VariablesEditorTitle
+                ? ` ${styles['active-tab']}`
+                : ''
+            }`}
+            onClick={() => handleTabClick(content.VariablesEditorTitle)}
+          >
+            {content.VariablesEditorTitle}
+          </div>
+          <div className={styles['variables-editor__tabs_line']}></div>
+        </div>
+      </div>
+      {activeTab === content.VariablesEditorTitle && (
+        <CodeEditor
+          textareaCode={variablesCode}
+          setTextareaCode={setVariablesCode}
+          lineNumbers={variablesLineNumbers}
+          setLineNumbers={setVariablesLineNumbers}
+          classNameCodeEditor={styles['variables-editor__code-editor']}
+        />
+      )}
+      {activeTab === content.HeadersTitle && <HeadersEditor />}
     </div>
   );
 };

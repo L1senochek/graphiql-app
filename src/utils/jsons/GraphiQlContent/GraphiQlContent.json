@@ -5,6 +5,7 @@
     "DocumentationExplorerTitle": "Documentation Explorer",
     "RequestEditorTitle": "Request Editor",
     "VariablesEditorTitle": "Variables Editor",
+    "HeadersTitle": "Headers",
     "ResponseSectionTitle": "Response Section"
   },
   "ru": {
@@ -13,6 +14,7 @@
     "DocumentationExplorerTitle": "Проводник Документации",
     "RequestEditorTitle": "Редактор запросов",
     "VariablesEditorTitle": "Редактор переменных",
+    "HeadersTitle": "Заголовок",
     "ResponseSectionTitle": "Секция ответов"
   }
 }

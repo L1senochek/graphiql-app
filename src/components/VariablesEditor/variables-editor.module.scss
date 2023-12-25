@@ -9,8 +9,39 @@
   border-style: $border-style;
   border-color: $eighth-color;
   padding: 1vw;
-  &__title {
-    padding-bottom: 1vw;
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1vw;
+    &_wrapper {
+      display: flex;
+      width: 96%;
+      padding-bottom: 1vw;
+    }
+    &_item {
+      padding: 0 1vw;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $eighth-color;
+      border-radius: $border-radius;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      background-color: #2e683717;
+      transition:
+        border-bottom-color $transition-sec,
+        background-color $transition-sec;
+      cursor: pointer;
+      &.active-tab {
+        border-bottom-color: transparent;
+        background-color: transparent;
+      }
+    }
+    &_line {
+      flex: 1;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-color: $eighth-color;
+    }
   }
   &__code-editor {
     background-color: rgba(0, 0, 0, 0.1019607843);
