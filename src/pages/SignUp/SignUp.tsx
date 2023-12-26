@@ -36,8 +36,6 @@ const SignUp: React.FC = (): JSX.Element => {
   } = useValidation(methods);
   const [error, setError] = useState<string | null>(null);
 
-  const closeModal = (): void => setError(null);
-
   const signUpformFields: IInputForm[] = [
     {
       registerInput: 'name',
@@ -100,6 +98,8 @@ const SignUp: React.FC = (): JSX.Element => {
       }
     }
   };
+
+  const closeModal = (): void => setError(null);
 
   return (
     <>
