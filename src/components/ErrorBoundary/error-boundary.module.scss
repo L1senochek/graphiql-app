@@ -1,0 +1,22 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.error');
+
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  &__title {
+    padding: $error-title-padding;
+  }
+  &__img-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $error-title-padding;
+  }
+}
