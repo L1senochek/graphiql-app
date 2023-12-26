@@ -9,13 +9,18 @@
   border-style: $border-style;
   border-color: $eighth-color;
   padding: 1vw;
+  &.active > &:last-child {
+    height: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: height $transition-sec;
+  }
   &__tabs {
     display: flex;
     flex-direction: column;
     padding: 0 1vw;
     &_wrapper {
       display: flex;
-      width: 96%;
       padding-bottom: 1vw;
     }
     &_item {
@@ -41,6 +46,20 @@
       border-bottom-style: solid;
       border-bottom-width: 1px;
       border-color: $eighth-color;
+    }
+    &_arrow-wrapper {
+      display: flex;
+      width: 30px;
+      margin-left: 10px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition:
+        transform $transition-sec,
+        padding $transition-sec;
+      &.active {
+        transform: rotate(180deg);
+      }
     }
   }
   &__code-editor {

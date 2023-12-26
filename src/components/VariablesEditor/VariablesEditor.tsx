@@ -10,6 +10,7 @@ import {
   setVariablesLineNumbers,
 } from '@/store/slices/queryEditorSlice';
 import { useState } from 'react';
+import IconDoubleArrow from '@/components/IconDoubleArrow/IconDoubleArrow';
 
 const VariablesEditor: React.FC = (): JSX.Element => {
   const variablesCode = useAppSelector(selectVariablesCode);
@@ -17,11 +18,16 @@ const VariablesEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);
 
   const [activeTab, setActiveTab] = useState(content.HeadersTitle);
+  const [activeWindow, setActiveWindow] = useState(true);
 
   const handleTabClick = (tabName: string) => setActiveTab(tabName);
 
   return (
-    <div className={styles['variables-editor']}>
+    <div
+      className={`${styles['variables-editor']}${
+        !activeWindow ? ` ${styles['active']}` : ''
+      }`}
+    >
       <div className={styles['variables-editor__tabs']}>
         <div className={styles['variables-editor__tabs_wrapper']}>
           <div
@@ -45,6 +51,14 @@ const VariablesEditor: React.FC = (): JSX.Element => {
             {content.VariablesEditorTitle}
           </div>
           <div className={styles['variables-editor__tabs_line']}></div>
+          <div
+            className={`${styles['variables-editor__tabs_arrow-wrapper']}${
+              !activeWindow ? ` ${styles['active']}` : ''
+            }`}
+            onClick={() => setActiveWindow(!activeWindow)}
+          >
+            <IconDoubleArrow />
+          </div>
         </div>
       </div>
       {activeTab === content.VariablesEditorTitle && (
