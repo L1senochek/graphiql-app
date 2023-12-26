@@ -4,6 +4,7 @@ import IContentWelcome from '@/model/jsons/contentWelcome';
 import IContentValidationErrors from '@/model/jsons/contentValidationErrors';
 import IContentErrorMessage from '@/model/jsons/contentErrorMessage';
 import IContentNotFound from '@/model/jsons/contentNotFound';
+import IContentErrorModal from '@/model/jsons/contentErrorModal';
 
 interface ILanguageState {
   eng: boolean;
@@ -15,6 +16,7 @@ interface ILanguageState {
   contentValidationErrors: IContentValidationErrors;
   contentErrorMassage: IContentErrorMessage;
   contentNotFound: IContentNotFound;
+  contentErrorModal: IContentErrorModal;
 }
 
 export default ILanguageState;
