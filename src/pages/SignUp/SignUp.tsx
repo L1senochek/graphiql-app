@@ -1,10 +1,9 @@
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import AuthForm from '@/components/AuthForm/AuthForm';
 import IInputForm from '@/model/components/InputForm/InputForm';
-import contentJson from '@/utils/jsons/SignUpContent/signUpContent.json';
 import { SIGN_IN_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
 import { useValidation } from '@/utils/validation/useValidation';
 import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
@@ -12,6 +11,15 @@ import { useAppDispatch } from '@/store/hooks';
 import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
 import { setAuth } from '@/store/slices/authSlice';
 import ISignUp from '@/model/pages/SignUp/SignUp';
+import {
+  setUserDisplayName,
+  setUserEmail,
+  setUserUid,
+} from '@/store/slices/firebaseUserSlice';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { selectContentSignUp } from '@/store/slices/languageSlice';
+import { FirebaseError } from 'firebase/app';
+import ErrorModal from '@/components/ErrorModal/ErrorModal';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -19,14 +27,14 @@ const SignUp: React.FC = (): JSX.Element => {
   });
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const content = isEn ? contentJson.eng : contentJson.ru;
+  const content = useAppSelector(selectContentSignUp);
   const {
     confirmPasswordValidation,
     passwordValidation,
     emailValidation,
     nameValidation,
   } = useValidation(methods);
+  const [error, setError] = useState<string | null>(null);
 
   const signUpformFields: IInputForm[] = [
     {
@@ -59,13 +67,39 @@ const SignUp: React.FC = (): JSX.Element => {
     },
   ];
 
-  const onSubmit: SubmitHandler<ISignUp> = (data): void => {
+  const onSubmit: SubmitHandler<ISignUp> = async (data): Promise<void> => {
     if (methods.formState.isValid) {
-      registerWithEmailAndPassword(data.name!, data.email!, data.password!);
-      dispatch(setAuth(true));
-      navigate(GRAPHI_QL_PATH);
+      try {
+        await registerWithEmailAndPassword(
+          data.name!,
+          data.email!,
+          data.password!
+        );
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const uid = user.uid;
+            const email = user.email;
+            const displayName = user.displayName;
+
+            dispatch(setUserUid(uid));
+            dispatch(setUserEmail(email!));
+            dispatch(setUserDisplayName(displayName!));
+            dispatch(setAuth(true));
+
+            navigate(GRAPHI_QL_PATH);
+          }
+        });
+      } catch (err) {
+        console.error(err);
+        if (err && err instanceof FirebaseError) {
+          setError(err.message);
+        }
+      }
     }
   };
+
+  const closeModal = (): void => setError(null);
 
   return (
     <>
@@ -76,6 +110,7 @@ const SignUp: React.FC = (): JSX.Element => {
         onSubmit={onSubmit}
         methods={methods}
       />
+      {error && <ErrorModal errorMessage={error} onClose={closeModal} />}
     </>
   );
 };

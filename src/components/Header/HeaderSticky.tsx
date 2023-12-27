@@ -12,6 +12,7 @@ import Settings from '@/components/Settings/Settings';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selectAuth, setAuth } from '@/store/slices/authSlice';
 import { selectContentHeader } from '@/store/slices/languageSlice';
+import { logout } from '@/utils/firebase/firebase';
 
 const Header: React.FC = (): JSX.Element => {
   const [isSticky, setIsSticky] = useState(false);
@@ -35,6 +36,12 @@ const Header: React.FC = (): JSX.Element => {
     };
   }, []);
 
+  const signOutClick = () => {
+    dispatch(setAuth(false));
+    logout();
+    navigate(INITIAL_PATH);
+  };
+
   return (
     <>
       <header
@@ -54,7 +61,11 @@ const Header: React.FC = (): JSX.Element => {
             </Link>
           </div>
           <div className={styles['header__right-side']}>
-            <div className={styles['header__btn-wrapper']}>
+            <div
+              className={`${styles['header__btn-wrapper']}${
+                isAuth ? ` ${styles['is-auth']}` : ''
+              }`}
+            >
               {!isAuth ? (
                 <>
                   <Btn
@@ -71,10 +82,7 @@ const Header: React.FC = (): JSX.Element => {
                   </Btn>
                 </>
               ) : (
-                <Btn
-                  className={styles['header__btn']}
-                  onClick={() => dispatch(setAuth(false))}
-                >
+                <Btn className={styles['header__btn']} onClick={signOutClick}>
                   {content.btnSignOut}
                 </Btn>
               )}

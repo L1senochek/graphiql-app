@@ -45,6 +45,9 @@
     display: flex;
     width: 80%;
     justify-content: space-between;
+    &.is-auth {
+      justify-content: flex-end;
+    }
   }
   &__btn {
     width: 45%;
