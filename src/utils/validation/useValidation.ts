@@ -36,7 +36,7 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
     /^\S+@\S+\.\S+$/.test(value) || errorMessage.email.validEmail;
 
   const confirmPasswordValidation = {
-    required: errorMessage.required,
+    required: 'errorMessage.required',
     validate: {
       matchesPreviousPassword: matchesPreviousPasswordCheck,
     },

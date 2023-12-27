@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import languageSlice from './slices/languageSlice';
 import firebaseUserSlice from './slices/firebaseUserSlice';
-import authSlice from './slices/authSlice';
+import authSlice from './slices/AuthSlice';
 import documentationSlice from './slices/documentationSlice';
 import queryEditorSlice from './slices/queryEditorSlice';
 import headersEditorSlice from './slices/headerEditorSlice';
