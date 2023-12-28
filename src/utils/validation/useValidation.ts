@@ -1,23 +1,22 @@
 import ISignUp from '@/model/pages/SignUp/SignUp';
-import validationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import { UseFormReturn } from 'react-hook-form';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
 import { useEffect, useState } from 'react';
+import { selectContentValidationErrors } from '@/store/slices/languageSlice';
 
 export function useValidation(methods: UseFormReturn<ISignUp>) {
-  const isEn = useAppSelector((state: RootState) => state.languageSlice.eng);
-  const [errorMessage, setErrorMessage] = useState(validationErrors.eng);
+  const content = useAppSelector(selectContentValidationErrors);
+  const [errorMessage, setErrorMessage] = useState(content);
   const { trigger, formState } = methods;
 
   useEffect(() => {
-    setErrorMessage(isEn ? validationErrors.eng : validationErrors.ru);
+    setErrorMessage(content);
     const FormErrors = Object.keys(formState.errors) as Array<keyof ISignUp>;
     const hasFormErrors = FormErrors.length > 0;
     if (hasFormErrors) {
       trigger(FormErrors);
     }
-  }, [errorMessage, trigger, formState.errors, isEn]);
+  }, [errorMessage, trigger, formState.errors, content]);
 
   const letterCheck = (value: string) =>
     /[a-zA-Z]/.test(value) || errorMessage.password.letter;

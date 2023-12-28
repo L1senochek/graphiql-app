@@ -1,0 +1,12 @@
+{
+  "eng": {
+    "title": "Page not found!",
+    "message": "404",
+    "link": "Home"
+  },
+  "ru": {
+    "title": "Страница не найдена!",
+    "message": "404",
+    "link": "Домой"
+  }
+}

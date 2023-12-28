@@ -2,10 +2,10 @@ import { FC } from 'react';
 import LinkLoginRegistr from './LinkLoginRegistr';
 import LinkMain from './LinkMain';
 import { useAppSelector } from '@/store/hooks';
-import { RootState } from '@/store/store';
+import { selectAuth } from '@/store/slices/authSlice';
 
 const Link: FC = () => {
-  const isAuth = useAppSelector((state: RootState) => state.authSlice.auth);
+  const isAuth = useAppSelector(selectAuth);
 
   return !isAuth ? <LinkLoginRegistr /> : <LinkMain />;
 };

@@ -1,7 +1,11 @@
+@import '@/styles/variables.scss';
+
 .wrapper {
   display: flex;
   gap: 1rem;
+  width: $width-footer-items;
 }
+
 .github {
   display: flex;
   align-items: center;
