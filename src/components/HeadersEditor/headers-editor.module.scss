@@ -1,10 +1,51 @@
 @import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.headers-editor');
 
 .headers-editor {
-  display: flex;
+  justify-content: space-between;
   min-height: 8vh;
   max-height: 8vh;
   transition:
     min-height $transition-sec,
     max-height $transition-sec;
+  &__item {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0.2vw 0;
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      overflow-y: scroll;
+    }
+    &_input {
+      border-radius: $border-radius;
+      border-width: $border-width;
+      border-style: $border-style;
+      border-color: $eighth-color;
+      padding: 0 1vw;
+      outline: none;
+    }
+    &_btn-del {
+      padding: 0em 1.2em;
+    }
+  }
+  &__btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.2em;
+      border-color: $eighth-color;
+      background-color: transparent;
+    }
+  }
 }
