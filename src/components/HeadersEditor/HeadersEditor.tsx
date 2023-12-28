@@ -67,7 +67,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
           type="button"
           onClick={handleAddHeader}
         >
-          New header
+          + New header
         </Btn>
         <Btn
           className={styles['headers-editor__btn-wrapper_item']}
