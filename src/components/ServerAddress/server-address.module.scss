@@ -17,7 +17,7 @@
       text-shadow $transition-sec,
       color $transition-sec;
     &.focused {
-      border-color: $background-color-btn-hover;
+      border-color: $background-color-input-hover;
       box-shadow: $box-shadow-btn;
     }
   }

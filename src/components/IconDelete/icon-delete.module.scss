@@ -7,7 +7,10 @@
     stroke: $main-color;
     transition: stroke $transition-sec;
   }
-  &:hover > path {
+}
+
+@media (hover: hover) {
+  .icon-delete:hover > path {
     stroke: $fifth-color;
   }
 }

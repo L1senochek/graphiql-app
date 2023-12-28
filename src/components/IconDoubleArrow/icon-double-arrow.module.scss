@@ -7,7 +7,12 @@
     fill: $main-color;
     transition: fill $transition-sec;
   }
-  &:hover > &__path {
-    fill: $fifth-color;
+}
+
+@media (hover: hover) {
+  .icon-double-arrow {
+    &:hover > &__path {
+      fill: $fifth-color;
+    }
   }
 }
