@@ -2,6 +2,9 @@
 
 .code-editor {
   overflow-y: auto;
+  transition:
+    min-height $transition-sec,
+    max-height $transition-sec;
   &::-webkit-scrollbar {
     background-color: $eighth-color;
     background-image: $background-image-code-editor-scrollbar;

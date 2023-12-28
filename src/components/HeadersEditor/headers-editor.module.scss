@@ -4,4 +4,7 @@
   display: flex;
   min-height: 8vh;
   max-height: 8vh;
+  transition:
+    min-height $transition-sec,
+    max-height $transition-sec;
 }

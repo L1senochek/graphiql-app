@@ -9,11 +9,10 @@
   border-style: $border-style;
   border-color: $eighth-color;
   padding: 1vw;
-  &.active > &:last-child {
-    height: 0px;
+  &.active > :last-child {
+    min-height: 0px;
     max-height: 0px;
     overflow: hidden;
-    transition: height $transition-sec;
   }
   &__tabs {
     display: flex;
