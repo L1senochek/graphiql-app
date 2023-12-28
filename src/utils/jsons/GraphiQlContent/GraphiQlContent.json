@@ -6,7 +6,12 @@
     "RequestEditorTitle": "Request Editor",
     "VariablesEditorTitle": "Variables Editor",
     "HeadersTitle": "Headers",
-    "ResponseSectionTitle": "Response Section"
+    "ResponseSectionTitle": "Response Section",
+    "headersPlaceholderKey": "header key",
+    "headersPlaceholderValue": "value",
+    "headersBtnNameHeader": "+ New header",
+    "headersBtnNameSetHeader": "Set shared headers",
+    "headersBtnTitleDel": "delete"
   },
   "ru": {
     "title": "GraphiQL",
@@ -15,6 +20,11 @@
     "RequestEditorTitle": "Редактор запросов",
     "VariablesEditorTitle": "Редактор переменных",
     "HeadersTitle": "Заголовок",
-    "ResponseSectionTitle": "Секция ответов"
+    "ResponseSectionTitle": "Секция ответов",
+    "headersPlaceholderKey": "ключ заголовка",
+    "headersPlaceholderValue": "значение",
+    "headersBtnNameHeader": "+ Новый заголовок",
+    "headersBtnNameSetHeader": "Установить общие заголовки",
+    "headersBtnTitleDel": "удалить"
   }
 }

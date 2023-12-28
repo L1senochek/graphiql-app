@@ -4,11 +4,14 @@ import styles from './headers-editor.module.scss';
 import IHeaders from '@/model/components/HeadersEditor/HeadersEditor';
 import IconDelete from '@/components/IconDelete/IconDelete';
 import HeaderInputName from '@/model/components/HeadersEditor/HeaderInputName';
+import { useAppSelector } from '@/store/hooks';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
   const [headers, setHeaders] = useState<IHeaders[]>([
     { headerKey: '', value: '' },
   ]);
+  const content = useAppSelector(selectContentGraphiQl);
 
   const handleAddHeader = () =>
     setHeaders([...headers, { headerKey: '', value: '' }]);
@@ -45,7 +48,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
             <input
               type="text"
               className={styles['headers-editor__item_input']}
-              placeholder="header key"
+              placeholder={content.headersPlaceholderKey}
               value={header.headerKey}
               onChange={(e) =>
                 handleHeaderChange(
@@ -58,7 +61,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
             <input
               type="text"
               className={styles['headers-editor__item_input']}
-              placeholder="value"
+              placeholder={content.headersPlaceholderValue}
               value={header.value}
               onChange={(e) =>
                 handleHeaderChange(index, HeaderInputName.VALUE, e.target.value)
@@ -68,6 +71,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
               className={styles['headers-editor__item_btn-del']}
               type="button"
               onClick={() => handleRemoveHeader(index)}
+              title={content.headersBtnTitleDel}
             >
               <IconDelete />
             </Btn>
@@ -80,13 +84,13 @@ const HeadersEditor: React.FC = (): JSX.Element => {
           type="button"
           onClick={handleAddHeader}
         >
-          + New header
+          {content.headersBtnNameHeader}
         </Btn>
         <Btn
           className={styles['headers-editor__btn-wrapper_item']}
           type="submit"
         >
-          Set shared headers
+          {content.headersBtnNameSetHeader}
         </Btn>
       </div>
     </form>
