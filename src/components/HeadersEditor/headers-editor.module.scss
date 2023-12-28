@@ -5,8 +5,8 @@
 
 .headers-editor {
   justify-content: space-between;
-  min-height: 8vh;
-  max-height: 8vh;
+  min-height: $height-variables-editor-body;
+  max-height: $height-variables-editor-body;
   transition:
     min-height $transition-sec,
     max-height $transition-sec;
@@ -30,22 +30,34 @@
         background-color: $background-image-code-editor-scrollbar-thumb;
       }
     }
+    &_num {
+      color: $fifth-color;
+    }
     &_input {
+      padding: 0 1vw;
       border-radius: $border-radius;
       border-width: $border-width;
       border-style: $border-style;
       border-color: $eighth-color;
-      padding: 0 1vw;
+      color: $fifth-color;
+      background-color: transparent;
       outline: none;
     }
     &_btn-del {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0em 1.2em;
+      &:hover > :only-child > path {
+        stroke: $fifth-color;
+      }
     }
   }
   &__btn-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding-top: 1vw;
     &_item {
       display: flex;
       align-items: center;

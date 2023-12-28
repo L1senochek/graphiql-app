@@ -1,5 +1,5 @@
 interface IHeaders {
-  key: string;
+  headerKey: string;
   value: string;
 }
 

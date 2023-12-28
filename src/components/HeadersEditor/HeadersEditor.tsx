@@ -2,12 +2,16 @@ import { FormEvent, useState } from 'react';
 import Btn from '@/components/Btn/Btn';
 import styles from './headers-editor.module.scss';
 import IHeaders from '@/model/components/HeadersEditor/HeadersEditor';
+import IconDelete from '@/components/IconDelete/IconDelete';
+import HeaderInputName from '@/model/components/HeadersEditor/HeaderInputName';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
-  const [headers, setHeaders] = useState<IHeaders[]>([{ key: '', value: '' }]);
+  const [headers, setHeaders] = useState<IHeaders[]>([
+    { headerKey: '', value: '' },
+  ]);
 
   const handleAddHeader = () =>
-    setHeaders([...headers, { key: '', value: '' }]);
+    setHeaders([...headers, { headerKey: '', value: '' }]);
 
   const handleRemoveHeader = (index: number) => {
     const updatedHeaders = [...headers];
@@ -17,7 +21,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
 
   const handleHeaderChange = (
     index: number,
-    keyOrValue: 'key' | 'value',
+    keyOrValue: HeaderInputName.HEADER_KEY | HeaderInputName.VALUE,
     newValue: string
   ) => {
     const updatedHeaders = [...headers];
@@ -35,12 +39,21 @@ const HeadersEditor: React.FC = (): JSX.Element => {
       <div className={styles['headers-editor__item_wrapper']}>
         {headers.map((header, index) => (
           <div className={styles['headers-editor__item']} key={index}>
+            <span className={styles['headers-editor__item_num']}>
+              {index + 1}
+            </span>
             <input
               type="text"
               className={styles['headers-editor__item_input']}
               placeholder="header key"
-              value={header.key}
-              onChange={(e) => handleHeaderChange(index, 'key', e.target.value)}
+              value={header.headerKey}
+              onChange={(e) =>
+                handleHeaderChange(
+                  index,
+                  HeaderInputName.HEADER_KEY,
+                  e.target.value
+                )
+              }
             />
             <input
               type="text"
@@ -48,7 +61,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
               placeholder="value"
               value={header.value}
               onChange={(e) =>
-                handleHeaderChange(index, 'value', e.target.value)
+                handleHeaderChange(index, HeaderInputName.VALUE, e.target.value)
               }
             />
             <Btn
@@ -56,7 +69,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
               type="button"
               onClick={() => handleRemoveHeader(index)}
             >
-              del
+              <IconDelete />
             </Btn>
           </div>
         ))}

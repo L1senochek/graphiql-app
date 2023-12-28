@@ -64,7 +64,7 @@
   &__code-editor {
     background-color: rgba(0, 0, 0, 0.1019607843);
     border-radius: $border-radius;
-    min-height: 8vh;
-    max-height: 8vh;
+    min-height: $height-variables-editor-body;
+    max-height: $height-variables-editor-body;
   }
 }
