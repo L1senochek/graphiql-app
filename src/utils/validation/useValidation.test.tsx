@@ -4,18 +4,14 @@ import { UseFormReturn, useForm } from 'react-hook-form';
 import { useValidation } from '@/utils/validation/useValidation';
 import validationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import ISignUp from '@/model/pages/SignUp/SignUp';
-import { selectContentValidationErrors } from '@/store/slices/languageSlice';
 
 vi.mock('react-hook-form', () => ({
   useForm: vi.fn(),
 }));
 
 vi.mock('@/store/hooks', () => ({
-  useAppSelector: vi.fn((selector) => {
-    if (selector === selectContentValidationErrors) {
-      return validationErrors.ru;
-    }
-    return undefined;
+  useAppSelector: vi.fn(() => {
+    return validationErrors.ru;
   }),
 }));
 
@@ -36,7 +32,7 @@ describe('useValidation hook', () => {
         errors: {
           password: {
             type: 'required',
-            message: 'Password is required',
+            message: 'Fill out this field',
           },
         },
         isLoading: false,
