@@ -4,13 +4,19 @@ import { UseFormReturn, useForm } from 'react-hook-form';
 import { useValidation } from '@/utils/validation/useValidation';
 import validationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import ISignUp from '@/model/pages/SignUp/SignUp';
+import { selectContentValidationErrors } from '@/store/slices/languageSlice';
 
 vi.mock('react-hook-form', () => ({
   useForm: vi.fn(),
 }));
 
 vi.mock('@/store/hooks', () => ({
-  useAppSelector: vi.fn(),
+  useAppSelector: vi.fn((selector) => {
+    if (selector === selectContentValidationErrors) {
+      return validationErrors.ru;
+    }
+    return undefined;
+  }),
 }));
 
 describe('useValidation hook', () => {
