@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it, test } from 'vitest';
 import App from './App';
 import { ReactElement } from 'react';
@@ -13,8 +13,6 @@ describe('App', () => {
         <App />
       </Provider>
     );
-
-    screen.debug();
   });
 });
 
