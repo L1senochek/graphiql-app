@@ -1,6 +1,6 @@
 import { MemoryRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
-import { describe, it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { Provider } from 'react-redux';
 import getStore from '@/store/store';
 import SignIn from './SignIn';
@@ -23,5 +23,7 @@ describe('SignIn Component', () => {
         </MemoryRouter>
       </Provider>
     );
+    expect(screen.getByText('Email:')).toBeInTheDocument();
+    expect(screen.getByText('Password:')).toBeInTheDocument();
   });
 });
