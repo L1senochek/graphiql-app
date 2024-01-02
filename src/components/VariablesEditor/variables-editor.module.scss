@@ -9,13 +9,62 @@
   border-style: $border-style;
   border-color: $eighth-color;
   padding: 1vw;
-  &__title {
-    padding-bottom: 1vw;
+  &.active > :last-child {
+    min-height: 0px;
+    max-height: 0px;
+    overflow: hidden;
+  }
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1vw;
+    &_wrapper {
+      display: flex;
+      padding-bottom: 1vw;
+    }
+    &_item {
+      padding: 0 1vw;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $eighth-color;
+      border-radius: $border-radius;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      background-color: #2e683717;
+      transition:
+        border-bottom-color $transition-sec,
+        background-color $transition-sec;
+      cursor: pointer;
+      &.active-tab {
+        border-bottom-color: transparent;
+        background-color: transparent;
+      }
+    }
+    &_line {
+      flex: 1;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-color: $eighth-color;
+    }
+    &_arrow-wrapper {
+      display: flex;
+      width: 30px;
+      margin-left: 10px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition:
+        transform $transition-sec,
+        padding $transition-sec;
+      &.active {
+        transform: rotate(180deg);
+      }
+    }
   }
   &__code-editor {
     background-color: rgba(0, 0, 0, 0.1019607843);
     border-radius: $border-radius;
-    min-height: 8vh;
-    max-height: 8vh;
+    min-height: $height-variables-editor-body;
+    max-height: $height-variables-editor-body;
   }
 }

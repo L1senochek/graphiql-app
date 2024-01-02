@@ -4,7 +4,8 @@ import firebaseUserSlice from './slices/firebaseUserSlice';
 import authSlice from './slices/authSlice';
 import documentationSlice from './slices/documentationSlice';
 import queryEditorSlice from './slices/queryEditorSlice';
-import headersEditorSlice from './slices/headerEditorSlice';
+import serverAddressSlice from './slices/serverAddressSlice';
+import headersSlice from './slices/headersSlice';
 
 const rootReducer = combineReducers({
   languageSlice: languageSlice.reducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   firebaseUserSlice: firebaseUserSlice.reducer,
   documentationSlice: documentationSlice.reducer,
   queryEditorSlice: queryEditorSlice.reducer,
-  headersEditorSlice: headersEditorSlice.reducer,
+  serverAddressSlice: serverAddressSlice.reducer,
+  headersSlice: headersSlice.reducer,
 });
 
 export const store = () => {
