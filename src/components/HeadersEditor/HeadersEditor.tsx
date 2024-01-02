@@ -4,14 +4,18 @@ import styles from './headers-editor.module.scss';
 import IHeaders from '@/model/components/HeadersEditor/HeadersEditor';
 import IconDelete from '@/components/IconDelete/IconDelete';
 import HeaderInputName from '@/model/components/HeadersEditor/HeaderInputName';
-import { useAppSelector } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import {
+  selectHeadersValue,
+  setHeadersValue,
+} from '@/store/slices/headersSlice';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
-  const [headers, setHeaders] = useState<IHeaders[]>([
-    { headerKey: '', value: '' },
-  ]);
+  const headersValue = useAppSelector(selectHeadersValue);
+  const [headers, setHeaders] = useState<IHeaders[]>(headersValue);
   const content = useAppSelector(selectContentGraphiQl);
+  const dispatch = useAppDispatch();
 
   const handleAddHeader = () =>
     setHeaders([...headers, { headerKey: '', value: '' }]);
@@ -32,7 +36,7 @@ const HeadersEditor: React.FC = (): JSX.Element => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log('headers', headers);
+    dispatch(setHeadersValue(headers));
   };
 
   return (

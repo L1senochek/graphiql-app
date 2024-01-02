@@ -4,22 +4,22 @@ import styles from './server-address.module.scss';
 import Btn from '@/components/Btn/Btn';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
-  selectInputValue,
-  setHeadersInputValue,
-} from '@/store/slices/headerEditorSlice';
+  selectServerAddressInputValue,
+  setServerAddressInputValue,
+} from '@/store/slices/serverAddressSlice';
 
 const ServerAddress: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);
-  const headersValue = useAppSelector(selectInputValue);
+  const inputValue = useAppSelector(selectServerAddressInputValue);
   const dispatch = useAppDispatch();
 
   const headersChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
-    dispatch(setHeadersInputValue(value));
+    dispatch(setServerAddressInputValue(value));
   };
 
   const btnClick = (): void => {
-    console.log('headersValue', headersValue);
+    console.log('inputValue', inputValue);
   };
 
   const keyUp = (event: React.KeyboardEvent<HTMLInputElement>): void | null =>
@@ -40,7 +40,7 @@ const ServerAddress: React.FC = (): JSX.Element => {
           type="search"
           placeholder="http://api-example.com"
           id="server-address"
-          value={headersValue}
+          value={inputValue}
           onChange={headersChange}
           onKeyUp={keyUp}
           onFocus={() => setIsFocused(true)}
