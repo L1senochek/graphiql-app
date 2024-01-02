@@ -16,21 +16,19 @@ const HeadersEditor: React.FC = (): JSX.Element => {
   const handleAddHeader = () =>
     setHeaders([...headers, { headerKey: '', value: '' }]);
 
-  const handleRemoveHeader = (index: number) => {
-    const updatedHeaders = [...headers];
-    updatedHeaders.splice(index, 1);
-    setHeaders(updatedHeaders);
-  };
+  const handleRemoveHeader = (index: number) =>
+    setHeaders((prev) => prev.filter((_, i) => i !== index));
 
   const handleHeaderChange = (
     index: number,
     keyOrValue: HeaderInputName.HEADER_KEY | HeaderInputName.VALUE,
     newValue: string
-  ) => {
-    const updatedHeaders = [...headers];
-    updatedHeaders[index][keyOrValue] = newValue;
-    setHeaders(updatedHeaders);
-  };
+  ) =>
+    setHeaders(
+      headers.map((header, i) =>
+        i === index ? { ...header, [keyOrValue]: newValue } : header
+      )
+    );
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
