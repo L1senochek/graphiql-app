@@ -17,7 +17,18 @@ vi.mock('@/store/slices/headerEditorSlice', async () => {
 
 vi.mock('@/store/hooks', () => ({
   useAppDispatch: vi.fn(() => vi.fn()),
-  useAppSelector: vi.fn(() => {}),
+  useAppSelector: vi.fn((selector) => {
+    if (selector.name === 'selectContentGraphiQl') {
+      return {
+        headersPlaceholderKey: 'http://api-example.com',
+        headersPlaceholderValue: 'Your value',
+      };
+    }
+    if (selector.name === 'selectHeadersValue') {
+      return [{ headerKey: '', value: '' }];
+    }
+    return {};
+  }),
 }));
 
 describe('HeadersEditor Component', () => {
