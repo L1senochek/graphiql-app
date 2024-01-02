@@ -1,0 +1,30 @@
+{
+  "eng": {
+    "title": "GraphiQL",
+    "greetings": "Hello, ",
+    "DocumentationExplorerTitle": "Documentation Explorer",
+    "RequestEditorTitle": "Request Editor",
+    "VariablesEditorTitle": "Variables Editor",
+    "HeadersTitle": "Headers",
+    "ResponseSectionTitle": "Response Section",
+    "headersPlaceholderKey": "header key",
+    "headersPlaceholderValue": "value",
+    "headersBtnNameHeader": "+ New header",
+    "headersBtnNameSetHeader": "Set shared headers",
+    "headersBtnTitleDel": "delete"
+  },
+  "ru": {
+    "title": "GraphiQL",
+    "greetings": "Привет, ",
+    "DocumentationExplorerTitle": "Проводник Документации",
+    "RequestEditorTitle": "Редактор запросов",
+    "VariablesEditorTitle": "Редактор переменных",
+    "HeadersTitle": "Заголовок",
+    "ResponseSectionTitle": "Секция ответов",
+    "headersPlaceholderKey": "ключ заголовка",
+    "headersPlaceholderValue": "значение",
+    "headersBtnNameHeader": "+ Новый заголовок",
+    "headersBtnNameSetHeader": "Установить общие заголовки",
+    "headersBtnTitleDel": "удалить"
+  }
+}

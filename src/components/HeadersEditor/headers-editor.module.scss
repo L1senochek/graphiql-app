@@ -1,58 +1,81 @@
 @import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.headers-editor');
 
 .headers-editor {
-  display: flex;
-  &__wrapper {
+  justify-content: space-between;
+  min-height: $height-variables-editor-body;
+  max-height: $height-variables-editor-body;
+  transition:
+    min-height $transition-sec,
+    max-height $transition-sec;
+  &__item {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: $border-radius;
-    border-width: $border-width;
-    border-style: $border-style;
-    border-color: $eighth-color;
-    width: 19vw;
-    transition:
-      border-color $transition-sec,
-      box-shadow $transition-sec,
-      text-shadow $transition-sec,
-      color $transition-sec;
-    &.focused {
-      border-color: $background-color-btn-hover;
-      box-shadow: $box-shadow-btn;
+    width: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0.2vw 0;
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        background-color: $eighth-color;
+        background-image: $background-image-code-editor-scrollbar;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $background-image-code-editor-scrollbar-thumb;
+      }
+    }
+    &_num {
+      color: $fifth-color;
+    }
+    &_input {
+      padding: 0 1vw;
+      border-radius: $border-radius;
+      border-width: $border-width;
+      border-style: $border-style;
+      border-color: $eighth-color;
+      color: $fifth-color;
+      background-color: transparent;
+      outline: none;
+      &:focus {
+        border-color: $background-color-input-hover;
+        box-shadow: $box-shadow-btn;
+      }
+    }
+    &_btn-del {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0em 1.2em;
     }
   }
-  &__loupe {
+  &__btn-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $padding-btn-icon-loupe;
-    background-color: transparent;
-  }
-  &__input {
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    color: $fifth-color;
-    background: transparent;
-    border: none;
-    outline: none;
+    padding-top: 1vw;
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.2em;
+      border-color: $eighth-color;
+      background-color: transparent;
+    }
   }
 }
 
 @media (hover: hover) {
   .headers-editor {
-    &__wrapper:hover {
-      border-color: $background-color-btn-hover;
-      box-shadow: $box-shadow-btn;
-      text-shadow: $text-shadow-btn;
-      color: $fifth-color;
-    }
-    &__loupe:hover > svg > path {
-      stroke: $fifth-color;
-    }
-    &__loupe:hover {
-      border-color: transparent;
-      box-shadow: none;
-      text-shadow: none;
+    &__item {
+      &_btn-del :hover > :only-child > path {
+        stroke: $fifth-color;
+      }
     }
   }
 }

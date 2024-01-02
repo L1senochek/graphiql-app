@@ -1,0 +1,58 @@
+@import '@/styles/variables.scss';
+
+.server-address {
+  display: flex;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $eighth-color;
+    width: 19vw;
+    transition:
+      border-color $transition-sec,
+      box-shadow $transition-sec,
+      text-shadow $transition-sec,
+      color $transition-sec;
+    &.focused {
+      border-color: $background-color-input-hover;
+      box-shadow: $box-shadow-btn;
+    }
+  }
+  &__loupe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-btn-icon-loupe;
+    background-color: transparent;
+  }
+  &__input {
+    width: 100%;
+    height: 100%;
+    color: $fifth-color;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+}
+
+@media (hover: hover) {
+  .server-address {
+    &__wrapper:hover {
+      border-color: $background-color-btn-hover;
+      box-shadow: $box-shadow-btn;
+      text-shadow: $text-shadow-btn;
+      color: $fifth-color;
+    }
+    &__loupe:hover > svg > path {
+      stroke: $fifth-color;
+    }
+    &__loupe:hover {
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+    }
+  }
+}

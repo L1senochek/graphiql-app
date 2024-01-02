@@ -1,0 +1,18 @@
+@import '@/styles/variables.scss';
+
+.icon-double-arrow {
+  width: $width-icon-double-arrow;
+  height: $height-icon-double-arrow;
+  &__path {
+    fill: $main-color;
+    transition: fill $transition-sec;
+  }
+}
+
+@media (hover: hover) {
+  .icon-double-arrow {
+    &:hover > &__path {
+      fill: $fifth-color;
+    }
+  }
+}
