@@ -2,22 +2,25 @@ import { useEffect } from 'react';
 import TopSection from '@/components/TopSection/TopSection';
 import MiddleSection from '@/components/MiddleSection/MiddleSection';
 import styles from './graphi-ql.module.scss';
-import { useAppDispatch } from '@/store/hooks';
-import isAuthFirebase from '@/utils/auth/isAuth';
+import { useAppSelector } from '@/store/hooks';
+import useAuthFirebase from '@/utils/auth/useAuthFirebase';
 import getSchema from '@/utils/getSchema/getSchema';
+import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
 
 const GraphiQL: React.FC = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  isAuthFirebase(dispatch);
-
-  const endpoint = 'https://rickandmortyapi.com/graphql';
+  const endpoint = useAppSelector(selectServerAddressInputValue);
+  useAuthFirebase();
 
   useEffect(() => {
     (async () => {
-      const res = await getSchema(endpoint);
-      console.log('res', res);
+      try {
+        const res = await getSchema(endpoint);
+        console.log('res', res);
+      } catch (error) {
+        console.error('getSchema Error:', error);
+      }
     })();
-  }, []);
+  }, [endpoint]);
 
   return (
     <div className={styles['graphi-ql']}>

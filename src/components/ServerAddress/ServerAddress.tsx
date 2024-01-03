@@ -10,16 +10,17 @@ import {
 
 const ServerAddress: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputValue = useAppSelector(selectServerAddressInputValue);
+  const serverAddressInputValue = useAppSelector(selectServerAddressInputValue);
+  const [inputValue, setInputValue] = useState(serverAddressInputValue);
   const dispatch = useAppDispatch();
 
   const headersChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
-    dispatch(setServerAddressInputValue(value));
+    setInputValue(value);
   };
 
   const btnClick = (): void => {
-    console.log('inputValue', inputValue);
+    dispatch(setServerAddressInputValue(inputValue));
   };
 
   const keyUp = (event: React.KeyboardEvent<HTMLInputElement>): void | null =>

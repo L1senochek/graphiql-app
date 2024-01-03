@@ -3,7 +3,7 @@ import { RootState } from '@/store/store';
 import IServerAddressState from '@/model/store/serverAddressState';
 
 const initialState: IServerAddressState = {
-  serverAddressInputValue: '',
+  serverAddressInputValue: 'https://rickandmortyapi.com/graphql',
 };
 
 const serverAddressSlice = createSlice({

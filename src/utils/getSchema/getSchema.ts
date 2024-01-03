@@ -22,19 +22,15 @@ const schemaQuery = `
 `;
 
 const getSchema = async (endpoint: string) => {
-  try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: schemaQuery }),
-    });
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: schemaQuery }),
+  });
 
-    return await response.json();
-  } catch (error) {
-    console.error('getSchema Error:', error);
-  }
+  return await response.json();
 };
 
 export default getSchema;
