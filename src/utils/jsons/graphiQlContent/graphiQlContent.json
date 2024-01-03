@@ -10,7 +10,7 @@
     "headersPlaceholderKey": "header key",
     "headersPlaceholderValue": "value",
     "headersBtnNameHeader": "+ New header",
-    "headersBtnNameSetHeader": "Set shared headers",
+    "headersBtnNameSetHeader": "Set headers",
     "headersBtnTitleDel": "delete"
   },
   "ru": {
@@ -24,7 +24,7 @@
     "headersPlaceholderKey": "ключ заголовка",
     "headersPlaceholderValue": "значение",
     "headersBtnNameHeader": "+ Новый заголовок",
-    "headersBtnNameSetHeader": "Установить общие заголовки",
+    "headersBtnNameSetHeader": "Установить заголовки",
     "headersBtnTitleDel": "удалить"
   }
 }

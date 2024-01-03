@@ -21,21 +21,21 @@ const schemaQuery = `
   }
 `;
 
-const getSchema = async (endpoint: string, headers: Record<string, string>) => {
-  const nonEmptyHeaders = Object.fromEntries(
-    Object.entries(headers).filter(([, value]) => value !== '')
-  );
-
+const getSchema = async (endpoint: string) => {
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...nonEmptyHeaders,
     },
     body: JSON.stringify({ query: schemaQuery }),
   });
 
-  return await response.json();
+  if (response.ok) {
+    return await response.json();
+  } else {
+    const errorMessage = `${response.status} - ${response.statusText}`;
+    throw new Error(errorMessage);
+  }
 };
 
 export default getSchema;

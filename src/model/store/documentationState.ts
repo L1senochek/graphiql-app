@@ -1,5 +1,6 @@
 interface IDocumentationState {
   clickDocBtn: boolean;
+  btnDocDisabled: boolean;
   docObj: object | null | string;
 }
 

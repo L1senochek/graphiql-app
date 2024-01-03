@@ -10,8 +10,10 @@ import {
   selectHeadersValue,
   setHeadersValue,
 } from '@/store/slices/headersSlice';
+import { selectClickDocBtn } from '@/store/slices/documentationSlice';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
+  const isClickDocBtn = useAppSelector(selectClickDocBtn);
   const headersValue = useAppSelector(selectHeadersValue);
   const [headers, setHeaders] = useState<IHeaders[]>(headersValue);
   const content = useAppSelector(selectContentGraphiQl);
@@ -70,7 +72,9 @@ const HeadersEditor: React.FC = (): JSX.Element => {
               }
             />
             <Btn
-              className={styles['headers-editor__item_btn-del']}
+              className={`${styles['headers-editor__item_btn-del']}${
+                isClickDocBtn ? ` ${styles['docs-open']}` : ''
+              }`}
               type="button"
               onClick={() => handleRemoveHeader(index)}
               title={content.headersBtnTitleDel}

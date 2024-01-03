@@ -3,6 +3,7 @@ import Btn from '@/components/Btn/Btn';
 import styles from './top-section.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
+  selectBtnDocDisabled,
   selectClickDocBtn,
   setClickDocBtn,
 } from '@/store/slices/documentationSlice';
@@ -15,13 +16,17 @@ const TopSection: React.FC = (): JSX.Element => {
   const isClickDocBtn = useAppSelector(selectClickDocBtn);
   const contentGraphiQl = useAppSelector(selectContentGraphiQl);
   const userName = useAppSelector(selectFirebaseUser);
+  const btnDocDisabled = useAppSelector(selectBtnDocDisabled);
 
   return (
     <div className={styles['top-section']}>
       <div className={styles['top-section__left-side']}>
         <Btn
-          className={styles['top-section__btn']}
+          className={`${styles['top-section__btn']}${
+            btnDocDisabled ? ` ${styles['disabled']}` : ''
+          }`}
           onClick={() => dispatch(setClickDocBtn(!isClickDocBtn))}
+          disabled={btnDocDisabled}
         >
           <IconDocs />
         </Btn>
@@ -31,7 +36,9 @@ const TopSection: React.FC = (): JSX.Element => {
         </h4>
       </div>
       <h2 className={styles['top-section__title']}>{contentGraphiQl.title}</h2>
-      <ServerAddress />
+      <div className={styles['top-section__right-side']}>
+        <ServerAddress />
+      </div>
     </div>
   );
 };

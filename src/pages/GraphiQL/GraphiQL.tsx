@@ -6,25 +6,22 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import useAuthFirebase from '@/utils/auth/useAuthFirebase';
 import getSchema from '@/utils/getSchema/getSchema';
 import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
-import { selectHeadersValue } from '@/store/slices/headersSlice';
-import { setDocObj } from '@/store/slices/documentationSlice';
+import {
+  setBtnDocDisabled,
+  setDocObj,
+} from '@/store/slices/documentationSlice';
 
 const GraphiQL: React.FC = (): JSX.Element => {
   const endpoint = useAppSelector(selectServerAddressInputValue);
-  const headersArr = useAppSelector(selectHeadersValue);
   const dispatch = useAppDispatch();
-
-  const headersObj = headersArr.reduce((acc, { headerKey, value }) => {
-    (acc as Record<string, string>)[headerKey] = value;
-    return acc;
-  }, {});
 
   useAuthFirebase();
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await getSchema(endpoint, headersObj);
+        const res = await getSchema(endpoint);
+        dispatch(setBtnDocDisabled(false));
         dispatch(setDocObj(res.data));
       } catch (error) {
         console.error('getSchema Error:', error);
@@ -32,7 +29,7 @@ const GraphiQL: React.FC = (): JSX.Element => {
         dispatch(setDocObj(errorMessage));
       }
     })();
-  }, [dispatch, endpoint, headersObj]);
+  }, [dispatch, endpoint]);
 
   return (
     <div className={styles['graphi-ql']}>
