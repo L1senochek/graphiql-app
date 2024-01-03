@@ -21,11 +21,12 @@ const schemaQuery = `
   }
 `;
 
-const getSchema = async (endpoint: string) => {
+const getSchema = async (endpoint: string, headers: Record<string, string>) => {
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      ...headers,
     },
     body: JSON.stringify({ query: schemaQuery }),
   });
