@@ -5,7 +5,7 @@ import contentGraphiQlJson from '@/utils/jsons/graphiQlContent/graphiQlContent.j
 import contentSignInJson from '@/utils/jsons/signInContent/signInContent.json';
 import contentSignUpJson from '@/utils/jsons/signUpContent/signUpContent.json';
 import contentWelcomeJson from '@/utils/jsons/welcomeContent/welcomeContent.json';
-import contentValidationErrors from '@/utils/jsons/validationErrors/validationErrors.json';
+import contentValidationErrors from '@/utils/jsons/ValidationErrors/ValidationErrors.json';
 import contentErrorMessage from '@/utils/jsons/errorMessage/errorMessage.json';
 import contentNotFoundJson from '@/utils/jsons/notFound/notFound.json';
 import contentErrorModalJson from '@/utils/jsons/errorModal/errorModal.json';
