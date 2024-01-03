@@ -22,11 +22,15 @@ const schemaQuery = `
 `;
 
 const getSchema = async (endpoint: string, headers: Record<string, string>) => {
+  const nonEmptyHeaders = Object.fromEntries(
+    Object.entries(headers).filter(([, value]) => value !== '')
+  );
+
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...headers,
+      ...nonEmptyHeaders,
     },
     body: JSON.stringify({ query: schemaQuery }),
   });

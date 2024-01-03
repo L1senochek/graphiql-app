@@ -4,6 +4,7 @@ import { RootState } from '@/store/store';
 
 const initialState: IDocumentationState = {
   clickDocBtn: false,
+  docObj: null,
 };
 
 const documentationSlice = createSlice({
@@ -13,11 +14,16 @@ const documentationSlice = createSlice({
     setClickDocBtn: (state, action: PayloadAction<boolean>) => {
       state.clickDocBtn = action.payload;
     },
+    setDocObj: (state, action: PayloadAction<object | string>) => {
+      state.docObj = action.payload;
+    },
   },
 });
 
 export const selectClickDocBtn = (state: RootState) =>
   state.documentationSlice.clickDocBtn;
+export const selectDocObj = (state: RootState) =>
+  state.documentationSlice.docObj;
 
-export const { setClickDocBtn } = documentationSlice.actions;
+export const { setClickDocBtn, setDocObj } = documentationSlice.actions;
 export default documentationSlice;
