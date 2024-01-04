@@ -1,0 +1,59 @@
+@import '@/styles/variables.scss';
+
+.schema-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &.full-field,
+  &.full-field > &__name {
+    cursor: pointer;
+  }
+  &.full-field > &__items {
+    cursor: default;
+  }
+  &__name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &_strong {
+      padding: 0 0.5vw;
+    }
+    &_line {
+      border-color: transparent;
+      width: 100%;
+      transition: border-color $transition-sec;
+      &.open {
+        border-color: $eighth-color;
+      }
+    }
+  }
+  &__separator {
+    border-color: $eighth-color;
+    margin: $margin-separator 0;
+    width: 94%;
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+    transition:
+      height $transition-sec,
+      padding $transition-sec;
+    height: 0;
+    overflow: hidden;
+    &.open {
+      height: auto;
+      padding: 1vw;
+      padding-left: 7%;
+    }
+    &_description {
+      color: $fifth-color;
+      &_strong {
+        color: $main-color;
+        padding-right: 5px;
+      }
+    }
+  }
+}

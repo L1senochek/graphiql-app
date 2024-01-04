@@ -1,0 +1,10 @@
+@import '@/styles/variables.scss';
+
+.schema-field {
+  display: flex;
+  color: $fifth-color;
+  &__name {
+    color: $main-color;
+    padding-right: 5px;
+  }
+}
