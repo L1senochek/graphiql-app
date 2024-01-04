@@ -39,14 +39,13 @@ const usePrettifyCode = () => {
         formattedCode += char;
       }
     });
-    formattedCode += '\n';
     dispatch(setRequestCode(formattedCode.trimEnd()));
 
-    lineCount = formattedCode.split('\n').length;
+    lineCount = formattedCode.split('\n').length + 1;
 
     const newLineNumbers = Array.from(
       { length: lineCount },
-      (_, idx) => idx + 1
+      (_, index) => index + 1
     );
     dispatch(setRequestLineNumbers(newLineNumbers));
   };

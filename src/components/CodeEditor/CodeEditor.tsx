@@ -18,7 +18,7 @@ const CodeEditor: React.FC<ICodeEditorProps> = ({
       const content = textareaRef.current.value;
       dispatch(setTextareaCode(content));
 
-      const lineCount = content.split('\n').length;
+      const lineCount = content.split('\n').length + 1;
       const newLineNumbers = Array.from(
         { length: lineCount },
         (_, index) => index + 1
