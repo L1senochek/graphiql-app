@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import {
   selectRequestCode,
   setRequestCode,
@@ -8,7 +9,15 @@ import {
 const usePrettifyCode = () => {
   const dispatch = useDispatch();
   const requestCode = useSelector(selectRequestCode);
+  const [lastFormattedCode, setLastFormattedCode] = useState('');
+
+  useEffect(() => {
+    setLastFormattedCode(requestCode);
+  }, []);
+
   const prettifyCode = () => {
+    if (requestCode === lastFormattedCode) return;
+
     const cleanedCode = requestCode.trim().replace(/\s*\n\s*/g, ' ');
 
     let indentLevel = 0;
@@ -29,6 +38,7 @@ const usePrettifyCode = () => {
         formattedCode += ' '.repeat(indentLevel * 2) + char;
         isNewLine = false;
         if (!(array[index + 1] === '}' || array[index + 1] === ';')) {
+          formattedCode += '\n';
           lineCount++;
         }
       } else {
@@ -39,15 +49,19 @@ const usePrettifyCode = () => {
         formattedCode += char;
       }
     });
-    dispatch(setRequestCode(formattedCode.trimEnd()));
 
-    lineCount = formattedCode.split('\n').length + 1;
+    if (formattedCode.trimEnd() !== requestCode) {
+      dispatch(setRequestCode(formattedCode.trimEnd()));
 
-    const newLineNumbers = Array.from(
-      { length: lineCount },
-      (_, index) => index + 1
-    );
-    dispatch(setRequestLineNumbers(newLineNumbers));
+      lineCount = formattedCode.split('\n').length;
+      const newLineNumbers = Array.from(
+        { length: lineCount },
+        (_, index) => index + 1
+      );
+      dispatch(setRequestLineNumbers(newLineNumbers));
+
+      setLastFormattedCode(formattedCode.trimEnd());
+    }
   };
 
   return prettifyCode;
