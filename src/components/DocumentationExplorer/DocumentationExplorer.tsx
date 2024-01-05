@@ -15,7 +15,7 @@ import {
   ISchemaType,
 } from '@/model/components/DocumentationExplorer/DocumentationExplorer';
 import Loading from '@/components/Loading/Loading';
-import ErrorModal from '../ErrorModal/ErrorModal';
+import ErrorModal from '@/components/ErrorModal/ErrorModal';
 
 const LazySchemaType = lazy(() => import('@/components/SchemaType/SchemaType'));
 
