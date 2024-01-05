@@ -39,7 +39,6 @@ const Header: React.FC = (): JSX.Element => {
   const signOutClick = () => {
     dispatch(setAuth(false));
     logout();
-    navigate(INITIAL_PATH);
   };
 
   return (

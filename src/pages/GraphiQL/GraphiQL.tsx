@@ -1,12 +1,35 @@
+import { useEffect } from 'react';
 import TopSection from '@/components/TopSection/TopSection';
 import MiddleSection from '@/components/MiddleSection/MiddleSection';
 import styles from './graphi-ql.module.scss';
-import { useAppDispatch } from '@/store/hooks';
-import isAuthFirebase from '@/utils/auth/isAuth';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import useAuthFirebase from '@/utils/auth/useAuthFirebase';
+import getSchema from '@/utils/getSchema/getSchema';
+import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
+import {
+  setBtnDocDisabled,
+  setDocObj,
+} from '@/store/slices/documentationSlice';
 
 const GraphiQL: React.FC = (): JSX.Element => {
+  const endpoint = useAppSelector(selectServerAddressInputValue);
   const dispatch = useAppDispatch();
-  isAuthFirebase(dispatch);
+
+  useAuthFirebase();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await getSchema(endpoint);
+        dispatch(setBtnDocDisabled(false));
+        dispatch(setDocObj(res.data));
+      } catch (error) {
+        console.error('getSchema Error:', error);
+        const errorMessage = String((error as Error).message);
+        dispatch(setDocObj(errorMessage));
+      }
+    })();
+  }, [dispatch, endpoint]);
 
   return (
     <div className={styles['graphi-ql']}>

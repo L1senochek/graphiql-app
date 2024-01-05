@@ -10,7 +10,7 @@
     border-width: $border-width;
     border-style: $border-style;
     border-color: $eighth-color;
-    width: 19vw;
+    width: 100%;
     transition:
       border-color $transition-sec,
       box-shadow $transition-sec,
@@ -27,6 +27,12 @@
     justify-content: center;
     padding: $padding-btn-icon-loupe;
     background-color: transparent;
+    &.disabled {
+      cursor: not-allowed;
+      & > svg > path {
+        stroke: $eighth-color;
+      }
+    }
   }
   &__input {
     width: 100%;
@@ -53,6 +59,9 @@
       border-color: transparent;
       box-shadow: none;
       text-shadow: none;
+      &.disabled > svg > path {
+        stroke: $eighth-color;
+      }
     }
   }
 }

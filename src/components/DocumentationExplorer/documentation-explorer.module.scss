@@ -21,4 +21,14 @@
   &__title {
     padding: 1vh 0;
   }
+  &__content {
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      background-color: $eighth-color;
+      background-image: $background-image-code-editor-scrollbar;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $background-image-code-editor-scrollbar-thumb;
+    }
+  }
 }

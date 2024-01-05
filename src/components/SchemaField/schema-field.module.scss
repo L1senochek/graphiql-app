@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.schema-field {
+  display: flex;
+  color: $fifth-color;
+  &__name {
+    color: $main-color;
+    padding-right: 5px;
+  }
+  &__kind {
+    padding: 0 0.5vw;
+    color: $eighth-color;
+  }
+}

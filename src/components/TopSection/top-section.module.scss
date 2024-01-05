@@ -10,13 +10,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 17vw;
+    width: $widthgraphi-ql-top-section-side;
+  }
+  &__right-side {
+    width: $widthgraphi-ql-top-section-side;
   }
   &__btn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: $padding-btn-icon-docs;
+    &.disabled {
+      background-color: $eighth-color;
+      cursor: not-allowed;
+    }
   }
   &__title {
     color: $fifth-color;

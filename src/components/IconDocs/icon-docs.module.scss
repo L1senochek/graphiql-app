@@ -3,7 +3,6 @@
 .icon-docs {
   width: $width-icon-docs;
   height: $height-icon-docs;
-  cursor: pointer;
   & > path {
     transition:
       stroke $transition-sec,
