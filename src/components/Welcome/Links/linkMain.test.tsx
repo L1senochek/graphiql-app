@@ -1,4 +1,3 @@
-// LinkMain.test.tsx
 import { describe, expect, vi, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import IHeaders from '../components/HeadersEditor/HeadersEditor';
+import IHeaders from '@/model/components/HeadersEditor/HeadersEditor';
 
 interface IHeadersSliceState {
   headersValue: IHeaders[];
