@@ -5,9 +5,11 @@ import styles from './request-editor.module.scss';
 import QueryEditorViewer from '@/components/QueryEditorViewer/QueryEditorViewer';
 import { selectContentGraphiQl } from '@/store/slices/languageSlice';
 import { useAppSelector } from '@/store/hooks';
+import usePrettifyCode from '@/utils/prettify/usePrettifyCode';
 
 const RequestEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);
+  const prettifyCode = usePrettifyCode();
 
   return (
     <div className={styles['request-editor']}>
@@ -24,6 +26,7 @@ const RequestEditor: React.FC = (): JSX.Element => {
         <Btn
           className={`${styles['request-editor__right-side_btn']} ${styles['icon-broom']}`}
           title="prettify"
+          onClick={prettifyCode}
         >
           <IconBroom />
         </Btn>

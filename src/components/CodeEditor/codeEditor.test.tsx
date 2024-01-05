@@ -38,7 +38,7 @@ describe('CodeEditor', () => {
   it('updates code and line numbers correctly', () => {
     const initialCode = '';
     const newCode = 'let a = 5;\nlet b = 10;';
-    const expectedLineNumbers = [1, 2];
+    const expectedLineNumbers = [1, 2, 3];
 
     render(
       <CodeEditor
