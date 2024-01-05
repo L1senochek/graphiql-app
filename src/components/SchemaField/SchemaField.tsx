@@ -5,10 +5,17 @@ const SchemaField: React.FC<ISchemaField> = ({ name, type }) => (
   <div className={styles['schema-field']}>
     <strong className={styles['schema-field__name']}>{name}: </strong>
     <span>
-      {type.name}
-      {!type.name && type.ofType
-        ? `${type.ofType.name} (${type.ofType.kind})`
-        : ` (${type.kind})`}
+      <span>{type.name}</span>
+      {!type.name && type.ofType ? (
+        <>
+          <span>{type.ofType.name}</span>
+          <span className={styles['schema-field__kind']}>
+            ({type.ofType.kind})
+          </span>
+        </>
+      ) : (
+        <span className={styles['schema-field__kind']}>({type.kind})</span>
+      )}
     </span>
   </div>
 );

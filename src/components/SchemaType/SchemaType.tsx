@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ISchemaType } from '@/model/components/DocumentationExplorer/DocumentationExplorer';
 import SchemaField from '@/components/SchemaField/SchemaField';
 import styles from './schema-type.module.scss';
+import IconAngle from '@/components/IconAngle/IconAngle';
 
 const SchemaType: React.FC<{ type: ISchemaType }> = ({ type }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,9 +20,22 @@ const SchemaType: React.FC<{ type: ISchemaType }> = ({ type }) => {
         className={styles['schema-type__name']}
         onClick={type.fields || type.description ? handleToggle : undefined}
       >
-        <strong className={styles['schema-type__name_strong']}>
-          {type.name}
-        </strong>
+        <div
+          className={`${styles['schema-type__name_wrapper']}${
+            isExpanded ? ` ${styles['open']}` : ''
+          }`}
+        >
+          <strong className={styles['schema-type__name_strong']}>
+            {type.name}
+          </strong>
+          {type.fields || type.description ? (
+            <IconAngle />
+          ) : (
+            <span className={styles['schema-type__name_kind']}>
+              ({type.kind})
+            </span>
+          )}
+        </div>
         <hr
           className={`${styles['schema-type__name_line']}${
             isExpanded ? ` ${styles['open']}` : ''
@@ -42,7 +56,7 @@ const SchemaType: React.FC<{ type: ISchemaType }> = ({ type }) => {
                 <strong
                   className={styles['schema-type__items_description_strong']}
                 >
-                  Description:
+                  description:
                 </strong>
                 <span>{type.description}</span>
               </div>

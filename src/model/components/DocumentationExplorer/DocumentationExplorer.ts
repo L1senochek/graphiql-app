@@ -20,4 +20,5 @@ export interface ISchemaType {
   name: string;
   fields?: ISchemaField[];
   description?: string;
+  kind: string;
 }
