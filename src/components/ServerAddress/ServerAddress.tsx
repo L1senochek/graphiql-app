@@ -7,6 +7,7 @@ import {
   selectServerAddressInputValue,
   setServerAddressInputValue,
 } from '@/store/slices/serverAddressSlice';
+import { setDocLoading } from '@/store/slices/documentationSlice';
 
 const ServerAddress: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);
@@ -20,11 +21,17 @@ const ServerAddress: React.FC = (): JSX.Element => {
   };
 
   const btnClick = (): void => {
-    dispatch(setServerAddressInputValue(inputValue));
+    if (inputValue !== serverAddressInputValue) {
+      dispatch(setServerAddressInputValue(inputValue));
+      dispatch(setDocLoading(true));
+    }
   };
 
   const keyUp = (event: React.KeyboardEvent<HTMLInputElement>): void | null =>
     event.key === 'Enter' ? btnClick() : null;
+
+  const handleFocus = (): void => setIsFocused(true);
+  const handleBlur = (): void => setIsFocused(false);
 
   return (
     <div className={styles['server-address']}>
@@ -33,7 +40,15 @@ const ServerAddress: React.FC = (): JSX.Element => {
           isFocused ? ` ${styles['focused']}` : ''
         }`}
       >
-        <Btn className={styles['server-address__loupe']} onClick={btnClick}>
+        <Btn
+          className={`${styles['server-address__loupe']}${
+            inputValue === serverAddressInputValue
+              ? ` ${styles['disabled']}`
+              : ''
+          }`}
+          onClick={btnClick}
+          disabled={inputValue === serverAddressInputValue}
+        >
           <IconLoupe />
         </Btn>
         <input
@@ -44,8 +59,8 @@ const ServerAddress: React.FC = (): JSX.Element => {
           value={inputValue}
           onChange={headersChange}
           onKeyUp={keyUp}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       </div>
     </div>

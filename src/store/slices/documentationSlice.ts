@@ -6,6 +6,7 @@ const initialState: IDocumentationState = {
   clickDocBtn: false,
   btnDocDisabled: true,
   docObj: null,
+  docsLoading: true,
 };
 
 const documentationSlice = createSlice({
@@ -21,6 +22,9 @@ const documentationSlice = createSlice({
     setDocObj: (state, action: PayloadAction<object | string>) => {
       state.docObj = action.payload;
     },
+    setDocLoading: (state, action: PayloadAction<boolean>) => {
+      state.docsLoading = action.payload;
+    },
   },
 });
 
@@ -30,7 +34,9 @@ export const selectBtnDocDisabled = (state: RootState) =>
   state.documentationSlice.btnDocDisabled;
 export const selectDocObj = (state: RootState) =>
   state.documentationSlice.docObj;
+export const selectDocLoading = (state: RootState) =>
+  state.documentationSlice.docsLoading;
 
-export const { setClickDocBtn, setBtnDocDisabled, setDocObj } =
+export const { setClickDocBtn, setBtnDocDisabled, setDocObj, setDocLoading } =
   documentationSlice.actions;
 export default documentationSlice;

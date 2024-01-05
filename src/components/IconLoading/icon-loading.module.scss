@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+
+.icon-loading {
+  width: $width-icon-loading;
+  height: $height-icon-loading;
+  animation: rotate 2s linear infinite;
+  & > path {
+    stroke: $seventh-color;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
