@@ -19,11 +19,11 @@ export function useValidation(methods: UseFormReturn<ISignUp>) {
   }, [errorMessage, trigger, formState.errors, content]);
 
   const letterCheck = (value: string) =>
-    /[a-zA-Z]/.test(value) || errorMessage.password.letter;
+    /\p{L}/u.test(value) || errorMessage.password.letter;
   const numberCheck = (value: string) =>
     /\d/.test(value) || errorMessage.password.number;
   const specialCharacterCheck = (value: string) =>
-    /[\W_]/.test(value) || errorMessage.password.specialCharacter;
+    /[^\p{L}\p{N}]/u.test(value) || errorMessage.password.specialCharacter;
   const startsWithCapitalCheck = (value: string) =>
     /^[A-Z]/.test(value) || errorMessage.name.capitalLetter;
   const containsOnlyLettersCheck = (value: string) =>
