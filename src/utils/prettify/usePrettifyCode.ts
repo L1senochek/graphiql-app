@@ -9,14 +9,14 @@ import {
 const usePrettifyCode = () => {
   const dispatch = useDispatch();
   const requestCode = useSelector(selectRequestCode);
-  const [lastFormattedCode, setLastFormattedCode] = useState('');
+  const [isCodePrettified, setIsCodePrettified] = useState(false);
 
   useEffect(() => {
-    setLastFormattedCode(requestCode);
-  }, []);
+    setIsCodePrettified(false);
+  }, [requestCode]);
 
   const prettifyCode = () => {
-    if (requestCode === lastFormattedCode) return;
+    if (isCodePrettified) return;
 
     const cleanedCode = requestCode.replace(/\s*\n\s*/g, ' ');
 
@@ -64,7 +64,7 @@ const usePrettifyCode = () => {
         );
       dispatch(setRequestLineNumbers(lineNumbers));
 
-      setLastFormattedCode(newFormattedCode);
+      setIsCodePrettified(true);
     }
   };
 
