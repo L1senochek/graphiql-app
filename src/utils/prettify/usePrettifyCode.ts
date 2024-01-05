@@ -18,12 +18,11 @@ const usePrettifyCode = () => {
   const prettifyCode = () => {
     if (requestCode === lastFormattedCode) return;
 
-    const cleanedCode = requestCode.trim().replace(/\s*\n\s*/g, ' ');
+    const cleanedCode = requestCode.replace(/\s*\n\s*/g, ' ');
 
     let indentLevel = 0;
     let formattedCode = '';
     let isNewLine = true;
-    let lineCount = 1;
 
     Array.from(cleanedCode).forEach((char, index, array) => {
       if (char === '{') {
@@ -31,16 +30,20 @@ const usePrettifyCode = () => {
         formattedCode += ' '.repeat(indentLevel * 2) + char + '\n';
         indentLevel++;
         isNewLine = true;
-        lineCount++;
       } else if (char === '}') {
         indentLevel = Math.max(indentLevel - 1, 0);
         if (!isNewLine) formattedCode += '\n';
         formattedCode += ' '.repeat(indentLevel * 2) + char;
         isNewLine = false;
-        if (!(array[index + 1] === '}' || array[index + 1] === ';')) {
+        if (
+          index + 1 < array.length &&
+          array[index + 1] !== '}' &&
+          array[index + 1] !== ';'
+        ) {
           formattedCode += '\n';
-          lineCount++;
+          isNewLine = true;
         }
+      } else if (char === ' ' && isNewLine) {
       } else {
         if (isNewLine) {
           formattedCode += ' '.repeat(indentLevel * 2);
@@ -49,18 +52,19 @@ const usePrettifyCode = () => {
         formattedCode += char;
       }
     });
+    const newFormattedCode = formattedCode.trimEnd();
+    if (newFormattedCode !== requestCode) {
+      dispatch(setRequestCode(newFormattedCode));
 
-    if (formattedCode.trimEnd() !== requestCode) {
-      dispatch(setRequestCode(formattedCode.trimEnd()));
+      const lineNumbers = newFormattedCode
+        .split('\n')
+        .map((_, index) => index + 1)
+        .concat(
+          newFormattedCode ? [newFormattedCode.split('\n').length + 1] : [1]
+        );
+      dispatch(setRequestLineNumbers(lineNumbers));
 
-      lineCount = formattedCode.split('\n').length;
-      const newLineNumbers = Array.from(
-        { length: lineCount },
-        (_, index) => index + 1
-      );
-      dispatch(setRequestLineNumbers(newLineNumbers));
-
-      setLastFormattedCode(formattedCode.trimEnd());
+      setLastFormattedCode(newFormattedCode);
     }
   };
 
