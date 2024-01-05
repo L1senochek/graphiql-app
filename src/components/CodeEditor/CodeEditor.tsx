@@ -39,6 +39,7 @@ const CodeEditor: React.FC<ICodeEditorProps> = ({
             <span
               className={styles['code-editor__line-numbers_item']}
               key={number}
+              data-testid="line-number"
             >
               {number}
             </span>

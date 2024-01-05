@@ -1,4 +1,4 @@
-import IAuthState from '@/model/store/authState';
+import IAuthState from '@/model/store/AuthState';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
 
