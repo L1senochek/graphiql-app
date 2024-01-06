@@ -22,7 +22,7 @@ const QueryEditorViewer: React.FC<IQueryEditorViewer> = ({
     <div className={styles['query-editor-viewer']}>
       {viewJson ? (
         <pre className={styles['query-editor-viewer__pre']}>
-          {formattedJson}
+          {response ? formattedJson : response}
         </pre>
       ) : (
         <CodeEditor

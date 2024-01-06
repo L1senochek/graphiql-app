@@ -10,10 +10,7 @@ import getData from '@/utils/getData/getData';
 import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
 import { selectHeadersValue } from '@/store/slices/headersSlice';
 import { selectRequestCode } from '@/store/slices/queryEditorSlice';
-import {
-  // selectRequest,
-  setResponse,
-} from '@/store/slices/requestResponseSlice';
+import { setRequest, setResponse } from '@/store/slices/requestResponseSlice';
 
 const RequestEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);
@@ -21,7 +18,6 @@ const RequestEditor: React.FC = (): JSX.Element => {
   const endpoint = useAppSelector(selectServerAddressInputValue);
   const headersArr = useAppSelector(selectHeadersValue);
   const request = useAppSelector(selectRequestCode);
-  // const query = useAppSelector(selectRequest);
   const dispatch = useAppDispatch();
 
   const headersObj = headersArr.reduce((acc, { headerKey, value }) => {
@@ -30,30 +26,15 @@ const RequestEditor: React.FC = (): JSX.Element => {
   }, {});
 
   const clickRun = async () => {
-    const res = await getData(endpoint, headersObj, query);
+    const start = request.indexOf('{');
+    const end = request.lastIndexOf('}') + 1;
+    const queryString = request.substring(start, end);
+    dispatch(setRequest(queryString));
+
+    const res = await getData(endpoint, headersObj, queryString);
     dispatch(setResponse(res));
-    console.log('request:', request, 'query:', query);
     console.log(res);
   };
-
-  const query = `
-  {
-    characters(page: 2, filter: {name: "Morty"}) {
-      info {
-        count
-      }
-      results {
-        name
-      }
-    }
-    location(id: 1) {
-      id
-    }
-    episodesByIds(ids: [1, 2]) {
-      id
-    }
-  }
-  `;
 
   return (
     <div className={styles['request-editor']}>

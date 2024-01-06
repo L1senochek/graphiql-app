@@ -5,15 +5,18 @@
   flex-direction: column;
   border-style: $border-style;
   border-color: $eighth-color;
+  min-width: 0;
   transition:
     flex $transition-sec,
     border-width $transition-sec,
+    min-width $transition-sec,
     padding $transition-sec;
   flex: 0;
   border-width: 0;
   padding: 1vw 0;
   overflow: hidden;
   &.open {
+    min-width: 388px;
     flex: 1;
     border-width: 1px 1px 0 0;
     padding: 1vw;

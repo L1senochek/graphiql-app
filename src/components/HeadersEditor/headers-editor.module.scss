@@ -7,6 +7,7 @@
   justify-content: space-between;
   min-height: $height-variables-editor-body;
   max-height: $height-variables-editor-body;
+  min-width: 473px;
   transition:
     min-height $transition-sec,
     max-height $transition-sec;
@@ -34,7 +35,7 @@
       color: $fifth-color;
     }
     &_input {
-      padding: 0 1vw;
+      padding: 0 0.5vw;
       border-radius: $border-radius;
       border-width: $border-width;
       border-style: $border-style;
@@ -55,6 +56,9 @@
       &.docs-open {
         padding: 0em 0.2em;
       }
+    }
+    & > * {
+      margin: 0 0.1vw;
     }
   }
   &__btn-wrapper {
