@@ -35,20 +35,26 @@ const RequestEditor: React.FC = (): JSX.Element => {
     const queryString = request.substring(start, end);
     dispatch(setRequest(queryString));
 
-    const variablesObj = JSON.parse(variables);
-    const resQueryString = Object.entries(variablesObj).reduce(
-      (acc, [key, value]) =>
-        acc.replace(new RegExp(`\\$${key}`, 'g'), JSON.stringify(value)),
-      queryString
-    );
-
     try {
+      const variablesObj = JSON.parse(variables);
+      const resQueryString = Object.entries(variablesObj).reduce(
+        (acc, [key, value]) =>
+          acc.replace(new RegExp(`\\$${key}`, 'g'), JSON.stringify(value)),
+        queryString
+      );
+
       const res = await getData(endpoint, headersObj, resQueryString);
       dispatch(setResponse(res));
     } catch (error) {
-      console.error('getData Error:', error);
-      const errorMessage = String(error as Error);
-      dispatch(setResponse(errorMessage));
+      if (error instanceof SyntaxError) {
+        console.error('Syntax Error:', error);
+        const errorMessage = `Invalid JSON format. Please check your variables input. ${error.message}`;
+        dispatch(setResponse(errorMessage));
+      } else {
+        console.error('getData Error:', error);
+        const errorMessage = String(error as Error);
+        dispatch(setResponse(errorMessage));
+      }
     }
   };
 
