@@ -20,7 +20,9 @@ const getData = async (
   if (response.ok) {
     return await response.json();
   } else {
-    const errorMessage = `${response.status} - ${response.statusText}`;
+    const errorMessage = `${response.status} ${
+      response.statusText ? '- ' : ''
+    }${response.statusText}`;
     throw new Error(errorMessage);
   }
 };

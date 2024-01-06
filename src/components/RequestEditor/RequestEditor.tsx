@@ -31,9 +31,14 @@ const RequestEditor: React.FC = (): JSX.Element => {
     const queryString = request.substring(start, end);
     dispatch(setRequest(queryString));
 
-    const res = await getData(endpoint, headersObj, queryString);
-    dispatch(setResponse(res));
-    console.log(res);
+    try {
+      const res = await getData(endpoint, headersObj, queryString);
+      dispatch(setResponse(res));
+    } catch (error) {
+      console.error('getData Error:', error);
+      const errorMessage = String(error as Error);
+      dispatch(setResponse(errorMessage));
+    }
   };
 
   return (
