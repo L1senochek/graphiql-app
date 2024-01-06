@@ -2,6 +2,7 @@
 
 .code-editor {
   overflow-y: auto;
+  min-width: 473px;
   transition:
     min-height $transition-sec,
     max-height $transition-sec;

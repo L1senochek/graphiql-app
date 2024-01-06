@@ -6,11 +6,11 @@
   border-width: 1px 0 0 1px;
   border-style: $border-style;
   border-color: $eighth-color;
-  padding: 1vw;
+  padding: 0.5vw;
   flex: 1;
   transition: flex $transition-sec;
   &.doc-open {
-    flex: none;
+    flex: 1;
   }
   &__title {
     padding: 1vh 0;
