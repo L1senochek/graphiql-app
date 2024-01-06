@@ -7,7 +7,25 @@ import GraphiQL from './GraphiQL';
 import getSchema from '@/utils/getSchema/getSchema';
 
 vi.mock('@/utils/getSchema/getSchema', () => ({
-  default: vi.fn(),
+  default: vi.fn().mockResolvedValue({
+    data: {
+      __schema: {
+        types: [
+          {
+            name: 'Query',
+            kind: 'OBJECT',
+            description: '',
+            fields: [
+              {
+                name: 'testField',
+                type: { name: 'String', kind: 'SCALAR' },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  }),
 }));
 
 vi.mock('@/utils/auth/useAuthFirebase', () => ({
