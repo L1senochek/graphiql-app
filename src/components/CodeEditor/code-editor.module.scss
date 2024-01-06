@@ -41,3 +41,15 @@
     overflow-y: auto;
   }
 }
+
+@media (max-width: 520px) {
+  .code-editor {
+    min-width: 320px;
+  }
+}
+
+@media (max-width: 360px) {
+  .code-editor {
+    min-width: 280px;
+  }
+}

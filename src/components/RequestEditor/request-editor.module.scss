@@ -44,3 +44,18 @@
     }
   }
 }
+
+@media (max-width: 585px) {
+  .request-editor {
+    flex-direction: column;
+    &__left-side {
+      order: 2;
+    }
+    &__right-side {
+      order: 1;
+      padding: 1vh;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+    }
+  }
+}

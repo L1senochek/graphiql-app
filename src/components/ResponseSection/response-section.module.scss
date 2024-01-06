@@ -16,3 +16,9 @@
     padding: 1vh 0;
   }
 }
+
+@media (max-width: 820px) {
+  .response-section {
+    border-width: 1px 0 0 0;
+  }
+}
