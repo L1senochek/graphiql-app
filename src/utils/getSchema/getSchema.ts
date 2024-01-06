@@ -27,6 +27,7 @@ const getSchema = async (endpoint: string) => {
     headers: {
       'Content-Type': 'application/json',
     },
+    mode: 'cors',
     body: JSON.stringify({ query: schemaQuery }),
   });
 
