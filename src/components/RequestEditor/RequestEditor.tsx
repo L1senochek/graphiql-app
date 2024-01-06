@@ -13,7 +13,11 @@ import {
   selectRequestCode,
   selectVariablesCode,
 } from '@/store/slices/queryEditorSlice';
-import { setRequest, setResponse } from '@/store/slices/requestResponseSlice';
+import {
+  setLoadingRes,
+  setRequest,
+  setResponse,
+} from '@/store/slices/requestResponseSlice';
 
 const RequestEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);
@@ -36,6 +40,7 @@ const RequestEditor: React.FC = (): JSX.Element => {
     dispatch(setRequest(queryString));
 
     try {
+      dispatch(setLoadingRes(true));
       const variablesObj = JSON.parse(variables);
       const resQueryString = Object.entries(variablesObj).reduce(
         (acc, [key, value]) =>
@@ -55,6 +60,8 @@ const RequestEditor: React.FC = (): JSX.Element => {
         const errorMessage = String(error as Error);
         dispatch(setResponse(errorMessage));
       }
+    } finally {
+      dispatch(setLoadingRes(false));
     }
   };
 

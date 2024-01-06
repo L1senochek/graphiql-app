@@ -5,6 +5,7 @@ import IRequestResponseState from '@/model/store/requestResponseState';
 const initialState: IRequestResponseState = {
   request: '',
   response: '',
+  loadingRes: false,
 };
 
 const requestResponseSlice = createSlice({
@@ -17,6 +18,9 @@ const requestResponseSlice = createSlice({
     setResponse: (state, action: PayloadAction<string>) => {
       state.response = action.payload;
     },
+    setLoadingRes: (state, action: PayloadAction<boolean>) => {
+      state.loadingRes = action.payload;
+    },
   },
 });
 
@@ -24,7 +28,10 @@ export const selectRequest = (state: RootState) =>
   state.requestResponseSlice.request;
 export const selectResponse = (state: RootState) =>
   state.requestResponseSlice.response;
+export const selectLoadingRes = (state: RootState) =>
+  state.requestResponseSlice.loadingRes;
 
-export const { setRequest, setResponse } = requestResponseSlice.actions;
+export const { setRequest, setResponse, setLoadingRes } =
+  requestResponseSlice.actions;
 
 export default requestResponseSlice;
