@@ -6,6 +6,7 @@ import documentationSlice from './slices/documentationSlice';
 import queryEditorSlice from './slices/queryEditorSlice';
 import serverAddressSlice from './slices/serverAddressSlice';
 import headersSlice from './slices/headersSlice';
+import requestResponseSlice from './slices/requestResponseSlice';
 
 const rootReducer = combineReducers({
   languageSlice: languageSlice.reducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   queryEditorSlice: queryEditorSlice.reducer,
   serverAddressSlice: serverAddressSlice.reducer,
   headersSlice: headersSlice.reducer,
+  requestResponseSlice: requestResponseSlice.reducer,
 });
 
 export const store = () => {

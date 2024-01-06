@@ -4,22 +4,37 @@ import IconBroom from '@/components/IconBroom/IconBroom';
 import styles from './request-editor.module.scss';
 import QueryEditorViewer from '@/components/QueryEditorViewer/QueryEditorViewer';
 import { selectContentGraphiQl } from '@/store/slices/languageSlice';
-import { useAppSelector } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import usePrettifyCode from '@/utils/prettify/usePrettifyCode';
 import getData from '@/utils/getData/getData';
 import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
 import { selectHeadersValue } from '@/store/slices/headersSlice';
+import { selectRequestCode } from '@/store/slices/queryEditorSlice';
+import {
+  // selectRequest,
+  setResponse,
+} from '@/store/slices/requestResponseSlice';
 
 const RequestEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);
   const prettifyCode = usePrettifyCode();
   const endpoint = useAppSelector(selectServerAddressInputValue);
   const headersArr = useAppSelector(selectHeadersValue);
+  const request = useAppSelector(selectRequestCode);
+  // const query = useAppSelector(selectRequest);
+  const dispatch = useAppDispatch();
 
   const headersObj = headersArr.reduce((acc, { headerKey, value }) => {
     (acc as Record<string, string>)[headerKey] = value;
     return acc;
   }, {});
+
+  const clickRun = async () => {
+    const res = await getData(endpoint, headersObj, query);
+    dispatch(setResponse(res));
+    console.log('request:', request, 'query:', query);
+    console.log(res);
+  };
 
   const query = `
   {
@@ -39,13 +54,6 @@ const RequestEditor: React.FC = (): JSX.Element => {
     }
   }
   `;
-
-  //const query2 = '';
-
-  const clickRun = async () => {
-    const res = await getData(endpoint, headersObj, query);
-    console.log(res);
-  };
 
   return (
     <div className={styles['request-editor']}>

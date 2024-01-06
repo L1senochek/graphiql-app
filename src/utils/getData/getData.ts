@@ -17,8 +17,6 @@ const getData = async (
     body: query ? JSON.stringify({ query }) : undefined,
   });
 
-  console.log(response);
-
   if (response.ok) {
     return await response.json();
   } else {
