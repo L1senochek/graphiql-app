@@ -8,7 +8,7 @@
   border-width: 1px 0 0 0;
   border-style: $border-style;
   border-color: $eighth-color;
-  padding: 1vw;
+  padding: 0.5vw;
   &.active > :last-child {
     min-height: 0px;
     max-height: 0px;
@@ -17,7 +17,7 @@
   &__tabs {
     display: flex;
     flex-direction: column;
-    padding: 0 1vw;
+    padding: 0 0.5vw;
     &_wrapper {
       display: flex;
       padding-bottom: 1vw;

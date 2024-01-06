@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import authSlice, { setAuth } from './authSlice';
-import IAuthState from '@/model/store/AuthState';
+import IAuthState from '@/model/store/authState';
 
 describe('Auth Slice', () => {
   const mockInitialState: IAuthState = {
