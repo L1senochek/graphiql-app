@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { describe, expect, it, test } from 'vitest';
 import App from './App';
 import { ReactElement } from 'react';
@@ -6,13 +6,16 @@ import { Provider } from 'react-redux';
 import getStore from '@/store/store';
 
 describe('App', () => {
-  it('renders headline', () => {
+  it('renders headline', async () => {
     const store = getStore();
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
+    await act(async () => {
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+      await Promise.resolve();
+    });
   });
 });
 
