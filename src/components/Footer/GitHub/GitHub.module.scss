@@ -12,3 +12,11 @@
   flex-direction: column;
   gap: 0.1rem;
 }
+
+@media (max-width: 640px) {
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+    width: auto;
+  }
+}
