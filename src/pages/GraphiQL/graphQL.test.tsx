@@ -5,12 +5,16 @@ import { Provider } from 'react-redux';
 import getStore from '@/store/store';
 import GraphiQL from './GraphiQL';
 
+vi.mock('@/utils/auth/useAuthFirebase', () => ({
+  default: vi.fn(),
+}));
+
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
   return {
     ...actual,
     MemoryRouter: actual.MemoryRouter,
-    useAppDispatch: vi.fn(),
+    useNavigate: () => vi.fn(),
   };
 });
 
