@@ -3,12 +3,28 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
 
 const initialState: IQueryEditorState = {
-  requestCode: `query ExampleQuery($characterId: ID!) {
-  
+  requestCode: `query ExampleQuery ($locationId: ID!, $name: String!) {
+  characters(page: 2, filter: {name: $name}) {
+    info {
+      count
+    }
+    results {
+      name
+    }
+  }
+  location(id: $locationId) {
+    id
+  }
+  episodesByIds(ids: [1, 2]) {
+    id
+  }
 }`,
-  requestLineNumbers: [1, 2, 3],
-  variablesCode: '',
-  variablesLineNumbers: [1],
+  requestLineNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+  variablesCode: `{
+  "locationId": "2",
+  "name": "Morty"
+}`,
+  variablesLineNumbers: [1, 2, 3, 4],
 };
 
 const queryEditorSlice = createSlice({

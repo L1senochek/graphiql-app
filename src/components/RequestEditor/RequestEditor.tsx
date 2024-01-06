@@ -9,7 +9,10 @@ import usePrettifyCode from '@/utils/prettify/usePrettifyCode';
 import getData from '@/utils/getData/getData';
 import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
 import { selectHeadersValue } from '@/store/slices/headersSlice';
-import { selectRequestCode } from '@/store/slices/queryEditorSlice';
+import {
+  selectRequestCode,
+  selectVariablesCode,
+} from '@/store/slices/queryEditorSlice';
 import { setRequest, setResponse } from '@/store/slices/requestResponseSlice';
 
 const RequestEditor: React.FC = (): JSX.Element => {
@@ -18,6 +21,7 @@ const RequestEditor: React.FC = (): JSX.Element => {
   const endpoint = useAppSelector(selectServerAddressInputValue);
   const headersArr = useAppSelector(selectHeadersValue);
   const request = useAppSelector(selectRequestCode);
+  const variables = useAppSelector(selectVariablesCode);
   const dispatch = useAppDispatch();
 
   const headersObj = headersArr.reduce((acc, { headerKey, value }) => {
@@ -31,8 +35,15 @@ const RequestEditor: React.FC = (): JSX.Element => {
     const queryString = request.substring(start, end);
     dispatch(setRequest(queryString));
 
+    const variablesObj = JSON.parse(variables);
+    const resQueryString = Object.entries(variablesObj).reduce(
+      (acc, [key, value]) =>
+        acc.replace(new RegExp(`\\$${key}`, 'g'), JSON.stringify(value)),
+      queryString
+    );
+
     try {
-      const res = await getData(endpoint, headersObj, queryString);
+      const res = await getData(endpoint, headersObj, resQueryString);
       dispatch(setResponse(res));
     } catch (error) {
       console.error('getData Error:', error);
