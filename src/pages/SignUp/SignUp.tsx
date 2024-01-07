@@ -9,15 +9,15 @@ import { useNavigate } from 'react-router';
 import { GRAPHI_QL_PATH } from '@/utils/const/const';
 import { useAppDispatch } from '@/store/hooks';
 import { registerWithEmailAndPassword } from '@/utils/firebase/firebase';
-import { setAuth } from '@/store/slices/authSlice';
+import { setAuth } from '@/store/slices/authSlice/authSlice';
 import ISignUp from '@/model/pages/SignUp/SignUp';
 import {
   setUserDisplayName,
   setUserEmail,
   setUserUid,
-} from '@/store/slices/firebaseUserSlice';
+} from '@/store/slices/firebaseUserSlice/firebaseUserSlice';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { selectContentSignUp } from '@/store/slices/languageSlice';
+import { selectContentSignUp } from '@/store/slices/languageSlice/languageSlice';
 import { FirebaseError } from 'firebase/app';
 import ErrorModal from '@/components/ErrorModal/ErrorModal';
 

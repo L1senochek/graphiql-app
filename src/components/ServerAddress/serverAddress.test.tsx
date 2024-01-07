@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import ServerAddress from './ServerAddress';
 import getStore from '@/store/store';
 import { Store, UnknownAction } from '@reduxjs/toolkit';
-import { setServerAddressInputValue } from '@/store/slices/serverAddressSlice';
-import { setDocLoading } from '@/store/slices/documentationSlice';
+import { setServerAddressInputValue } from '@/store/slices/serverAddressSlice/serverAddressSlice';
+import { setDocLoading } from '@/store/slices/documentationSlice/documentationSlice';
 
 describe('ServerAddress Component', () => {
   let store: Store<unknown, UnknownAction, object>;

@@ -5,7 +5,7 @@ import usePrettifyCode from './usePrettifyCode';
 import {
   setRequestCode,
   setRequestLineNumbers,
-} from '@/store/slices/queryEditorSlice';
+} from '@/store/slices/queryEditorSlice/queryEditorSlice';
 
 vi.mock('react-redux', async () => {
   const actualRedux = await vi.importActual('react-redux');

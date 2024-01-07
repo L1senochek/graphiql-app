@@ -4,7 +4,7 @@ import {
   selectRequestCode,
   setRequestCode,
   setRequestLineNumbers,
-} from '@/store/slices/queryEditorSlice';
+} from '@/store/slices/queryEditorSlice/queryEditorSlice';
 
 const usePrettifyCode = () => {
   const dispatch = useDispatch();

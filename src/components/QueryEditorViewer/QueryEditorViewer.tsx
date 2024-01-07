@@ -5,12 +5,12 @@ import {
   selectRequestLineNumbers,
   setRequestCode,
   setRequestLineNumbers,
-} from '@/store/slices/queryEditorSlice';
+} from '@/store/slices/queryEditorSlice/queryEditorSlice';
 import { useAppSelector } from '@/store/hooks';
 import {
   selectLoadingRes,
   selectResponse,
-} from '@/store/slices/requestResponseSlice';
+} from '@/store/slices/requestResponseSlice/requestResponseSlice';
 import { Suspense, lazy } from 'react';
 import Loading from '@/components/Loading/Loading';
 

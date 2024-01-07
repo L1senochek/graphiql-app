@@ -3,7 +3,7 @@ import styles from './team.module.scss';
 import TeamMember from './TeamMember';
 import { ITeamMember } from '@/model/components/Welcome/Links/Team/Team';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentWelcome } from '@/store/slices/languageSlice';
+import { selectContentWelcome } from '@/store/slices/languageSlice/languageSlice';
 
 const Team: FC = () => {
   const content = useAppSelector(selectContentWelcome);

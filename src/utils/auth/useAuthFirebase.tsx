@@ -1,8 +1,8 @@
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { WELCOME_PATH } from '@/utils/const/const';
-import { setAuth } from '@/store/slices/authSlice';
-import { setUserDisplayName } from '@/store/slices/firebaseUserSlice';
+import { setAuth } from '@/store/slices/authSlice/authSlice';
+import { setUserDisplayName } from '@/store/slices/firebaseUserSlice/firebaseUserSlice';
 import { useAppDispatch } from '@/store/hooks';
 import { useEffect } from 'react';
 

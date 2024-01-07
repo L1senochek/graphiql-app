@@ -1,14 +1,14 @@
 import styles from './variables-editor.module.scss';
 import CodeEditor from '@/components/CodeEditor/CodeEditor';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
 import HeadersEditor from '@/components/HeadersEditor/HeadersEditor';
 import {
   selectVariablesCode,
   selectVariablesLineNumbers,
   setVariablesCode,
   setVariablesLineNumbers,
-} from '@/store/slices/queryEditorSlice';
+} from '@/store/slices/queryEditorSlice/queryEditorSlice';
 import { useEffect, useState } from 'react';
 import IconDoubleArrow from '@/components/IconDoubleArrow/IconDoubleArrow';
 import Tabs from '@/model/components/VariablesEditor/VariablesEditor';

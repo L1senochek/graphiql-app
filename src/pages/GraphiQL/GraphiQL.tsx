@@ -5,11 +5,11 @@ import styles from './graphi-ql.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import useAuthFirebase from '@/utils/auth/useAuthFirebase';
 import getSchema from '@/utils/getSchema/getSchema';
-import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
+import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice/serverAddressSlice';
 import {
   setBtnDocDisabled,
   setDocObj,
-} from '@/store/slices/documentationSlice';
+} from '@/store/slices/documentationSlice/documentationSlice';
 
 const GraphiQL: React.FC = (): JSX.Element => {
   const endpoint = useAppSelector(selectServerAddressInputValue);

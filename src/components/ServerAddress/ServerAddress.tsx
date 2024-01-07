@@ -6,8 +6,8 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
   selectServerAddressInputValue,
   setServerAddressInputValue,
-} from '@/store/slices/serverAddressSlice';
-import { setDocLoading } from '@/store/slices/documentationSlice';
+} from '@/store/slices/serverAddressSlice/serverAddressSlice';
+import { setDocLoading } from '@/store/slices/documentationSlice/documentationSlice';
 
 const ServerAddress: React.FC = (): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false);

@@ -5,12 +5,12 @@ import IHeaders from '@/model/components/HeadersEditor/HeadersEditor';
 import IconDelete from '@/components/IconDelete/IconDelete';
 import HeaderInputName from '@/model/components/HeadersEditor/HeaderInputName';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
 import {
   selectHeadersValue,
   setHeadersValue,
-} from '@/store/slices/headersSlice';
-import { selectClickDocBtn } from '@/store/slices/documentationSlice';
+} from '@/store/slices/headersSlice/headersSlice';
+import { selectClickDocBtn } from '@/store/slices/documentationSlice/documentationSlice';
 
 const HeadersEditor: React.FC = (): JSX.Element => {
   const isClickDocBtn = useAppSelector(selectClickDocBtn);
