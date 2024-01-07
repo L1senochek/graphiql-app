@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.main');
+
+.main {
+  justify-content: flex-start;
+  min-height: 90vh;
+  padding-top: calc($padding-header-top-bottom + 40px);
+  &.graphi-ql {
+    padding-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 565px) {
+  .main {
+    padding: calc(2rem + 88px) 0;
+  }
+}

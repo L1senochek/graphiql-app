@@ -1,0 +1,11 @@
+@import '@/styles/variables.scss';
+
+.icon-angle {
+  width: $width-icon-angle;
+  height: $height-icon-angle;
+  cursor: pointer;
+  & > path {
+    transition: fill $transition-sec;
+    fill: $main-color;
+  }
+}

@@ -1,0 +1,42 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixin/flex-direction-column.scss';
+
+@include flex-direction-column('.error-modal');
+@include flex-direction-column('.error-modal__wrapper');
+
+.error-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color-error-modal;
+  &__wrapper {
+    top: 30%;
+    position: fixed;
+    background-image: $background-image;
+    padding: 1vw;
+    border-radius: $border-radius;
+    border-color: $eighth-color;
+    border-width: $border-width;
+    border-style: $border-style;
+  }
+  &__btn {
+    &_wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+  &__title {
+    color: $main-color;
+    padding: 1vw 0;
+  }
+  &__message {
+    color: $fifth-color;
+    padding: 2vw;
+  }
+}

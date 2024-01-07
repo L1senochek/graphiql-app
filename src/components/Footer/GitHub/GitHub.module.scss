@@ -1,0 +1,22 @@
+@import '@/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  gap: 1rem;
+  width: $width-footer-items;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+    width: auto;
+  }
+}

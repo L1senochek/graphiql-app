@@ -1,0 +1,45 @@
+@import '@/styles/variables.scss';
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  &__btn {
+    display: flex;
+    transform: rotate(0deg);
+    transition: transform $transition-sec;
+    &.open {
+      transform: rotate(-180deg);
+    }
+  }
+  &__menu {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: $background-color-second;
+    border-radius: $border-radius;
+    width: 160px;
+    z-index: 1;
+    border-color: $eighth-color;
+    border-width: $border-width;
+    transition:
+      background-image $transition-sec,
+      height $transition-sec,
+      border-style $transition-sec;
+    &.open {
+      height: $height-menu-settings-open;
+      border-style: $border-style;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .settings:hover > .settings__btn,
+  .settings__btn:hover {
+    transform: rotate(-180deg);
+  }
+}

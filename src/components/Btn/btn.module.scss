@@ -1,0 +1,29 @@
+@import '@/styles/variables.scss';
+
+.btn,
+button {
+  border-radius: 8px;
+  border: $border-width $border-style transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: $main-color;
+  background-color: $background-color-btn;
+  transition:
+    border-color $transition-sec,
+    box-shadow $transition-sec,
+    text-shadow $transition-sec,
+    color $transition-sec;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  button:hover,
+  .btn:hover {
+    border-color: $background-color-btn-hover;
+    box-shadow: $box-shadow-btn;
+    text-shadow: $text-shadow-btn;
+    color: $fifth-color;
+  }
+}

@@ -1,0 +1,107 @@
+@import '@/styles/variables.scss';
+
+.top-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: $padding-top-section;
+  &__left-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: $widthgraphi-ql-top-section-side;
+  }
+  &__right-side {
+    width: $widthgraphi-ql-top-section-side;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding-btn-icon-docs;
+    &.disabled {
+      background-color: $eighth-color;
+      cursor: not-allowed;
+    }
+  }
+  &__title {
+    color: $fifth-color;
+  }
+}
+
+@media (hover: hover) {
+  .top-section {
+    &__btn:hover > svg > path {
+      stroke: $fifth-color;
+      fill: $fifth-color;
+    }
+  }
+}
+
+@media (max-width: 1140px) {
+  .top-section {
+    &__left-side,
+    &__right-side {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: 945px) {
+  .top-section {
+    &__left-side,
+    &__right-side {
+      width: 35%;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .top-section {
+    flex-direction: column;
+    &__title {
+      order: 1;
+    }
+    &__left-side {
+      order: 2;
+      width: 50%;
+    }
+    &__right-side {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      order: 3;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .top-section {
+    &__left-side {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .top-section {
+    &__left-side {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .top-section {
+    & > * {
+      padding: 2vw 0;
+    }
+    &__left-side {
+      padding: 2vw;
+    }
+    &__right-side {
+      justify-content: center;
+    }
+  }
+}

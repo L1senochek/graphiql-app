@@ -1,0 +1,10 @@
+@import '@/styles/variables.scss';
+
+.icon-eye-on {
+  width: $width-icon-eye-on;
+  height: $height-icon-eye-on;
+  cursor: pointer;
+  & > path {
+    stroke: $fifth-color;
+  }
+}

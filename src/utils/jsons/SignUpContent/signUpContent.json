@@ -1,0 +1,46 @@
+{
+  "eng": {
+    "title": "Sign Up",
+    "hint": "Already a member?",
+    "hintLink": "Sign in",
+    "inputName": {
+      "titleLabel": "Name: ",
+      "placeholder": "Name"
+    },
+    "inputEmail": {
+      "titleLabel": "Email: ",
+      "placeholder": "Email"
+    },
+    "inputPassword": {
+      "titleLabel": "Password: ",
+      "placeholder": "Password"
+    },
+    "inputConfirmPassword": {
+      "titleLabel": "Confirm Password: ",
+      "placeholder": "Confirm Password"
+    },
+    "buttonName": "Submit"
+  },
+  "ru": {
+    "title": "Зарегистрироваться",
+    "hint": "Уже зарегистрированы?",
+    "hintLink": "Вход",
+    "inputName": {
+      "titleLabel": "Имя: ",
+      "placeholder": "Имя"
+    },
+    "inputEmail": {
+      "titleLabel": "Электронная почта: ",
+      "placeholder": "Электронная почта"
+    },
+    "inputPassword": {
+      "titleLabel": "Пароль: ",
+      "placeholder": "Пароль"
+    },
+    "inputConfirmPassword": {
+      "titleLabel": "Подтвердите пароль: ",
+      "placeholder": "Подтвердите пароль"
+    },
+    "buttonName": "Отправить"
+  }
+}

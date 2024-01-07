@@ -1,0 +1,16 @@
+@import '@/styles/variables.scss';
+
+.icon-delete {
+  width: $width-icon-double-arrow;
+  height: $height-icon-double-arrow;
+  & > path {
+    stroke: $main-color;
+    transition: stroke $transition-sec;
+  }
+}
+
+@media (hover: hover) {
+  .icon-delete:hover > path {
+    stroke: $fifth-color;
+  }
+}

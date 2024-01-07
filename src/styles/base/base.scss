@@ -1,0 +1,39 @@
+@import '@/styles/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+.body {
+  color: $main-color;
+  font-size: 16px;
+  font-family: $font-family;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background-color: $background-color;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: $color-link;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  *:hover {
+    transition: $transitionAll;
+  }
+  a:hover {
+    color: $color-link-hover;
+  }
+}

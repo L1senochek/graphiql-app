@@ -1,0 +1,93 @@
+@import '@/styles/variables.scss';
+
+.variables-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-width: 1px 0 0 0;
+  border-style: $border-style;
+  border-color: $eighth-color;
+  padding: 0.5vw;
+  &.active > :last-child {
+    min-height: 0px;
+    max-height: 0px;
+    overflow: hidden;
+  }
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5vw;
+    &_wrapper {
+      display: flex;
+      padding-bottom: 1vw;
+    }
+    &_item {
+      display: flex;
+      align-items: center;
+      padding: 0 1vw;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $eighth-color;
+      border-radius: $border-radius;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      background-color: #2e683717;
+      transition:
+        border-bottom-color $transition-sec,
+        background-color $transition-sec;
+      cursor: pointer;
+      &.active-tab {
+        border-bottom-color: transparent;
+        background-color: transparent;
+      }
+    }
+    &_line {
+      flex: 1;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-color: $eighth-color;
+    }
+    &_arrow-wrapper {
+      display: flex;
+      width: 30px;
+      margin-left: 10px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition:
+        transform $transition-sec,
+        padding $transition-sec;
+      &.active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__code-editor {
+    background-color: rgba(0, 0, 0, 0.1019607843);
+    border-radius: $border-radius;
+    min-height: $height-variables-editor-body;
+    max-height: $height-variables-editor-body;
+  }
+}
+
+@media (max-width: 820px) {
+  .variables-editor {
+    justify-content: flex-start;
+    transition: height $transition-sec;
+    height: 30vh;
+    &.active {
+      height: auto;
+    }
+    &__code-editor {
+      min-height: 85%;
+      max-height: 85%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .variables-editor {
+    padding: 1vw;
+  }
+}

@@ -1,0 +1,28 @@
+@import '@/styles/variables.scss';
+
+.settings-language {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  &__item {
+    color: $main-color;
+  }
+  &__btn {
+    padding: 0;
+    width: 44px;
+  }
+  &__switcher {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: $border-radius;
+    background-color: $fifth-color;
+    transition: right $transition-sec;
+    &.ru {
+      right: 0;
+    }
+    &.en {
+      right: -20px;
+    }
+  }
+}

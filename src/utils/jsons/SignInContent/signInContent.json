@@ -1,0 +1,30 @@
+{
+  "eng": {
+    "title": "Sign In",
+    "hint": "Don't have account?",
+    "hintLink": "Sign up",
+    "inputEmail": {
+      "titleLabel": "Email: ",
+      "placeholder": "Email"
+    },
+    "inputPassword": {
+      "titleLabel": "Password: ",
+      "placeholder": "Password"
+    },
+    "buttonName": "Submit"
+  },
+  "ru": {
+    "title": "Войти",
+    "hint": "У Вас нет аккаунта?",
+    "hintLink": "Зарегистрироваться",
+    "inputEmail": {
+      "titleLabel": "Почта: ",
+      "placeholder": "Почта"
+    },
+    "inputPassword": {
+      "titleLabel": "Пароль: ",
+      "placeholder": "Пароль"
+    },
+    "buttonName": "Отправить"
+  }
+}
