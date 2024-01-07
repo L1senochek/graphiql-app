@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './not-found.module.scss';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentNotFound } from '@/store/slices/languageSlice';
+import { selectContentNotFound } from '@/store/slices/languageSlice/languageSlice';
 
 const NotFound: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentNotFound);

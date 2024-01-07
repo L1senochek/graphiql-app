@@ -10,8 +10,8 @@ import styles from './header.module.scss';
 import Btn from '@/components/Btn/Btn';
 import Settings from '@/components/Settings/Settings';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { selectAuth, setAuth } from '@/store/slices/authSlice';
-import { selectContentHeader } from '@/store/slices/languageSlice';
+import { selectAuth, setAuth } from '@/store/slices/authSlice/authSlice';
+import { selectContentHeader } from '@/store/slices/languageSlice/languageSlice';
 import { logout } from '@/utils/firebase/firebase';
 
 const Header: React.FC = (): JSX.Element => {

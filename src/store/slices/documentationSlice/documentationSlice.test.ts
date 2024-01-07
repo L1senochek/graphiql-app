@@ -5,23 +5,26 @@ import IDocumentationState from '@/model/store/documentationState';
 describe('Documentation Slice', () => {
   const mockInitialState: IDocumentationState = {
     clickDocBtn: false,
+    btnDocDisabled: true,
+    docObj: null,
+    docsLoading: true,
   };
 
   it('should set initial state', () => {
     const initialState = documentationSlice.reducer(mockInitialState, {
       type: 'unknown',
     });
-    expect(initialState).toEqual({ clickDocBtn: false });
+    expect(initialState).toEqual(mockInitialState);
   });
 
   it('should set clickDocBtn value', () => {
     let state = documentationSlice.reducer(
-      { clickDocBtn: false },
+      mockInitialState,
       setClickDocBtn(true)
     );
-    expect(state).toEqual({ clickDocBtn: true });
+    expect(state.clickDocBtn).toBe(true);
 
     state = documentationSlice.reducer(state, setClickDocBtn(false));
-    expect(state).toEqual({ clickDocBtn: false });
+    expect(state.clickDocBtn).toBe(false);
   });
 });

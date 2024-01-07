@@ -3,7 +3,7 @@ import GitHubLogo from '@/components/iconGitHub/iconGitHub';
 import styles from './GitHub.module.scss';
 import GitHubUsers from './GitHubUsers';
 import { useAppSelector } from '@/store/hooks';
-import { selectEng } from '@/store/slices/languageSlice';
+import { selectEng } from '@/store/slices/languageSlice/languageSlice';
 
 const GitHub: FC = () => {
   const isEn = useAppSelector(selectEng);

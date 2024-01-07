@@ -1,7 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 import styles from './error-message.module.scss';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentErrorMessage } from '@/store/slices/languageSlice';
+import { selectContentErrorMessage } from '@/store/slices/languageSlice/languageSlice';
 
 const ErrorMessage: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentErrorMessage);

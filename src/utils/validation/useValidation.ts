@@ -2,7 +2,7 @@ import ISignUp from '@/model/pages/SignUp/SignUp';
 import { UseFormReturn } from 'react-hook-form';
 import { useAppSelector } from '@/store/hooks';
 import { useEffect, useState } from 'react';
-import { selectContentValidationErrors } from '@/store/slices/languageSlice';
+import { selectContentValidationErrors } from '@/store/slices/languageSlice/languageSlice';
 
 export function useValidation(methods: UseFormReturn<ISignUp>) {
   const content = useAppSelector(selectContentValidationErrors);

@@ -1,6 +1,6 @@
 import IErrorModal from '@/model/components/ErrorModal/ErrorModal';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentErrorModal } from '@/store/slices/languageSlice';
+import { selectContentErrorModal } from '@/store/slices/languageSlice/languageSlice';
 import Btn from '@/components/Btn/Btn';
 import styles from './error-modal.module.scss';
 

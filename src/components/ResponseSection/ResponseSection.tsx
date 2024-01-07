@@ -1,8 +1,8 @@
 import QueryEditorViewer from '@/components/QueryEditorViewer/QueryEditorViewer';
 import styles from './response-section.module.scss';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
-import { selectClickDocBtn } from '@/store/slices/documentationSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
+import { selectClickDocBtn } from '@/store/slices/documentationSlice/documentationSlice';
 
 const ResponseSection: React.FC = (): JSX.Element => {
   const isClickDocBtn = useAppSelector(selectClickDocBtn);

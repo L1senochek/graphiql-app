@@ -1,12 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import languageSlice from './slices/languageSlice';
-import firebaseUserSlice from './slices/firebaseUserSlice';
-import authSlice from './slices/authSlice';
-import documentationSlice from './slices/documentationSlice';
-import queryEditorSlice from './slices/queryEditorSlice';
-import serverAddressSlice from './slices/serverAddressSlice';
-import headersSlice from './slices/headersSlice';
-import requestResponseSlice from './slices/requestResponseSlice';
+import languageSlice from './slices/languageSlice/languageSlice';
+import firebaseUserSlice from './slices/firebaseUserSlice/firebaseUserSlice';
+import authSlice from './slices/authSlice/authSlice';
+import documentationSlice from './slices/documentationSlice/documentationSlice';
+import queryEditorSlice from './slices/queryEditorSlice/queryEditorSlice';
+import serverAddressSlice from './slices/serverAddressSlice/serverAddressSlice';
+import headersSlice from './slices/headersSlice/headersSlice';
+import requestResponseSlice from './slices/requestResponseSlice/requestResponseSlice';
 
 const rootReducer = combineReducers({
   languageSlice: languageSlice.reducer,

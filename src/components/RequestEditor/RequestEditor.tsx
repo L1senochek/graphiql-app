@@ -3,21 +3,21 @@ import Btn from '@/components/Btn/Btn';
 import IconBroom from '@/components/IconBroom/IconBroom';
 import styles from './request-editor.module.scss';
 import QueryEditorViewer from '@/components/QueryEditorViewer/QueryEditorViewer';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import usePrettifyCode from '@/utils/prettify/usePrettifyCode';
 import getData from '@/utils/getData/getData';
-import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice';
-import { selectHeadersValue } from '@/store/slices/headersSlice';
+import { selectServerAddressInputValue } from '@/store/slices/serverAddressSlice/serverAddressSlice';
+import { selectHeadersValue } from '@/store/slices/headersSlice/headersSlice';
 import {
   selectRequestCode,
   selectVariablesCode,
-} from '@/store/slices/queryEditorSlice';
+} from '@/store/slices/queryEditorSlice/queryEditorSlice';
 import {
   setLoadingRes,
   setRequest,
   setResponse,
-} from '@/store/slices/requestResponseSlice';
+} from '@/store/slices/requestResponseSlice/requestResponseSlice';
 
 const RequestEditor: React.FC = (): JSX.Element => {
   const content = useAppSelector(selectContentGraphiQl);

@@ -6,7 +6,7 @@ import IInputForm from '@/model/components/InputForm/InputForm';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useNavigate } from 'react-router';
 import ISignIn from '@/model/pages/SignIn/SignIn';
-import { setAuth } from '@/store/slices/authSlice';
+import { setAuth } from '@/store/slices/authSlice/authSlice';
 import { useValidation } from '@/utils/validation/useValidation';
 import { logInWithEmailAndPassword } from '@/utils/firebase/firebase';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -14,8 +14,8 @@ import {
   setUserDisplayName,
   setUserEmail,
   setUserUid,
-} from '@/store/slices/firebaseUserSlice';
-import { selectContentSignIn } from '@/store/slices/languageSlice';
+} from '@/store/slices/firebaseUserSlice/firebaseUserSlice';
+import { selectContentSignIn } from '@/store/slices/languageSlice/languageSlice';
 import { FirebaseError } from 'firebase/app';
 import ErrorModal from '@/components/ErrorModal/ErrorModal';
 
