@@ -6,7 +6,7 @@ import {
   selectContentHeader,
   selectEng,
   setEng,
-} from '@/store/slices/languageSlice';
+} from '@/store/slices/languageSlice/languageSlice';
 
 const SettingsLanguage: React.FC = ({
   parentClass,

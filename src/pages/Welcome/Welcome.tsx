@@ -3,7 +3,7 @@ import Team from '@/components/Welcome/Team/Team';
 import styles from './welcome.module.scss';
 import { useAppSelector } from '@/store/hooks';
 import useAuthFirebase from '@/utils/auth/useAuthFirebase';
-import { selectContentWelcome } from '@/store/slices/languageSlice';
+import { selectContentWelcome } from '@/store/slices/languageSlice/languageSlice';
 
 const Welcome = () => {
   const content = useAppSelector(selectContentWelcome);

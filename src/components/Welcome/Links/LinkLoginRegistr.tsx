@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SIGN_IN_PATH } from '@/utils/const/const';
 import { SIGN_UP_PATH } from '@/utils/const/const';
 import { useAppSelector } from '@/store/hooks';
-import { selectContentWelcome } from '@/store/slices/languageSlice';
+import { selectContentWelcome } from '@/store/slices/languageSlice/languageSlice';
 
 const LinkLoginRegistr: FC = () => {
   const content = useAppSelector(selectContentWelcome);

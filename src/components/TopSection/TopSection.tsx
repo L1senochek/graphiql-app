@@ -6,10 +6,10 @@ import {
   selectBtnDocDisabled,
   selectClickDocBtn,
   setClickDocBtn,
-} from '@/store/slices/documentationSlice';
+} from '@/store/slices/documentationSlice/documentationSlice';
 import IconDocs from '@/components/IconDocs/IconDocs';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
-import { selectFirebaseUser } from '@/store/slices/firebaseUserSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
+import { selectFirebaseUser } from '@/store/slices/firebaseUserSlice/firebaseUserSlice';
 
 const TopSection: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();

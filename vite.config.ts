@@ -4,7 +4,7 @@ import vitest from 'vitest';
 
 const testConfig: vitest.InlineConfig = {
   coverage: {
-    provider: 'istanbul',
+    provider: 'v8',
   },
   globals: true,
   environment: 'jsdom',

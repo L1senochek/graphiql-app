@@ -1,7 +1,7 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import styles from './documentation-explorer.module.scss';
-import { selectContentGraphiQl } from '@/store/slices/languageSlice';
+import { selectContentGraphiQl } from '@/store/slices/languageSlice/languageSlice';
 import {
   selectClickDocBtn,
   selectDocLoading,
@@ -9,7 +9,7 @@ import {
   setBtnDocDisabled,
   setClickDocBtn,
   setDocLoading,
-} from '@/store/slices/documentationSlice';
+} from '@/store/slices/documentationSlice/documentationSlice';
 import {
   IDocsType,
   ISchemaType,
