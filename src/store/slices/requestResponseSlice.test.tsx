@@ -9,7 +9,6 @@ import {
 } from './requestResponseSlice';
 import getStore from '@/store/store';
 
-// Создаем фейковый стор
 const store = getStore();
 
 describe('requestResponseSlice tests', () => {
