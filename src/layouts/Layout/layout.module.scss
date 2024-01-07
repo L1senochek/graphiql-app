@@ -6,7 +6,7 @@
 .main {
   justify-content: flex-start;
   min-height: 90vh;
-  padding: calc($padding-header-top-bottom + $height-icon-settings) 0;
+  padding-top: calc($padding-header-top-bottom + 40px);
   &.graphi-ql {
     padding-bottom: 0.8rem;
   }
