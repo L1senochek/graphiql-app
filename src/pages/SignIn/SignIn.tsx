@@ -18,6 +18,7 @@ import {
 import { selectContentSignIn } from '@/store/slices/languageSlice/languageSlice';
 import { FirebaseError } from 'firebase/app';
 import ErrorModal from '@/components/ErrorModal/ErrorModal';
+import useAuthFirebaseLogin from '@/utils/auth/useAuthFirebaseLogin';
 
 const SignIn: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -28,6 +29,8 @@ const SignIn: React.FC = (): JSX.Element => {
   });
   const { passwordValidation, emailValidation } = useValidation(methods);
   const [error, setError] = useState<string | null>(null);
+
+  useAuthFirebaseLogin();
 
   const signInFormFields: IInputForm[] = [
     {
