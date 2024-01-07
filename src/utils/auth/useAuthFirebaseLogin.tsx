@@ -14,7 +14,6 @@ const useAuthFirebaseLogin = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user: User | null) => {
       if (user) {
-        console.log(user, auth);
         navigate(WELCOME_PATH);
         dispatch(setUserDisplayName(user.displayName!));
         dispatch(setAuth(true));
