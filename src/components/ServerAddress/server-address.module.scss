@@ -65,3 +65,33 @@
     }
   }
 }
+
+@media (max-width: 820px) {
+  .server-address {
+    width: 40%;
+  }
+}
+
+@media (max-width: 720px) {
+  .server-address {
+    width: 50%;
+  }
+}
+
+@media (max-width: 585px) {
+  .server-address {
+    width: 60%;
+  }
+}
+
+@media (max-width: 520px) {
+  .server-address {
+    width: 75%;
+  }
+}
+
+@media (max-width: 400px) {
+  .server-address {
+    width: 95%;
+  }
+}

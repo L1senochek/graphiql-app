@@ -3,3 +3,9 @@
 .rslogo-link {
   width: $width-footer-items;
 }
+
+@media (max-width: 750px) {
+  .rslogo-link {
+    width: auto;
+  }
+}

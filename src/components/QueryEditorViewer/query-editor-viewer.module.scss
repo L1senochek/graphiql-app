@@ -23,3 +23,11 @@
     max-height: 45vh;
   }
 }
+
+@media (max-width: 820px) {
+  .query-editor-viewer {
+    &__pre {
+      min-height: 30vh;
+    }
+  }
+}

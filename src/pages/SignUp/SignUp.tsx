@@ -20,6 +20,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { selectContentSignUp } from '@/store/slices/languageSlice/languageSlice';
 import { FirebaseError } from 'firebase/app';
 import ErrorModal from '@/components/ErrorModal/ErrorModal';
+import useAuthFirebaseLogin from '@/utils/auth/useAuthFirebaseLogin';
 
 const SignUp: React.FC = (): JSX.Element => {
   const methods = useForm({
@@ -35,6 +36,8 @@ const SignUp: React.FC = (): JSX.Element => {
     nameValidation,
   } = useValidation(methods);
   const [error, setError] = useState<string | null>(null);
+
+  useAuthFirebaseLogin();
 
   const signUpformFields: IInputForm[] = [
     {
