@@ -158,11 +158,22 @@
 
 @media (max-width: 360px) {
   .headers-editor {
-    min-width: 300px;
+    min-width: 280px;
     &__item {
       &_wrapper {
         width: 80%;
       }
     }
+    &__btn-wrapper {
+      &_item {
+        padding: 0 1em;
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .headers-editor {
+    min-height: 77%;
   }
 }

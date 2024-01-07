@@ -65,6 +65,7 @@
     }
     &__left-side {
       order: 2;
+      width: 50%;
     }
     &__right-side {
       display: flex;
@@ -78,7 +79,7 @@
 @media (max-width: 720px) {
   .top-section {
     &__left-side {
-      width: 50%;
+      width: 70%;
     }
   }
 }
@@ -86,7 +87,7 @@
 @media (max-width: 520px) {
   .top-section {
     &__left-side {
-      width: 100%;
+      width: 90%;
     }
   }
 }
@@ -95,6 +96,12 @@
   .top-section {
     & > * {
       padding: 2vw 0;
+    }
+    &__left-side {
+      padding: 2vw;
+    }
+    &__right-side {
+      justify-content: center;
     }
   }
 }
